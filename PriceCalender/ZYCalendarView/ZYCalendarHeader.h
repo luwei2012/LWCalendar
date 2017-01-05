@@ -17,6 +17,7 @@
 #import "ZYWeekView.h"
 #import "DatePickerView.h"
 #import "DateIndicator.h"
+#import "ZYWeekIndicator.h"
 
 
 #define CORNER_RADIUS  (4)

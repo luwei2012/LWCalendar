@@ -10,10 +10,13 @@
 
 @class ZYCalendarView;
 
+/**
+ * 应该包含一个标题，显示年月+一个星期指示器+天数布局
+ */
 @interface ZYMonthView : UIView
 @property (nonatomic, strong)NSDate *date;
 @property (nonatomic, weak)ZYCalendarView *calendarDelegate;
 
-- (void)reload;
++(CGFloat)heightForMonthView;
 
 @end

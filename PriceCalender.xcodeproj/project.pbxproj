@@ -29,6 +29,7 @@
 		533B9A4B1E151AA9003E416C /* DatePickerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A4A1E151AA9003E416C /* DatePickerDialog.m */; };
 		5345A3D61E1CA5FB000DD6C1 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3D51E1CA5FB000DD6C1 /* DatePickerView.m */; };
 		5345A3D91E1CE780000DD6C1 /* DateIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3D81E1CE780000DD6C1 /* DateIndicator.m */; };
+		5345A3DD1E1E4A8F000DD6C1 /* ZYWeekIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3DC1E1E4A8F000DD6C1 /* ZYWeekIndicator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		5345A3D71E1CE780000DD6C1 /* DateIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateIndicator.h; sourceTree = "<group>"; };
 		5345A3D81E1CE780000DD6C1 /* DateIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateIndicator.m; sourceTree = "<group>"; };
 		5345A3DA1E1D1F8C000DD6C1 /* ZYCalendarHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYCalendarHeader.h; sourceTree = "<group>"; };
+		5345A3DB1E1E4A8F000DD6C1 /* ZYWeekIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYWeekIndicator.h; sourceTree = "<group>"; };
+		5345A3DC1E1E4A8F000DD6C1 /* ZYWeekIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYWeekIndicator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +243,8 @@
 				5345A3D71E1CE780000DD6C1 /* DateIndicator.h */,
 				5345A3D81E1CE780000DD6C1 /* DateIndicator.m */,
 				5345A3DA1E1D1F8C000DD6C1 /* ZYCalendarHeader.h */,
+				5345A3DB1E1E4A8F000DD6C1 /* ZYWeekIndicator.h */,
+				5345A3DC1E1E4A8F000DD6C1 /* ZYWeekIndicator.m */,
 			);
 			path = ZYCalendarView;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				533B9A451E151676003E416C /* ZYCalendarView.m in Sources */,
 				153CA0531CD0B84000958372 /* WeekView.m in Sources */,
 				533B9A471E151676003E416C /* ZYMonthView.m in Sources */,
+				5345A3DD1E1E4A8F000DD6C1 /* ZYWeekIndicator.m in Sources */,
 				153CA04D1CD0B66200958372 /* CalenderView.m in Sources */,
 				153CA0501CD0B7D800958372 /* MonthCell.m in Sources */,
 				533B9A461E151676003E416C /* ZYDayView.m in Sources */,
