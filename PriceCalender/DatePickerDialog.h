@@ -8,31 +8,38 @@
 
 #import <UIKit/UIKit.h>
 
-@class DatePickerDialog;
+@class DatePickerDialog,ZYCalendarManager,DatePickerView;
 
-@protocol DatePicker <NSObject>
+@protocol DatePickerDelegate <NSObject>
 
 - (void)onDateSet:(DatePickerDialog*)dialog
-        YearStart:(int)yearStart
-        MonthSart:(int)monthStart
-         DayStart:(int)dayStart
-          YearEnd:(int)yearEnd
-         MonthEnd:(int)monthEnd
-           DayEnd:(int)dayEnd;
+        StartDate:(NSDate *)start
+          EndDate:(NSDate *)end;
 
 @end
 
 @interface DatePickerDialog :  UIViewController
 
-+ (instancetype)initWithYearStart:(int)yearStart
-                        MonthSart:(int)monthStart
-                         DayStart:(int)dayStart
-                          YearEnd:(int)yearEnd
-                         MonthEnd:(int)monthEnd
-                           DayEnd:(int)dayEnd;
+@property(nonatomic, strong) DatePickerView *dateContainer;
+@property(nonatomic, strong) ZYCalendarManager *manager;
+@property(nonatomic, strong) NSDate *currentDate;
+@property(nonatomic, strong) NSDate *startDate;
+@property(nonatomic, strong) NSDate *endDate;
+@property(nonatomic, weak) id<DatePickerDelegate> controllerDelegate;
+
++ (instancetype)initWithDate:(NSDate *)currentDate
+                   StartDate:(NSDate *)startDate
+                     EndDate:(NSDate *)endDate
+                    Delegate:(id<DatePickerDelegate>)delegate;
+
++ (instancetype)initWithDate:(NSDate *)currentDate
+                   StartDate:(NSDate *)startDate
+                    Delegate:(id<DatePickerDelegate>)delegate;
+
++ (instancetype)initWithDate:(NSDate *)currentDate Delegate:(id<DatePickerDelegate>)delegate;
 
 - (void)show;
 
-- (void)hiden;
+- (void)hide;
 
 @end

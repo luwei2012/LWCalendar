@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZYCalendarManager.h"
 
-@class ZYCalendarView;
+
+@class DatePickerView;
 
 @interface ZYCalendarView : UIScrollView
-@property (nonatomic, strong)NSDate *date;
-@property (nonatomic, strong)ZYCalendarManager *manager;
-@property (nonatomic, copy)void(^dayViewBlock)(id);
+@property(nonatomic, strong) NSDate *currentDate;
+@property(nonatomic, strong) NSDate *startDate;
+@property(nonatomic, strong) NSDate *endDate;
+@property (nonatomic, weak)DatePickerView *dateViewDelegate;
+
++(CGFloat)heightForCalendarView;
 
 @end

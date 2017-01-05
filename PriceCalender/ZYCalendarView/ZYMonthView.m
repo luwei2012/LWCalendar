@@ -6,9 +6,7 @@
 //  Copyright © 2016年 Daniel. All rights reserved.
 //
 
-#import "ZYMonthView.h"
-#import "JTDateHelper.h"
-#import "ZYWeekView.h"
+#import "ZYCalendarHeader.h"
 
 @interface ZYMonthView ()
 @property (nonatomic, strong)NSMutableArray *weeksViews;
@@ -34,23 +32,23 @@
 
 - (void)reload {
     // 某月
-    NSString *dateStr = [_manager.titleDateFormatter stringFromDate:_date];
+    NSString *dateStr = [self.calendarDelegate.dateViewDelegate.dialogDelegate.manager.titleDateFormatter stringFromDate:_date];
     self.titleLab.text = dateStr;
     
-    weekNumber = [_manager.helper numberOfWeeks:_date];
+    weekNumber = [self.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper numberOfWeeks:_date];
     // 有几周
     if (_weeksViews.count) {
         [_weeksViews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         [_weeksViews removeAllObjects];
     }
     
-    NSDate *firstDay = [_manager.helper firstDayOfMonth:_date];
+    NSDate *firstDay = [self.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper firstDayOfMonth:_date];
         
     for (int i = 0; i < weekNumber; i++) {
         ZYWeekView *weekView = [[ZYWeekView alloc] initWithFrame:CGRectMake(0, weekH+gap*2 + (weekH+gap)*i, self.frame.size.width, weekH)];
-        weekView.manager = self.manager;
+        weekView.monthDelegate = self;
         weekView.theMonthFirstDay = firstDay;
-        weekView.date = [_manager.helper addToDate:firstDay weeks:i];
+        weekView.date = [self.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper addToDate:firstDay weeks:i];
         [self addSubview:weekView];
         [_weeksViews addObject:weekView];
     }

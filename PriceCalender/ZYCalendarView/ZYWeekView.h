@@ -6,12 +6,13 @@
 //  Copyright © 2016年 Daniel. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "ZYCalendarManager.h"
+#import <UIKit/UIKit.h> 
+
+@class ZYMonthView;
 
 @interface ZYWeekView : UIView
 @property (nonatomic, strong) NSDate *theMonthFirstDay;
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, weak)ZYCalendarManager *manager;
+@property (nonatomic, weak) ZYMonthView *monthDelegate;
 
 @end

@@ -27,6 +27,8 @@
 		533B9A471E151676003E416C /* ZYMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A401E151676003E416C /* ZYMonthView.m */; };
 		533B9A481E151676003E416C /* ZYWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A421E151676003E416C /* ZYWeekView.m */; };
 		533B9A4B1E151AA9003E416C /* DatePickerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A4A1E151AA9003E416C /* DatePickerDialog.m */; };
+		5345A3D61E1CA5FB000DD6C1 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3D51E1CA5FB000DD6C1 /* DatePickerView.m */; };
+		5345A3D91E1CE780000DD6C1 /* DateIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3D81E1CE780000DD6C1 /* DateIndicator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,11 @@
 		533B9A421E151676003E416C /* ZYWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYWeekView.m; sourceTree = "<group>"; };
 		533B9A491E151AA9003E416C /* DatePickerDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerDialog.h; path = ../DatePickerDialog.h; sourceTree = "<group>"; };
 		533B9A4A1E151AA9003E416C /* DatePickerDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerDialog.m; path = ../DatePickerDialog.m; sourceTree = "<group>"; };
+		5345A3D41E1CA5FB000DD6C1 /* DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerView.h; sourceTree = "<group>"; };
+		5345A3D51E1CA5FB000DD6C1 /* DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerView.m; sourceTree = "<group>"; };
+		5345A3D71E1CE780000DD6C1 /* DateIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateIndicator.h; sourceTree = "<group>"; };
+		5345A3D81E1CE780000DD6C1 /* DateIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateIndicator.m; sourceTree = "<group>"; };
+		5345A3DA1E1D1F8C000DD6C1 /* ZYCalendarHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYCalendarHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +235,11 @@
 				533B9A401E151676003E416C /* ZYMonthView.m */,
 				533B9A411E151676003E416C /* ZYWeekView.h */,
 				533B9A421E151676003E416C /* ZYWeekView.m */,
+				5345A3D41E1CA5FB000DD6C1 /* DatePickerView.h */,
+				5345A3D51E1CA5FB000DD6C1 /* DatePickerView.m */,
+				5345A3D71E1CE780000DD6C1 /* DateIndicator.h */,
+				5345A3D81E1CE780000DD6C1 /* DateIndicator.m */,
+				5345A3DA1E1D1F8C000DD6C1 /* ZYCalendarHeader.h */,
 			);
 			path = ZYCalendarView;
 			sourceTree = "<group>";
@@ -364,11 +376,13 @@
 			files = (
 				533B9A431E151676003E416C /* JTDateHelper.m in Sources */,
 				153CA0471CD0B50A00958372 /* DateViewController.m in Sources */,
+				5345A3D61E1CA5FB000DD6C1 /* DatePickerView.m in Sources */,
 				153CA0171CD0B47C00958372 /* ViewController.m in Sources */,
 				153CA0141CD0B47C00958372 /* AppDelegate.m in Sources */,
 				533B9A441E151676003E416C /* ZYCalendarManager.m in Sources */,
 				153CA0111CD0B47C00958372 /* main.m in Sources */,
 				533B9A4B1E151AA9003E416C /* DatePickerDialog.m in Sources */,
+				5345A3D91E1CE780000DD6C1 /* DateIndicator.m in Sources */,
 				533B9A451E151676003E416C /* ZYCalendarView.m in Sources */,
 				153CA0531CD0B84000958372 /* WeekView.m in Sources */,
 				533B9A471E151676003E416C /* ZYMonthView.m in Sources */,

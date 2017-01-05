@@ -6,9 +6,7 @@
 //  Copyright © 2016年 Daniel. All rights reserved.
 //
 
-#import "ZYWeekView.h"
-#import "ZYDayView.h"
-#import "JTDateHelper.h"
+#import "ZYCalendarHeader.h"
 
 @implementation ZYWeekView {
     CGFloat dayViewWidth;
@@ -28,20 +26,20 @@
 - (void)setDate:(NSDate *)date {
     _date = date;
     
-    NSDate *firstDate = [_manager.helper firstWeekDayOfWeek:_date];
+    NSDate *firstDate = [self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper firstWeekDayOfWeek:_date];
     
     for (int i = 0; i < 7; i++) {
         ZYDayView *dayView = [[ZYDayView alloc] initWithFrame:CGRectMake(dayViewWidth * i, 0, dayViewWidth, dayViewHeight)];
-        dayView.manager = self.manager;
+        dayView.weekDelegate = self;
         
-        NSDate *dayDate = [_manager.helper addToDate:firstDate days:i];
+        NSDate *dayDate = [self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper addToDate:firstDate days:i];
         
-        BOOL isSameMonth = [_manager.helper date:dayDate isTheSameMonthThan:_theMonthFirstDay];
+        BOOL isSameMonth = [self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper date:dayDate isTheSameMonthThan:_theMonthFirstDay];
         if (!isSameMonth) {
             
-            if ([_manager.helper date:dayDate isAfter:[_manager.helper lastDayOfMonth:_theMonthFirstDay]]) {
-                dayDate = [_manager.helper lastDayOfMonth:_theMonthFirstDay];
-            } else if ([_manager.helper date:dayDate isBefore:_theMonthFirstDay]) {
+            if ([self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper date:dayDate isAfter:[self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper lastDayOfMonth:_theMonthFirstDay]]) {
+                dayDate = [self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper lastDayOfMonth:_theMonthFirstDay];
+            } else if ([self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper date:dayDate isBefore:_theMonthFirstDay]) {
                 dayDate = _theMonthFirstDay;
             }
         }

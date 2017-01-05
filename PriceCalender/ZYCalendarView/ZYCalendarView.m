@@ -6,9 +6,7 @@
 //  Copyright © 2016年 Daniel. All rights reserved.
 //
 
-#import "ZYCalendarView.h"
-#import "ZYMonthView.h"
-#import "JTDateHelper.h"
+#import "ZYCalendarHeader.h"
 
 @implementation ZYCalendarView {
     CGSize lastSize;
@@ -19,6 +17,8 @@
     ZYMonthView *monthView4;
     ZYMonthView *monthView5;
 }
+
+@synthesize currentDate = _currentDate, startDate = _startDate, endDate = _endDate;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -35,17 +35,6 @@
     [self viewDidScroll];
 }
 
-- (void)setDayViewBlock:(void (^)(id))dayViewBlock {
-    _dayViewBlock = dayViewBlock;
-    self.manager.dayViewBlock = _dayViewBlock;
-}
-
-- (ZYCalendarManager *)manager {
-    if (!_manager) {
-        _manager = [ZYCalendarManager new];
-    }
-    return _manager;
-}
 
 - (void)resizeViewsIfWidthChanged
 {
@@ -87,11 +76,11 @@
         monthView1.tag = 4;
         monthView1.tag = 5;
         
-        monthView1.manager = self.manager;
-        monthView2.manager = self.manager;
-        monthView3.manager = self.manager;
-        monthView4.manager = self.manager;
-        monthView5.manager = self.manager;
+        monthView1.calendarDelegate = self;
+        monthView2.calendarDelegate = self;
+        monthView3.calendarDelegate = self;
+        monthView4.calendarDelegate = self;
+        monthView5.calendarDelegate = self;
         
         [self addSubview:monthView1];
         [self addSubview:monthView2];
@@ -99,7 +88,7 @@
         [self addSubview:monthView4];
         [self addSubview:monthView5];
         
-        self.date = _date;
+        self.currentDate = _currentDate;
     }
     
     self.contentSize = CGSizeMake(size.width, monthView1.frame.size.height + monthView2.frame.size.height + monthView3.frame.size.height + monthView4.frame.size.height + monthView5.frame.size.height);
@@ -136,7 +125,7 @@
     
     monthView1 = tmpView;
     
-    monthView1.date = [self.manager.helper addToDate:monthView2.date months:-1];
+    monthView1.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:monthView2.date months:-1];
     
     [self resetMonthViewsFrame];
     
@@ -155,7 +144,7 @@
     monthView4 = monthView5;
     
     monthView5 = tmpView;
-    monthView5.date = [self.manager.helper addToDate:monthView4.date months:1];
+    monthView5.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:monthView4.date months:1];
     
     [self resetMonthViewsFrame];
     
@@ -173,15 +162,29 @@
                                   monthView1.frame.size.height + monthView2.frame.size.height + monthView3.frame.size.height + monthView4.frame.size.height + monthView5.frame.size.height);
 }
 
-- (void)setDate:(NSDate *)date {
-    _date = date;
-    _manager.date = date;
+#pragma mark Get and Set
+-(void)setCurrentDate:(NSDate *)currentDate{
+    _currentDate = currentDate;     
+    monthView1.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:_currentDate months:-2];
+    monthView2.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:_currentDate months:-1];
+    monthView3.date = _currentDate;
+    monthView4.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:_currentDate months:1];
+    monthView5.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:_currentDate months:2];
+}
+
+-(void)setStartDate:(NSDate *)startDate{
+    _startDate = startDate;
     
-    monthView1.date = [self.manager.helper addToDate:date months:-2];
-    monthView2.date = [self.manager.helper addToDate:date months:-1];
-    monthView3.date = date;
-    monthView4.date = [self.manager.helper addToDate:date months:1];
-    monthView5.date = [self.manager.helper addToDate:date months:2];
+}
+
+-(void)setEndDate:(NSDate *)endDate{
+    _endDate = endDate;
+    
+}
+
+
++(CGFloat)heightForCalendarView{
+    return 300.0f;
 }
 
 

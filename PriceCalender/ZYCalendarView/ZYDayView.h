@@ -6,11 +6,12 @@
 //  Copyright © 2016年 Daniel. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "ZYCalendarManager.h"
+#import <UIKit/UIKit.h> 
+
+@class ZYWeekView;
 
 @interface ZYDayView : UIButton
-@property (nonatomic, strong)NSDate *date;
-@property (nonatomic, weak)ZYCalendarManager *manager;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, weak) ZYWeekView *weekDelegate;
 
 @end

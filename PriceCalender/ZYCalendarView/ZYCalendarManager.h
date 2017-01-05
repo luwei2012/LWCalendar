@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JTDateHelper.h"
 
 #define ZYHEXCOLOR(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -27,16 +26,13 @@ typedef NS_ENUM(NSInteger, ZYCalendarSelectionType) {
     ZYCalendarSelectionTypeRange = 2            // 范围选择
 };
 
-@class ZYDayView;
+@class ZYDayView,JTDateHelper;
 
 @interface ZYCalendarManager : NSObject
 @property (nonatomic, strong)JTDateHelper *helper;
 @property (nonatomic, strong)NSDateFormatter *titleDateFormatter;
 @property (nonatomic, strong)NSDateFormatter *dayDateFormatter;
 @property (nonatomic, strong)NSDateFormatter *dateFormatter;
-
-// 保存创建日历时的时间
-@property (nonatomic, strong)NSDate *date;
 
 // 选中的按钮(开始和结束)
 @property (nonatomic, strong)ZYDayView *selectedStartDay;
@@ -49,8 +45,6 @@ typedef NS_ENUM(NSInteger, ZYCalendarSelectionType) {
 
 // 之前的时间是否可以被点击选择
 @property (nonatomic, assign)BOOL canSelectPastDays;
-
-// dayView点击回调
-@property (nonatomic, copy)void(^dayViewBlock)(id);
+ 
 
 @end
