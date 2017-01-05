@@ -11,6 +11,7 @@
 @interface ZYMonthView ()
 @property (nonatomic, strong)NSMutableArray *weeksViews;
 @property (nonatomic, strong)UILabel *titleLab;
+@property(nonatomic, weak) ZYCalendarManager *manager;
 @end
 
 @implementation ZYMonthView {
@@ -18,6 +19,8 @@
     CGFloat weekH;
     CGFloat gap;
 }
+
+@synthesize calendarDelegate = _calendarDelegate;
 
 - (void)setDate:(NSDate *)date {
     _date = date;
@@ -32,23 +35,23 @@
 
 - (void)reload {
     // 某月
-    NSString *dateStr = [self.calendarDelegate.dateViewDelegate.dialogDelegate.manager.titleDateFormatter stringFromDate:_date];
+    NSString *dateStr = [self.manager.titleDateFormatter stringFromDate:_date];
     self.titleLab.text = dateStr;
     
-    weekNumber = [self.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper numberOfWeeks:_date];
+    weekNumber = [self.manager.helper numberOfWeeks:_date];
     // 有几周
     if (_weeksViews.count) {
         [_weeksViews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         [_weeksViews removeAllObjects];
     }
     
-    NSDate *firstDay = [self.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper firstDayOfMonth:_date];
+    NSDate *firstDay = [self.manager.helper firstDayOfMonth:_date];
         
     for (int i = 0; i < weekNumber; i++) {
         ZYWeekView *weekView = [[ZYWeekView alloc] initWithFrame:CGRectMake(0, weekH+gap*2 + (weekH+gap)*i, self.frame.size.width, weekH)];
         weekView.monthDelegate = self;
         weekView.theMonthFirstDay = firstDay;
-        weekView.date = [self.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper addToDate:firstDay weeks:i];
+        weekView.date = [self.manager.helper addToDate:firstDay weeks:i];
         [self addSubview:weekView];
         [_weeksViews addObject:weekView];
     }
@@ -72,6 +75,12 @@
         [self commonInit];
     }
     return self;
+}
+
+#pragma mark Get and Set
+-(void)setCalendarDelegate:(ZYCalendarView *)calendarDelegate{
+    _calendarDelegate = calendarDelegate;
+    _manager = _calendarDelegate.dateViewDelegate.dialogDelegate.manager;
 }
 
 @end

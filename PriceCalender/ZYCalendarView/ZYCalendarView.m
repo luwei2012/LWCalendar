@@ -163,6 +163,21 @@
 }
 
 #pragma mark Get and Set
+//每次取值时首先同步一次startDate
+-(NSDate *)startDate{
+    if (_dateViewDelegate && _dateViewDelegate.dialogDelegate && _dateViewDelegate.dialogDelegate.manager.selectedStartDay) {
+        _startDate = _dateViewDelegate.dialogDelegate.manager.selectedStartDay.date;
+    }
+    return _startDate;
+}
+//每次取值时首先同步一次endDate
+-(NSDate *)endDate{
+    if (_dateViewDelegate && _dateViewDelegate.dialogDelegate && _dateViewDelegate.dialogDelegate.manager.selectedEndDay) {
+        _endDate = _dateViewDelegate.dialogDelegate.manager.selectedEndDay.date;
+    }
+    return _endDate;
+}
+
 -(void)setCurrentDate:(NSDate *)currentDate{
     _currentDate = currentDate;     
     monthView1.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:_currentDate months:-2];
@@ -174,12 +189,22 @@
 
 -(void)setStartDate:(NSDate *)startDate{
     _startDate = startDate;
-    
+    //首先需要清空选中的ZYDayView 否则ZYDayView在取startDate值时会将startDate覆盖回来
+    if (_dateViewDelegate && _dateViewDelegate.dialogDelegate && _dateViewDelegate.dialogDelegate.manager.selectedStartDay) {
+         _dateViewDelegate.dialogDelegate.manager.selectedStartDay.selected = false;
+        _dateViewDelegate.dialogDelegate.manager.selectedStartDay = nil;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:ZYDAYVIEW_UPDATE_STATE object:nil];
 }
 
 -(void)setEndDate:(NSDate *)endDate{
     _endDate = endDate;
-    
+    //首先需要清空选中的ZYDayView 否则ZYDayView在取endDate值时会将endDate覆盖回来
+    if (_dateViewDelegate && _dateViewDelegate.dialogDelegate && _dateViewDelegate.dialogDelegate.manager.selectedEndDay) {
+        _dateViewDelegate.dialogDelegate.manager.selectedEndDay.selected = false;
+        _dateViewDelegate.dialogDelegate.manager.selectedEndDay = nil;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:ZYDAYVIEW_UPDATE_STATE object:nil];
 }
 
 

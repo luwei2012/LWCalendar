@@ -8,11 +8,16 @@
 
 #import "ZYCalendarHeader.h"
 
+@interface ZYWeekView ()
+@property(nonatomic, weak) ZYCalendarManager *manager;
+@end
+
 @implementation ZYWeekView {
     CGFloat dayViewWidth;
     CGFloat dayViewHeight;
     CGFloat gap;
 }
+@synthesize monthDelegate = _monthDelegate;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -26,20 +31,20 @@
 - (void)setDate:(NSDate *)date {
     _date = date;
     
-    NSDate *firstDate = [self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper firstWeekDayOfWeek:_date];
+    NSDate *firstDate = [self.manager.helper firstWeekDayOfWeek:_date];
     
     for (int i = 0; i < 7; i++) {
         ZYDayView *dayView = [[ZYDayView alloc] initWithFrame:CGRectMake(dayViewWidth * i, 0, dayViewWidth, dayViewHeight)];
         dayView.weekDelegate = self;
         
-        NSDate *dayDate = [self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper addToDate:firstDate days:i];
+        NSDate *dayDate = [self.manager.helper addToDate:firstDate days:i];
         
-        BOOL isSameMonth = [self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper date:dayDate isTheSameMonthThan:_theMonthFirstDay];
+        BOOL isSameMonth = [self.manager.helper date:dayDate isTheSameMonthThan:_theMonthFirstDay];
         if (!isSameMonth) {
             
-            if ([self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper date:dayDate isAfter:[self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper lastDayOfMonth:_theMonthFirstDay]]) {
-                dayDate = [self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper lastDayOfMonth:_theMonthFirstDay];
-            } else if ([self.monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager.helper date:dayDate isBefore:_theMonthFirstDay]) {
+            if ([self.manager.helper date:dayDate isAfter:[self.manager.helper lastDayOfMonth:_theMonthFirstDay]]) {
+                dayDate = [self.manager.helper lastDayOfMonth:_theMonthFirstDay];
+            } else if ([self.manager.helper date:dayDate isBefore:_theMonthFirstDay]) {
                 dayDate = _theMonthFirstDay;
             }
         }
@@ -50,6 +55,12 @@
         
         [self addSubview:dayView];
     }
+}
+
+#pragma mark Get and Set
+-(void)setMonthDelegate:(ZYMonthView *)monthDelegate{
+    _monthDelegate = monthDelegate;
+    _manager = _monthDelegate.calendarDelegate.dateViewDelegate.dialogDelegate.manager;
 }
 
 @end
