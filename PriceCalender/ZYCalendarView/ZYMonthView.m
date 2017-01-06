@@ -47,7 +47,6 @@
         lastSize = size;
         [self resize];
     }
-    [super layoutSubviews];
 }
 
 
@@ -56,7 +55,7 @@
     self.weekIndicator.frame = CGRectMake(MARGIN_H, TITLE_HEIGHT + LINE_GAP, self.frame.size.width - MARGIN_H * 2, WEEK_INDICATOR_HEIGHT);
     CGFloat startY = TITLE_HEIGHT + WEEK_INDICATOR_HEIGHT + LINE_GAP * 2;
     CGFloat startX = MARGIN_H;
-    CGFloat weekH = (self.frame.size.width -  LINE_GAP * 8 - MARGIN_H * 2)/7;
+    CGFloat weekH = (self.frame.size.width -  PADDING_H * 8 - MARGIN_H * 2)/7;
     for (int i = 0; i < weekNumber; i++) {
         ZYWeekView *weekView = _weeksViews[i];
         if (weekView) {
@@ -91,7 +90,7 @@
     NSDate *firstDay = [self.manager.helper firstDayOfMonth:_date];
     CGFloat startY = TITLE_HEIGHT + WEEK_INDICATOR_HEIGHT + LINE_GAP * 2;
     CGFloat startX = MARGIN_H;
-    CGFloat weekH = (self.frame.size.width -  LINE_GAP * 8 - MARGIN_H * 2)/7;
+    CGFloat weekH = (self.frame.size.width -  PADDING_H * 8 - MARGIN_H * 2)/7;
     for (int i = 0; i < weekNumber; i++) {
         ZYWeekView *weekView = [[ZYWeekView alloc] initWithFrame:CGRectMake(startX, startY + (weekH + LINE_GAP) * i, self.frame.size.width - MARGIN_H * 2, weekH)];
         weekView.monthDelegate = self;
@@ -108,7 +107,7 @@
 - (UILabel *)titleLab {
     if (_titleLab == nil) {
         _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0,  0, self.frame.size.width , TITLE_HEIGHT)];
-        _titleLab.font = [UIFont systemFontOfSize:12];
+        _titleLab.font = [UIFont systemFontOfSize:TITLE_FONT_SIZE];
         _titleLab.textAlignment = NSTextAlignmentCenter;
         _titleLab.textColor = [UIColor blackColor];
         [self addSubview:_titleLab];

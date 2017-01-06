@@ -10,8 +10,13 @@
 
 #define MARGIN_H (10)
 #define LINE_GAP (4)
-#define TITLE_HEIGHT (80)
+#define PADDING_H (LINE_GAP)
+#define TITLE_HEIGHT (40)
 #define WEEK_INDICATOR_HEIGHT (20)
+
+#define TITLE_FONT_SIZE 20
+#define WEEK_INDICATOR_FONT_SIZE 12
+#define DAY_FONT_SIZE 12
 
 @class DatePickerView;
 

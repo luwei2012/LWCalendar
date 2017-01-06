@@ -8,10 +8,11 @@
 
 #import "ZYCalendarHeader.h"
 
-static UIImage * selectImage = nil;
+static UIImage *selectImage = nil;
 
 @interface ZYDayView (){
     int selectFlag;
+    CGSize lastSize;
 }
 @property(nonatomic, weak) ZYCalendarManager *manager;
 @property(nonatomic, weak) ZYCalendarView *calendarDelegate;
@@ -23,9 +24,9 @@ static UIImage * selectImage = nil;
 
 //根据frame获取半径 去宽高中较小的一边作为直径
 +(float)radiusFromFrame:(CGRect)frame{
-    float width = frame.size.width * 0.5f;
-    float height = frame.size.height * 0.5f;
-    return width > height ? width : height;
+    float width = frame.size.width ;
+    float height = frame.size.height ;
+    return width < height ? width : height;
 }
 
 + (UIImage *) roundCorneredImage: (UIImage *) orig radius:(CGFloat) corner {
@@ -50,17 +51,18 @@ static UIImage * selectImage = nil;
 }
 
 +(UIImage *)getSelectImageWithFrame:(CGRect) vframe{
-    CGRect frame = CGRectMake(0, 0, vframe.size.width, vframe.size.height);
+    CGFloat size = [ZYDayView radiusFromFrame:vframe];
+    CGRect frame = CGRectMake(0, 0, size, size);
     if (selectImage == nil) {
         selectImage = [ZYDayView createImageWithColor:SelectedBgColor
                                                 Frame:frame
-                                               Radius:[ZYDayView radiusFromFrame:frame]];
+                                               Radius:size * 0.5];
     }else{
-        if(!selectImage.size.height == frame.size.height
-           || !selectImage.size.width == frame.size.width){
+        if(!selectImage.size.height == size
+           || !selectImage.size.width == size){
             selectImage = [ZYDayView createImageWithColor:SelectedBgColor
                                                     Frame:frame
-                                                   Radius:[ZYDayView radiusFromFrame:frame]];
+                                                   Radius:size * 0.5];
         }
     }
     return selectImage;
@@ -70,6 +72,7 @@ static UIImage * selectImage = nil;
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.titleLabel.font = [UIFont systemFontOfSize:DAY_FONT_SIZE];
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self normalStateList];
         
@@ -80,6 +83,16 @@ static UIImage * selectImage = nil;
     }
     return self;
 }
+
+//-(void)layoutSubviews{
+//    CGSize size = self.frame.size;
+//    // 首次加载
+//    if (!lastSize.width || size.width != lastSize.width || size.height != lastSize.height) {
+//        lastSize = size;
+//        [self changeState];
+//    }
+//    [super layoutSubviews];
+//}
 
 #pragma mark 析构函数
 -(void)dealloc{
