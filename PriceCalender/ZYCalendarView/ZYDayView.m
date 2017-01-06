@@ -11,7 +11,6 @@
 static UIImage *selectImage = nil;
 
 @interface ZYDayView (){
-    int selectFlag;
     CGSize lastSize;
 }
 @property(nonatomic, weak) ZYCalendarManager *manager;
@@ -241,16 +240,17 @@ static UIImage *selectImage = nil;
 #pragma mark 触摸事件处理
 //每次touch开始时将select状态置为false touch结束后状态还原 这是为了能让我们的按钮显示正常
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"touchesBegan pre state %lu",(unsigned long)self.state);
-    selectFlag = self.state & UIControlStateSelected;
     self.selected = false;
     [super touchesBegan:touches withEvent:event];
-    NSLog(@"touchesBegan after state %lu",(unsigned long)self.state);
+}
+
+-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesMoved:touches withEvent:event];
+    self.highlighted = true;
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [super touchesEnded:touches withEvent:event];
-    //    self.selected = selectFlag;
     self.selected = true;
 }
 
