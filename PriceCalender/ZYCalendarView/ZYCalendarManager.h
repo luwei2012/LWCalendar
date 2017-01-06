@@ -26,17 +26,14 @@ typedef NS_ENUM(NSInteger, ZYCalendarSelectionType) {
     ZYCalendarSelectionTypeRange = 2            // 范围选择
 };
 
-@class ZYDayView,JTDateHelper;
+@class ZYDayView,JTDateHelper,DatePickerDialog;
 
 @interface ZYCalendarManager : NSObject
 @property (nonatomic, strong)JTDateHelper *helper;
 @property (nonatomic, strong)NSDateFormatter *titleDateFormatter;
 @property (nonatomic, strong)NSDateFormatter *dayDateFormatter;
-@property (nonatomic, strong)NSDateFormatter *dateFormatter;
+@property (nonatomic, strong)NSDateFormatter *dateFormatter; 
 
-// 选中的按钮(开始和结束)
-@property (nonatomic, strong)ZYDayView *selectedStartDay;
-@property (nonatomic, strong)ZYDayView *selectedEndDay;
 // 多选模式中保存选中的时间
 @property (nonatomic, strong)NSMutableArray *selectedDateArray;
 

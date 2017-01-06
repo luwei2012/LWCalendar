@@ -21,7 +21,8 @@
 
 
 #define CORNER_RADIUS  (4)
-#define ZYDAYVIEW_CHANGE_STATE (@"changeState")
-#define ZYDAYVIEW_UPDATE_STATE (@"updateState")
+#define ZYDAYVIEW_CHANGE_STATE (@"ZYchangeState")
+#define ZYDAYVIEW_UPDATE_STATE (@"ZYupdateState")
+#define ZYDAYVIEW_DATE_CHANGED (@"ZYdateChanged")
 
 #endif /* ZYCalendarHeader_h */

@@ -36,11 +36,22 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
         [self.confirmButton addTarget:self action:@selector(confirmOnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.cancelButton addTarget:self action:@selector(cancelOnClick) forControlEvents:UIControlEventTouchUpInside];
         //初始化月、天选择器
-        
+        [self calendarView];
         //初始化顶部的年月显示器
-        //初始化年选择器
+        [self fromIndicator];
+        [self toIndicator];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectDateChanged) name:ZYDAYVIEW_DATE_CHANGED object:nil];
     }
     return self;
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self ];
+}
+
+-(void)selectDateChanged{
+    self.fromIndicator.date = self.startDate;
+    self.toIndicator.date = self.endDate;
 }
 
 #pragma mark 点击时间
@@ -51,8 +62,8 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
 -(void)confirmOnClick{
     if (self.dialogDelegate.controllerDelegate && [self.dialogDelegate.controllerDelegate respondsToSelector:@selector(onDateSet:StartDate:EndDate:)]) {
         [self.dialogDelegate.controllerDelegate onDateSet:self.dialogDelegate
-                                                StartDate:self.calendarView.startDate
-                                                  EndDate:self.calendarView.endDate];
+                                                StartDate:self.startDate
+                                                  EndDate:self.endDate];
     }
     
     [self.dialogDelegate hide];
@@ -92,11 +103,11 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
         NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-BUTTON_MARGIN_H];
         NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
-        NSLayoutConstraint *viewHeiht = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.0];
+        NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.0];
         [self.contentView addConstraint:viewWidth];
         [self.contentView addConstraint:viewRight];
         [self.contentView addConstraint:viewTop];
-        [self.contentView addConstraint:viewHeiht];
+        [self.contentView addConstraint:viewHeight];
     }
     return _cancelButton;
 }
@@ -113,11 +124,11 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:0.3 constant:0.0];
         NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
         NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
-        NSLayoutConstraint *viewHeiht = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:BUTTON_HEIGHT];
+        NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:BUTTON_HEIGHT];
         [self.contentView addConstraint:viewWidth];
         [self.contentView addConstraint:viewRight];
         [self.contentView addConstraint:viewBottom];
-        [self.confirmButton addConstraint:viewHeiht];
+        [self.confirmButton addConstraint:viewHeight];
     }
     return _confirmButton;
 }
@@ -170,7 +181,7 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
         NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_calendarView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
         NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:_calendarView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
         NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_calendarView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:[ZYCalendarView heightForCalendarView]];
-        NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:_calendarView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.cancelButton attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
+        NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:_calendarView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
         [self.contentView addConstraint:viewRight];
         [self.contentView addConstraint:viewLeft];
         [self.contentView addConstraint:viewBottom];
@@ -196,6 +207,19 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
     self.toIndicator.date = _endDate;
 }
 
+-(NSDate *)currentDate{
+    return _currentDate;
+}
+
+-(NSDate *)startDate{
+    _startDate = self.calendarView.startDate;
+    return _startDate;
+}
+
+-(NSDate *)endDate{
+    _endDate = self.calendarView.endDate;
+    return _endDate;
+}
 
 
 @end

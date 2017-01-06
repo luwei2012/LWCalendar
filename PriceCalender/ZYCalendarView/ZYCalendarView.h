@@ -14,16 +14,21 @@
 #define TITLE_HEIGHT (40)
 #define WEEK_INDICATOR_HEIGHT (20)
 
-#define TITLE_FONT_SIZE 20
+#define TITLE_FONT_SIZE 18
 #define WEEK_INDICATOR_FONT_SIZE 12
 #define DAY_FONT_SIZE 12
 
-@class DatePickerView;
+@class DatePickerView,ZYDayView;
 
 @interface ZYCalendarView : UIScrollView
 @property(nonatomic, strong) NSDate *currentDate;
 @property(nonatomic, strong) NSDate *startDate;
 @property(nonatomic, strong) NSDate *endDate;
+
+// 选中的按钮(开始和结束)
+@property (nonatomic, strong)ZYDayView *selectedStartDay;
+@property (nonatomic, strong)ZYDayView *selectedEndDay;
+
 @property (nonatomic, weak)DatePickerView *dateViewDelegate;
 
 +(CGFloat)heightForCalendarView;

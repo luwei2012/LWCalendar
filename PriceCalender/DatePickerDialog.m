@@ -2,8 +2,8 @@
 //  DatePickerDialog.m
 //  PriceCalender
 //
-//  Created by luwei on MARGIN_V16/12/29.
-//  Copyright © MARGIN_V16年 HarrisHan. All rights reserved.
+//  Created by luwei on DATEPICKER_MARGIN_V16/12/29.
+//  Copyright © DATEPICKER_MARGIN_V16年 HarrisHan. All rights reserved.
 //
 
 #import "ZYCalendarHeader.h"
@@ -12,9 +12,9 @@
 //动画时间
 #define ANIMATE_DUTATION (0.5)
 //水平方向边距
-#define MARGIN_H (60)
+#define DATEPICKER_MARGIN_H (60)
 //垂直方向边距
-#define MARGIN_V (60)
+#define DATEPICKER_MARGIN_V (60)
 
 static DatePickerDialog *_instance;
 
@@ -99,10 +99,10 @@ static DatePickerDialog *_instance;
         _dateContainer.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view addSubview:_dateContainer];
         //添加约束
-        NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:_dateContainer attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:MARGIN_H];
-        NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_dateContainer attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-MARGIN_H];
-        NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:_dateContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:MARGIN_V];
-        NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:_dateContainer attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-MARGIN_V];
+        NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:_dateContainer attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:DATEPICKER_MARGIN_H];
+        NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_dateContainer attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-DATEPICKER_MARGIN_H];
+        NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:_dateContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:DATEPICKER_MARGIN_V];
+        NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:_dateContainer attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-DATEPICKER_MARGIN_V];
         [self.view addConstraint:viewLeft];
         [self.view addConstraint:viewRight];
         [self.view addConstraint:viewTop];
@@ -115,7 +115,7 @@ static DatePickerDialog *_instance;
     if (_manager == nil) {
         _manager = [[ZYCalendarManager alloc] init];
         _manager.canSelectPastDays = true;
-        _manager.selectionType = ZYCalendarSelectionTypeRange;
+        _manager.selectionType = ZYCalendarSelectionTypeRange; 
     }
     return _manager;
 }
@@ -133,6 +133,20 @@ static DatePickerDialog *_instance;
 -(void)setEndDate:(NSDate *)endDate{
     _endDate = endDate;
     self.dateContainer.endDate = _endDate;
+}
+
+-(NSDate *)currentDate{
+    return _currentDate;
+}
+
+-(NSDate *)startDate{
+    _startDate = self.dateContainer.startDate;
+    return _startDate;
+}
+
+-(NSDate *)endDate{
+    _endDate = self.dateContainer.endDate;
+    return _endDate;
 }
 
 #pragma mark UIGestureRecognizerDelegate

@@ -176,7 +176,7 @@ static UIImage *selectImage = nil;
 #pragma mark Notification回调函数
 //ZYDayView点击事件通知
 - (void)changeState {
-    if (self.manager.selectedStartDay && self.manager.selectedEndDay && ![self.manager.helper date:self.calendarDelegate.startDate isTheSameDayThan:self.calendarDelegate.endDate]) {
+    if (self.calendarDelegate.selectedStartDay && self.calendarDelegate.selectedEndDay && ![self.manager.helper date:self.calendarDelegate.startDate isTheSameDayThan:self.calendarDelegate.endDate]) {
         if ([self.manager.helper date:_date isEqualOrAfter:self.calendarDelegate.startDate andEqualOrBefore:self.calendarDelegate.endDate]){
             if ([self.manager.helper date:_date isTheSameDayThan:self.calendarDelegate.startDate]) {
                 [self startStateList];
@@ -241,9 +241,11 @@ static UIImage *selectImage = nil;
 #pragma mark 触摸事件处理
 //每次touch开始时将select状态置为false touch结束后状态还原 这是为了能让我们的按钮显示正常
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"touchesBegan pre state %lu",(unsigned long)self.state);
     selectFlag = self.state & UIControlStateSelected;
     self.selected = false;
     [super touchesBegan:touches withEvent:event];
+    NSLog(@"touchesBegan after state %lu",(unsigned long)self.state);
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -268,41 +270,42 @@ static UIImage *selectImage = nil;
         }
     } else {
         //目前只有开始时间，没有选择结束时间，则当前选择的就是结束时间
-        if (self.manager.selectedStartDay && !self.manager.selectedEndDay) {
+        if (self.calendarDelegate.selectedStartDay && !self.calendarDelegate.selectedEndDay) {
             //如果选择的结束时间比开始时间早，则将当前选择的日期设置为开始时间 原来的开始时间变成结束时间
             if ([self.manager.helper date:_date isBefore:self.calendarDelegate.startDate]) {
-                ZYDayView *tmp = self.manager.selectedStartDay;
-                self.manager.selectedStartDay = self;
-                self.manager.selectedStartDay.selected = true;
-                self.manager.selectedEndDay = tmp;
-                self.manager.selectedEndDay.selected = true;
+                ZYDayView *tmp = self.calendarDelegate.selectedStartDay;
+                self.calendarDelegate.selectedStartDay = self;
+                self.calendarDelegate.selectedStartDay.selected = true;
+                self.calendarDelegate.selectedEndDay = tmp;
+                self.calendarDelegate.selectedEndDay.selected = true;
                 [[NSNotificationCenter defaultCenter] postNotificationName:ZYDAYVIEW_CHANGE_STATE object:nil];
             } else {
                 // 如果不能选择时间段(单选)
                 if (self.manager.selectionType == ZYCalendarSelectionTypeSingle) {
-                    if (self.manager.selectedStartDay) {
-                        self.manager.selectedStartDay.selected = false;
+                    if (self.calendarDelegate.selectedStartDay) {
+                        self.calendarDelegate.selectedStartDay.selected = false;
                     }
-                    self.manager.selectedStartDay = self;
-                    self.manager.selectedStartDay.selected = true;
+                    self.calendarDelegate.selectedStartDay = self;
+                    self.calendarDelegate.selectedStartDay.selected = true;
                 } else {
-                    self.manager.selectedEndDay = self;
-                    self.manager.selectedEndDay.selected = true;
+                    self.calendarDelegate.selectedEndDay = self;
+                    self.calendarDelegate.selectedEndDay.selected = true;
                     [[NSNotificationCenter defaultCenter] postNotificationName:ZYDAYVIEW_CHANGE_STATE object:nil];
                 }
             }
-        } else if (self.manager.selectedStartDay && self.manager.selectedEndDay) {
-            self.manager.selectedStartDay.selected = false;
-            self.manager.selectedEndDay.selected = false;
-            self.manager.selectedStartDay = self;
-            self.manager.selectedStartDay.selected = true;
-            self.manager.selectedEndDay = nil;
+        } else if (self.calendarDelegate.selectedStartDay && self.calendarDelegate.selectedEndDay) {
+            self.calendarDelegate.selectedStartDay.selected = false;
+            self.calendarDelegate.selectedEndDay.selected = false;
+            self.calendarDelegate.selectedStartDay = self;
+            self.calendarDelegate.selectedStartDay.selected = true;
+            self.calendarDelegate.selectedEndDay = nil;
             [[NSNotificationCenter defaultCenter] postNotificationName:ZYDAYVIEW_CHANGE_STATE object:nil];
-        } else if (!self.manager.selectedStartDay && !self.manager.selectedEndDay) {
-            self.manager.selectedStartDay = self;
-            self.manager.selectedStartDay.selected = true;
+        } else if (!self.calendarDelegate.selectedStartDay && !self.calendarDelegate.selectedEndDay) {
+            self.calendarDelegate.selectedStartDay = self;
+            self.calendarDelegate.selectedStartDay.selected = true;
         }
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:ZYDAYVIEW_DATE_CHANGED object:nil];
 }
 
 #pragma mark Override函数 确定title和image的坐标
@@ -362,26 +365,27 @@ static UIImage *selectImage = nil;
         // 开始
         if (self.calendarDelegate.startDate) {
             if ([self.manager.helper date:_date isTheSameDayThan:self.calendarDelegate.startDate]) {
-                if (self.manager.selectedStartDay) {
-                    self.manager.selectedStartDay.selected = false;
+                if (self.calendarDelegate.selectedStartDay) {
+                    self.calendarDelegate.selectedStartDay.selected = false;
                 }
-                self.manager.selectedStartDay = self;
-                self.manager.selectedStartDay.selected = true;
+                self.calendarDelegate.selectedStartDay = self;
+                self.calendarDelegate.selectedStartDay.selected = true;
             }
         }
         // 结束
-        if (self.manager.selectedEndDay) {
+        if (self.calendarDelegate.selectedEndDay) {
             if ([self.manager.helper date:_date isTheSameDayThan:self.calendarDelegate.endDate]) {
-                if (self.manager.selectedEndDay) {
-                    self.manager.selectedEndDay.selected = false;
+                if (self.calendarDelegate.selectedEndDay) {
+                    self.calendarDelegate.selectedEndDay.selected = false;
                 }
-                self.manager.selectedEndDay = self;
-                self.manager.selectedEndDay.selected = true;
+                self.calendarDelegate.selectedEndDay = self;
+                self.calendarDelegate.selectedEndDay.selected = true;
             }
         }
         
     }
     [self changeState];
 }
+
 
 @end

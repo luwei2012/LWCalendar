@@ -13,7 +13,7 @@
 @interface DateIndicator : UIView
 
 @property(nonatomic, strong) UILabel *titleLabel;
-@property(nonatomic, strong) UIButton *dateButton;
+@property(nonatomic, strong) UILabel *dateLabel;
 @property(nonatomic, strong) NSDate *date;
 @property(nonatomic, weak) DatePickerView *dateViewDelegate;
 
