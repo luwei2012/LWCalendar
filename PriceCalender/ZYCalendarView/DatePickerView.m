@@ -54,7 +54,7 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
     self.toIndicator.date = self.endDate;
 }
 
-#pragma mark 点击时间
+#pragma mark 点击事件
 -(void)cancelOnClick{
     [self.dialogDelegate hide];
 }
@@ -67,6 +67,20 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
     }
     
     [self.dialogDelegate hide];
+}
+
+-(void)fromIndicatorOnClick{
+    //将Calendar滚动到from的位置
+    if (self.startDate) {
+        [self.calendarView scrollToDate:self.startDate];
+    }
+}
+
+-(void)toIndicatorOnClick{
+    //将Calendar滚动到to的位置
+    if (self.endDate) {
+        [self.calendarView scrollToDate:self.endDate];
+    }
 }
 
 #pragma mark Get and Set
@@ -138,6 +152,9 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
     if (_fromIndicator == nil) {
         _fromIndicator = [DateIndicator initWithTitle:@"FROM" Date:self.dialogDelegate.startDate Delegate:self];
         _fromIndicator.translatesAutoresizingMaskIntoConstraints = NO;
+        _fromIndicator.userInteractionEnabled = TRUE;
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(fromIndicatorOnClick)];
+        [_fromIndicator addGestureRecognizer:recognizer];
         [self.contentView addSubview:_fromIndicator];
         //添加约束
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_fromIndicator attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:0.5 constant:0.0];
@@ -157,6 +174,9 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
     if (_toIndicator == nil) {
         _toIndicator = [DateIndicator initWithTitle:@"TO" Date:self.dialogDelegate.endDate Delegate:self];
         _toIndicator.translatesAutoresizingMaskIntoConstraints = NO;
+        _toIndicator.userInteractionEnabled = TRUE;
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toIndicatorOnClick)];
+        [_toIndicator addGestureRecognizer:recognizer];
         [self.contentView addSubview:_toIndicator];
         //添加约束
         NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_toIndicator attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];

@@ -210,5 +210,15 @@
     return NO;
 }
 
+- (int)date:(NSDate *)date distanceFrom:(NSDate *)destDate{
+    NSDateComponents *componentsCurrentDate = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:date];
+    int yearOfDate = (int) componentsCurrentDate.year;
+    int monthOfDate = (int) componentsCurrentDate.month;
+    componentsCurrentDate = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:destDate];
+    int monthOfDestDate = (int) componentsCurrentDate.month;
+    int yearOfDestDate = (int) componentsCurrentDate.year;
+    return monthOfDate - monthOfDestDate + 12 * (yearOfDate - yearOfDestDate);
+}
+
 @end
 

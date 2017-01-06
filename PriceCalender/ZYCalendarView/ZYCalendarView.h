@@ -31,6 +31,8 @@
 
 @property (nonatomic, weak)DatePickerView *dateViewDelegate;
 
+-(void)scrollToDate:(NSDate *)date;
+
 +(CGFloat)heightForCalendarView;
 
 @end

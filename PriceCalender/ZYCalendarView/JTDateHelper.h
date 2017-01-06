@@ -44,4 +44,6 @@
 - (BOOL)date:(NSDate *)date isEqualOrAfter:(NSDate *)startDate andEqualOrBefore:(NSDate *)endDate;
 - (BOOL)date:(NSDate *)date isAfter:(NSDate *)startDate andBefore:(NSDate *)endDate;
 
+- (int)date:(NSDate *)date distanceFrom:(NSDate *)destDate;
+
 @end

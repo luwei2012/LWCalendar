@@ -168,15 +168,39 @@
                                   monthView1.frame.size.height + monthView2.frame.size.height + monthView3.frame.size.height + monthView4.frame.size.height + monthView5.frame.size.height);
 }
 
+
+-(void)scrollToDate:(NSDate *)date{
+    JTDateHelper *helper = self.dateViewDelegate.dialogDelegate.manager.helper;
+    int distance  = [helper date:date distanceFrom:monthView3.date];
+    monthView1.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:date months:-2];
+    monthView2.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:date months:-1];
+    monthView3.date = date;
+    monthView4.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:date months:1];
+    monthView5.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:date months:2];
+    [self resetMonthViewsFrame];
+    if (distance > 0) {
+        //应该向上滚动
+        self.contentOffset = CGPointMake(0, monthView1.frame.size.height + monthView2.frame.size.height * 0.5);
+    }else if(distance < 0){
+        //应该向下滚动
+        self.contentOffset = CGPointMake(0, monthView1.frame.size.height + monthView2.frame.size.height + monthView3.frame.size.height/2.0);
+    }
+    [self setContentOffset:CGPointMake(0, monthView1.frame.size.height + monthView2.frame.size.height) animated:true];
+}
+
 #pragma mark Get and Set
 //每次取值时首先同步一次startDate
 -(NSDate *)startDate{
-    _startDate =  self.selectedStartDay.date;
+    if (_selectedStartDay) {
+        _startDate = _selectedStartDay.date;
+    }
     return _startDate;
 }
 //每次取值时首先同步一次endDate
 -(NSDate *)endDate{
-    _endDate = self.selectedEndDay.date;
+    if (_selectedEndDay) {
+        _endDate = _selectedEndDay.date;
+    }
     return _endDate;
 }
 
