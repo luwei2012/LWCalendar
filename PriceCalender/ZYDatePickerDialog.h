@@ -8,19 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@class DatePickerDialog,ZYCalendarManager,DatePickerView;
+@class ZYDatePickerDialog,ZYCalendarManager,ZYDatePickerView;
 
 @protocol DatePickerDelegate <NSObject>
 
-- (void)onDateSet:(DatePickerDialog*)dialog
+- (void)onDateSet:(ZYDatePickerDialog*)dialog
         StartDate:(NSDate *)start
           EndDate:(NSDate *)end;
 
 @end
 
-@interface DatePickerDialog :  UIViewController
+@interface ZYDatePickerDialog :  UIViewController
 
-@property(nonatomic, strong) DatePickerView *dateContainer;
+@property(nonatomic, strong) ZYDatePickerView *dateContainer;
 @property(nonatomic, strong) ZYCalendarManager *manager;
 @property(nonatomic, strong) NSDate *currentDate;
 @property(nonatomic, strong) NSDate *startDate;

@@ -83,16 +83,6 @@ static UIImage *selectImage = nil;
     return self;
 }
 
-//-(void)layoutSubviews{
-//    CGSize size = self.frame.size;
-//    // 首次加载
-//    if (!lastSize.width || size.width != lastSize.width || size.height != lastSize.height) {
-//        lastSize = size;
-//        [self changeState];
-//    }
-//    [super layoutSubviews];
-//}
-
 #pragma mark 析构函数
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self ];

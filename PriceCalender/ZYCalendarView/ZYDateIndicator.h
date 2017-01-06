@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class DatePickerView;
+@class ZYDatePickerView;
 
-@interface DateIndicator : UIView
+@interface ZYDateIndicator : UIView
 
 @property(nonatomic, strong) UILabel *titleLabel;
 @property(nonatomic, strong) UILabel *dateLabel;
 @property(nonatomic, strong) NSDate *date;
-@property(nonatomic, weak) DatePickerView *dateViewDelegate;
+@property(nonatomic, weak) ZYDatePickerView *dateViewDelegate;
 
-+(instancetype)initWithTitle:(NSString *)title Date:(NSDate *)date Delegate:(DatePickerView *)delegate;
++(instancetype)initWithTitle:(NSString *)title Date:(NSDate *)date Delegate:(ZYDatePickerView *)delegate;
 
 @end

@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, ZYCalendarSelectionType) {
     ZYCalendarSelectionTypeRange = 2            // 范围选择
 };
 
-@class ZYDayView,JTDateHelper,DatePickerDialog;
+@class ZYDayView,JTDateHelper,ZYDatePickerDialog;
 
 @interface ZYCalendarManager : NSObject
 @property (nonatomic, strong)JTDateHelper *helper;

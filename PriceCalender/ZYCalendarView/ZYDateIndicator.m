@@ -11,11 +11,11 @@
 #define DATE_SHOW_FONT_SIZE (16)
 #define DATE_TITLE_HEIGHT (48)
 
-@implementation DateIndicator
+@implementation ZYDateIndicator
 @synthesize titleLabel = _titleLabel, dateLabel = _dateLabel, date = _date;
 
-+(instancetype)initWithTitle:(NSString *)title Date:(NSDate *)date Delegate:(DatePickerView *)delegate{
-    DateIndicator *tmp = [[DateIndicator alloc] init];
++(instancetype)initWithTitle:(NSString *)title Date:(NSDate *)date Delegate:(ZYDatePickerView *)delegate{
+    ZYDateIndicator *tmp = [[ZYDateIndicator alloc] init];
     if (tmp) {
         //初始化操作
         tmp.dateViewDelegate = delegate;

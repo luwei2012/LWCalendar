@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h> 
 
-@class DatePickerDialog,DateIndicator,ZYCalendarView;
+@class ZYDatePickerDialog,ZYDateIndicator,ZYCalendarView;
 
-@interface DatePickerView : UIView
+@interface ZYDatePickerView : UIView
 
-@property(nonatomic, weak) DatePickerDialog *dialogDelegate;
+@property(nonatomic, weak) ZYDatePickerDialog *dialogDelegate;
 @property(nonatomic, strong) ZYCalendarView *calendarView;//月天选择器
 @property(nonatomic, strong) UIButton *cancelButton;//取消按钮
 @property(nonatomic, strong) UIButton *confirmButton; //确认按钮
-@property(nonatomic, strong) DateIndicator *fromIndicator;//开始时间的指示器
-@property(nonatomic, strong) DateIndicator *toIndicator;//结束时间的指示器
+@property(nonatomic, strong) ZYDateIndicator *fromIndicator;//开始时间的指示器
+@property(nonatomic, strong) ZYDateIndicator *toIndicator;//结束时间的指示器
 
 @property(nonatomic, strong) NSDate *currentDate;
 @property(nonatomic, strong) NSDate *startDate;

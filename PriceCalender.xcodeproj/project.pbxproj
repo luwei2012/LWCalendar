@@ -15,20 +15,15 @@
 		153CA01F1CD0B47C00958372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 153CA01D1CD0B47C00958372 /* LaunchScreen.storyboard */; };
 		153CA02A1CD0B47C00958372 /* PriceCalenderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 153CA0291CD0B47C00958372 /* PriceCalenderTests.m */; };
 		153CA0351CD0B47C00958372 /* PriceCalenderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 153CA0341CD0B47C00958372 /* PriceCalenderUITests.m */; };
-		153CA0471CD0B50A00958372 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 153CA0461CD0B50A00958372 /* DateViewController.m */; };
-		153CA04A1CD0B58E00958372 /* CalenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 153CA0491CD0B58E00958372 /* CalenderCell.m */; };
-		153CA04D1CD0B66200958372 /* CalenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 153CA04C1CD0B66200958372 /* CalenderView.m */; };
-		153CA0501CD0B7D800958372 /* MonthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 153CA04F1CD0B7D800958372 /* MonthCell.m */; };
-		153CA0531CD0B84000958372 /* WeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 153CA0521CD0B84000958372 /* WeekView.m */; };
 		533B9A431E151676003E416C /* JTDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A381E151676003E416C /* JTDateHelper.m */; };
 		533B9A441E151676003E416C /* ZYCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A3A1E151676003E416C /* ZYCalendarManager.m */; };
 		533B9A451E151676003E416C /* ZYCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A3C1E151676003E416C /* ZYCalendarView.m */; };
 		533B9A461E151676003E416C /* ZYDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A3E1E151676003E416C /* ZYDayView.m */; };
 		533B9A471E151676003E416C /* ZYMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A401E151676003E416C /* ZYMonthView.m */; };
 		533B9A481E151676003E416C /* ZYWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A421E151676003E416C /* ZYWeekView.m */; };
-		533B9A4B1E151AA9003E416C /* DatePickerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A4A1E151AA9003E416C /* DatePickerDialog.m */; };
-		5345A3D61E1CA5FB000DD6C1 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3D51E1CA5FB000DD6C1 /* DatePickerView.m */; };
-		5345A3D91E1CE780000DD6C1 /* DateIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3D81E1CE780000DD6C1 /* DateIndicator.m */; };
+		533B9A4B1E151AA9003E416C /* ZYDatePickerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B9A4A1E151AA9003E416C /* ZYDatePickerDialog.m */; };
+		5345A3D61E1CA5FB000DD6C1 /* ZYDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3D51E1CA5FB000DD6C1 /* ZYDatePickerView.m */; };
+		5345A3D91E1CE780000DD6C1 /* ZYDateIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3D81E1CE780000DD6C1 /* ZYDateIndicator.m */; };
 		5345A3DD1E1E4A8F000DD6C1 /* ZYWeekIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345A3DC1E1E4A8F000DD6C1 /* ZYWeekIndicator.m */; };
 /* End PBXBuildFile section */
 
@@ -66,16 +61,6 @@
 		153CA0301CD0B47C00958372 /* PriceCalenderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PriceCalenderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153CA0341CD0B47C00958372 /* PriceCalenderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriceCalenderUITests.m; sourceTree = "<group>"; };
 		153CA0361CD0B47C00958372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		153CA0451CD0B50A00958372 /* DateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
-		153CA0461CD0B50A00958372 /* DateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
-		153CA0481CD0B58E00958372 /* CalenderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderCell.h; sourceTree = "<group>"; };
-		153CA0491CD0B58E00958372 /* CalenderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderCell.m; sourceTree = "<group>"; };
-		153CA04B1CD0B66200958372 /* CalenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderView.h; sourceTree = "<group>"; };
-		153CA04C1CD0B66200958372 /* CalenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderView.m; sourceTree = "<group>"; };
-		153CA04E1CD0B7D800958372 /* MonthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCell.h; sourceTree = "<group>"; };
-		153CA04F1CD0B7D800958372 /* MonthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCell.m; sourceTree = "<group>"; };
-		153CA0511CD0B84000958372 /* WeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekView.h; sourceTree = "<group>"; };
-		153CA0521CD0B84000958372 /* WeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekView.m; sourceTree = "<group>"; };
 		533B9A371E151676003E416C /* JTDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTDateHelper.h; sourceTree = "<group>"; };
 		533B9A381E151676003E416C /* JTDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTDateHelper.m; sourceTree = "<group>"; };
 		533B9A391E151676003E416C /* ZYCalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCalendarManager.h; sourceTree = "<group>"; };
@@ -88,12 +73,12 @@
 		533B9A401E151676003E416C /* ZYMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMonthView.m; sourceTree = "<group>"; };
 		533B9A411E151676003E416C /* ZYWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYWeekView.h; sourceTree = "<group>"; };
 		533B9A421E151676003E416C /* ZYWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYWeekView.m; sourceTree = "<group>"; };
-		533B9A491E151AA9003E416C /* DatePickerDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerDialog.h; path = ../DatePickerDialog.h; sourceTree = "<group>"; };
-		533B9A4A1E151AA9003E416C /* DatePickerDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerDialog.m; path = ../DatePickerDialog.m; sourceTree = "<group>"; };
-		5345A3D41E1CA5FB000DD6C1 /* DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerView.h; sourceTree = "<group>"; };
-		5345A3D51E1CA5FB000DD6C1 /* DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerView.m; sourceTree = "<group>"; };
-		5345A3D71E1CE780000DD6C1 /* DateIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateIndicator.h; sourceTree = "<group>"; };
-		5345A3D81E1CE780000DD6C1 /* DateIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateIndicator.m; sourceTree = "<group>"; };
+		533B9A491E151AA9003E416C /* ZYDatePickerDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYDatePickerDialog.h; path = ../ZYDatePickerDialog.h; sourceTree = "<group>"; };
+		533B9A4A1E151AA9003E416C /* ZYDatePickerDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYDatePickerDialog.m; path = ../ZYDatePickerDialog.m; sourceTree = "<group>"; };
+		5345A3D41E1CA5FB000DD6C1 /* ZYDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYDatePickerView.h; sourceTree = "<group>"; };
+		5345A3D51E1CA5FB000DD6C1 /* ZYDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYDatePickerView.m; sourceTree = "<group>"; };
+		5345A3D71E1CE780000DD6C1 /* ZYDateIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYDateIndicator.h; sourceTree = "<group>"; };
+		5345A3D81E1CE780000DD6C1 /* ZYDateIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYDateIndicator.m; sourceTree = "<group>"; };
 		5345A3DA1E1D1F8C000DD6C1 /* ZYCalendarHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYCalendarHeader.h; sourceTree = "<group>"; };
 		5345A3DB1E1E4A8F000DD6C1 /* ZYWeekIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYWeekIndicator.h; sourceTree = "<group>"; };
 		5345A3DC1E1E4A8F000DD6C1 /* ZYWeekIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYWeekIndicator.m; sourceTree = "<group>"; };
@@ -191,41 +176,15 @@
 		153CA0421CD0B4BE00958372 /* Date */ = {
 			isa = PBXGroup;
 			children = (
-				153CA0441CD0B4D700958372 /* Controller */,
-				153CA0431CD0B4CA00958372 /* View */,
 			);
 			name = Date;
-			sourceTree = "<group>";
-		};
-		153CA0431CD0B4CA00958372 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				153CA0481CD0B58E00958372 /* CalenderCell.h */,
-				153CA0491CD0B58E00958372 /* CalenderCell.m */,
-				153CA04B1CD0B66200958372 /* CalenderView.h */,
-				153CA04C1CD0B66200958372 /* CalenderView.m */,
-				153CA04E1CD0B7D800958372 /* MonthCell.h */,
-				153CA04F1CD0B7D800958372 /* MonthCell.m */,
-				153CA0511CD0B84000958372 /* WeekView.h */,
-				153CA0521CD0B84000958372 /* WeekView.m */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		153CA0441CD0B4D700958372 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				153CA0451CD0B50A00958372 /* DateViewController.h */,
-				153CA0461CD0B50A00958372 /* DateViewController.m */,
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 		533B9A361E151676003E416C /* ZYCalendarView */ = {
 			isa = PBXGroup;
 			children = (
-				533B9A491E151AA9003E416C /* DatePickerDialog.h */,
-				533B9A4A1E151AA9003E416C /* DatePickerDialog.m */,
+				533B9A491E151AA9003E416C /* ZYDatePickerDialog.h */,
+				533B9A4A1E151AA9003E416C /* ZYDatePickerDialog.m */,
 				533B9A371E151676003E416C /* JTDateHelper.h */,
 				533B9A381E151676003E416C /* JTDateHelper.m */,
 				533B9A391E151676003E416C /* ZYCalendarManager.h */,
@@ -238,10 +197,10 @@
 				533B9A401E151676003E416C /* ZYMonthView.m */,
 				533B9A411E151676003E416C /* ZYWeekView.h */,
 				533B9A421E151676003E416C /* ZYWeekView.m */,
-				5345A3D41E1CA5FB000DD6C1 /* DatePickerView.h */,
-				5345A3D51E1CA5FB000DD6C1 /* DatePickerView.m */,
-				5345A3D71E1CE780000DD6C1 /* DateIndicator.h */,
-				5345A3D81E1CE780000DD6C1 /* DateIndicator.m */,
+				5345A3D41E1CA5FB000DD6C1 /* ZYDatePickerView.h */,
+				5345A3D51E1CA5FB000DD6C1 /* ZYDatePickerView.m */,
+				5345A3D71E1CE780000DD6C1 /* ZYDateIndicator.h */,
+				5345A3D81E1CE780000DD6C1 /* ZYDateIndicator.m */,
 				5345A3DA1E1D1F8C000DD6C1 /* ZYCalendarHeader.h */,
 				5345A3DB1E1E4A8F000DD6C1 /* ZYWeekIndicator.h */,
 				5345A3DC1E1E4A8F000DD6C1 /* ZYWeekIndicator.m */,
@@ -380,22 +339,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				533B9A431E151676003E416C /* JTDateHelper.m in Sources */,
-				153CA0471CD0B50A00958372 /* DateViewController.m in Sources */,
-				5345A3D61E1CA5FB000DD6C1 /* DatePickerView.m in Sources */,
+				5345A3D61E1CA5FB000DD6C1 /* ZYDatePickerView.m in Sources */,
 				153CA0171CD0B47C00958372 /* ViewController.m in Sources */,
 				153CA0141CD0B47C00958372 /* AppDelegate.m in Sources */,
 				533B9A441E151676003E416C /* ZYCalendarManager.m in Sources */,
 				153CA0111CD0B47C00958372 /* main.m in Sources */,
-				533B9A4B1E151AA9003E416C /* DatePickerDialog.m in Sources */,
-				5345A3D91E1CE780000DD6C1 /* DateIndicator.m in Sources */,
+				533B9A4B1E151AA9003E416C /* ZYDatePickerDialog.m in Sources */,
+				5345A3D91E1CE780000DD6C1 /* ZYDateIndicator.m in Sources */,
 				533B9A451E151676003E416C /* ZYCalendarView.m in Sources */,
-				153CA0531CD0B84000958372 /* WeekView.m in Sources */,
 				533B9A471E151676003E416C /* ZYMonthView.m in Sources */,
 				5345A3DD1E1E4A8F000DD6C1 /* ZYWeekIndicator.m in Sources */,
-				153CA04D1CD0B66200958372 /* CalenderView.m in Sources */,
-				153CA0501CD0B7D800958372 /* MonthCell.m in Sources */,
 				533B9A461E151676003E416C /* ZYDayView.m in Sources */,
-				153CA04A1CD0B58E00958372 /* CalenderCell.m in Sources */,
 				533B9A481E151676003E416C /* ZYWeekView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

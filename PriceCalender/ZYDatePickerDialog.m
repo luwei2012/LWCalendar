@@ -16,22 +16,22 @@
 //垂直方向边距
 #define DATEPICKER_MARGIN_V (60)
 
-static DatePickerDialog *_instance;
+static ZYDatePickerDialog *_instance;
 
-@interface DatePickerDialog ()<UIGestureRecognizerDelegate>
+@interface ZYDatePickerDialog ()<UIGestureRecognizerDelegate>
 
 @end
 
-@implementation DatePickerDialog
+@implementation ZYDatePickerDialog
 
 @synthesize dateContainer = _dateContainer,currentDate = _currentDate ,startDate = _startDate, endDate = _endDate, manager = _manager;
 
 +(instancetype)initWithDate:(NSDate *)currentDate Delegate:(id<DatePickerDelegate>)delegate{
-    return [DatePickerDialog initWithDate:currentDate StartDate:currentDate Delegate:delegate];
+    return [ZYDatePickerDialog initWithDate:currentDate StartDate:currentDate Delegate:delegate];
 }
 
 +(instancetype)initWithDate:(NSDate *)currentDate StartDate:(NSDate *)startDate Delegate:(id<DatePickerDelegate>)delegate{
-    return [DatePickerDialog initWithDate:currentDate StartDate:startDate EndDate:startDate Delegate:delegate];
+    return [ZYDatePickerDialog initWithDate:currentDate StartDate:startDate EndDate:startDate Delegate:delegate];
 }
 
 +(instancetype)initWithDate:(NSDate *)currentDate StartDate:(NSDate *)startDate EndDate:(NSDate *)endDate Delegate:(id<DatePickerDelegate>)delegate{
@@ -91,9 +91,9 @@ static DatePickerDialog *_instance;
 
 
 #pragma mark Get And Set
--(DatePickerView *)dateContainer{
+-(ZYDatePickerView *)dateContainer{
     if (_dateContainer == nil) {
-        _dateContainer = [[DatePickerView alloc] init];
+        _dateContainer = [[ZYDatePickerView alloc] init];
         _dateContainer.dialogDelegate = self;
         _dateContainer.alpha = 0.0;
         _dateContainer.translatesAutoresizingMaskIntoConstraints = NO;
