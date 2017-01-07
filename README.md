@@ -26,10 +26,14 @@
 ```objc
     [[ZYDatePickerDialog initWithDate:[NSDate date] Delegate:self] show]; 
 ```
-# To do
+## To do
+
 1.更换工程名，写这个库也是一时兴起，都没来得及改名字
+
 2.添加到Pod中，支持pod安装
+
 3.添加UI定制的API
+
 4.寻找UI设计师帮忙设计布局，这个布局还是有点丑......
 
 ## Author
