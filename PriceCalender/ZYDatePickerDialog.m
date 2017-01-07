@@ -9,12 +9,6 @@
 #import "ZYCalendarHeader.h"
 #import "AppDelegate.h"
 
-//动画时间
-#define ANIMATE_DUTATION (0.5)
-//水平方向边距
-#define DATEPICKER_MARGIN_H (60)
-//垂直方向边距
-#define DATEPICKER_MARGIN_V (60)
 
 static ZYDatePickerDialog *_instance;
 
@@ -55,6 +49,7 @@ static ZYDatePickerDialog *_instance;
     recognizer.delegate = self;
     [self.view addGestureRecognizer:recognizer];
 }
+ 
 
 -(void)show{
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;

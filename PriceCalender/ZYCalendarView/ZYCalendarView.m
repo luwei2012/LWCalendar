@@ -20,11 +20,7 @@
 
 @synthesize currentDate = _currentDate, startDate = _startDate, endDate = _endDate , selectedStartDay = _selectedStartDay, selectedEndDay = _selectedEndDay;
 
-
-+(CGFloat)heightForCalendarView{
-    return 300.0f;
-}
-
+ 
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -52,17 +48,23 @@
     }
     
     // self的宽改变
-    if(size.width != lastSize.width){
+    if(!lastSize.width || size.width != lastSize.width){
         lastSize = size;
-        
         monthView1.frame = CGRectMake(0, monthView1.frame.origin.y, size.width, monthView1.frame.size.height);
         monthView2.frame = CGRectMake(0, monthView2.frame.origin.y, size.width, monthView2.frame.size.height);
         monthView3.frame = CGRectMake(0, monthView3.frame.origin.y, size.width, monthView3.frame.size.height);
         monthView4.frame = CGRectMake(0, monthView4.frame.origin.y, size.width, monthView4.frame.size.height);
         monthView5.frame = CGRectMake(0, monthView5.frame.origin.y, size.width, monthView5.frame.size.height);
-        
-        self.contentSize = CGSizeMake(size.width, self.contentSize.height);
+        self.contentSize = CGSizeMake(size.width, monthView1.frame.size.height + monthView2.frame.size.height + monthView3.frame.size.height + monthView4.frame.size.height + monthView5.frame.size.height);
+
     }
+//    NSLog(@"monthView1.frame %f",monthView1.frame.size.height);
+//    NSLog(@"monthView2.frame %f",monthView2.frame.size.height);
+//    NSLog(@"monthView3.frame %f",monthView3.frame.size.height);
+//    NSLog(@"monthView4.frame %f",monthView4.frame.size.height);
+//    NSLog(@"monthView5.frame %f",monthView5.frame.size.height);
+//    NSLog(@"resetMonthViewsFrame monthView3.frame %f",monthView3.frame.origin.y);
+//    NSLog(@"resetMonthViewsFrame contentOffset %f",self.contentOffset.y);
 }
 
 // 首次加载
@@ -77,10 +79,10 @@
         monthView5 = [[ZYMonthView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 0)];
         
         monthView1.tag = 1;
-        monthView1.tag = 2;
-        monthView1.tag = 3;
-        monthView1.tag = 4;
-        monthView1.tag = 5;
+        monthView2.tag = 2;
+        monthView3.tag = 3;
+        monthView4.tag = 4;
+        monthView5.tag = 5;
         
         monthView1.calendarDelegate = self;
         monthView2.calendarDelegate = self;
@@ -99,7 +101,6 @@
     
     self.contentSize = CGSizeMake(size.width, monthView1.frame.size.height + monthView2.frame.size.height + monthView3.frame.size.height + monthView4.frame.size.height + monthView5.frame.size.height);
     self.contentOffset = CGPointMake(0, monthView1.frame.size.height + monthView2.frame.size.height);
-    
     [self resetMonthViewsFrame];
     
 }
@@ -114,7 +115,7 @@
         // 加载上一页(如果是当前日期的上一个月, 不加载)
         [self loadPreviousPage];
     }
-    else if(self.contentOffset.y > monthView1.frame.size.height+monthView2.frame.size.height+monthView3.frame.size.height/2.0){
+    else if(self.contentOffset.y > monthView1.frame.size.height + monthView2.frame.size.height + monthView3.frame.size.height/2.0){
         // 加载下一页
         [self loadNextPage];
     }
@@ -159,11 +160,17 @@
 
 - (void)resetMonthViewsFrame {
     CGSize size = self.frame.size;
+
     monthView1.frame = CGRectMake(0, 0, size.width, monthView1.frame.size.height);
+
     monthView2.frame = CGRectMake(0, CGRectGetMaxY(monthView1.frame), size.width, monthView2.frame.size.height);
+
     monthView3.frame = CGRectMake(0, CGRectGetMaxY(monthView2.frame), size.width, monthView3.frame.size.height);
+
     monthView4.frame = CGRectMake(0, CGRectGetMaxY(monthView3.frame), size.width, monthView4.frame.size.height);
+
     monthView5.frame = CGRectMake(0, CGRectGetMaxY(monthView4.frame), size.width, monthView5.frame.size.height);
+    
     self.contentSize = CGSizeMake(size.width,
                                   monthView1.frame.size.height + monthView2.frame.size.height + monthView3.frame.size.height + monthView4.frame.size.height + monthView5.frame.size.height);
 }
@@ -205,7 +212,7 @@
 }
 
 -(void)setCurrentDate:(NSDate *)currentDate{
-    _currentDate = currentDate;     
+    _currentDate = currentDate;
     monthView1.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:_currentDate months:-2];
     monthView2.date = [self.dateViewDelegate.dialogDelegate.manager.helper addToDate:_currentDate months:-1];
     monthView3.date = _currentDate;

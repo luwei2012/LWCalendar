@@ -7,9 +7,6 @@
 //
 
 #import "ZYCalendarHeader.h"
-#define DATE_TITLE_FONT_SIZE (16)
-#define DATE_SHOW_FONT_SIZE (16)
-#define DATE_TITLE_HEIGHT (48)
 
 @implementation ZYDateIndicator
 @synthesize titleLabel = _titleLabel, dateLabel = _dateLabel, date = _date;

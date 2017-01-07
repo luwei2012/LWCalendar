@@ -32,7 +32,6 @@
 @property (nonatomic, weak)ZYDatePickerView *dateViewDelegate;
 
 -(void)scrollToDate:(NSDate *)date;
-
-+(CGFloat)heightForCalendarView;
+ 
 
 @end
