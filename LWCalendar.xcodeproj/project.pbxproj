@@ -1,0 +1,380 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		53CF39031E220F5600A4311C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF39021E220F5600A4311C /* main.m */; };
+		53CF39061E220F5600A4311C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF39051E220F5600A4311C /* AppDelegate.m */; };
+		53CF39091E220F5600A4311C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF39081E220F5600A4311C /* ViewController.m */; };
+		53CF390C1E220F5700A4311C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF390A1E220F5700A4311C /* Main.storyboard */; };
+		53CF390E1E220F5700A4311C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CF390D1E220F5700A4311C /* Assets.xcassets */; };
+		53CF39111E220F5700A4311C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF390F1E220F5700A4311C /* LaunchScreen.storyboard */; };
+		53CF392E1E220FDC00A4311C /* LWCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF391B1E220FDC00A4311C /* LWCalendarManager.m */; };
+		53CF392F1E220FDC00A4311C /* LWCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF391D1E220FDC00A4311C /* LWCalendarView.m */; };
+		53CF39301E220FDC00A4311C /* LWDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF391F1E220FDC00A4311C /* LWDateHelper.m */; };
+		53CF39311E220FDC00A4311C /* LWDateIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF39211E220FDC00A4311C /* LWDateIndicator.m */; };
+		53CF39321E220FDC00A4311C /* LWDatePickerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF39231E220FDC00A4311C /* LWDatePickerDialog.m */; };
+		53CF39331E220FDC00A4311C /* LWDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF39251E220FDC00A4311C /* LWDatePickerView.m */; };
+		53CF39341E220FDC00A4311C /* LWDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF39271E220FDC00A4311C /* LWDayView.m */; };
+		53CF39351E220FDC00A4311C /* LWMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF39291E220FDC00A4311C /* LWMonthView.m */; };
+		53CF39361E220FDC00A4311C /* LWWeekIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF392B1E220FDC00A4311C /* LWWeekIndicator.m */; };
+		53CF39371E220FDC00A4311C /* LWWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CF392D1E220FDC00A4311C /* LWWeekView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		53CF38FE1E220F5600A4311C /* LWCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LWCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53CF39021E220F5600A4311C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		53CF39041E220F5600A4311C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		53CF39051E220F5600A4311C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		53CF39071E220F5600A4311C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		53CF39081E220F5600A4311C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		53CF390B1E220F5700A4311C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53CF390D1E220F5700A4311C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		53CF39101E220F5700A4311C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53CF39121E220F5700A4311C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53CF39191E220FDC00A4311C /* LWCalendarHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCalendarHeader.h; sourceTree = "<group>"; };
+		53CF391A1E220FDC00A4311C /* LWCalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCalendarManager.h; sourceTree = "<group>"; };
+		53CF391B1E220FDC00A4311C /* LWCalendarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCalendarManager.m; sourceTree = "<group>"; };
+		53CF391C1E220FDC00A4311C /* LWCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCalendarView.h; sourceTree = "<group>"; };
+		53CF391D1E220FDC00A4311C /* LWCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCalendarView.m; sourceTree = "<group>"; };
+		53CF391E1E220FDC00A4311C /* LWDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDateHelper.h; sourceTree = "<group>"; };
+		53CF391F1E220FDC00A4311C /* LWDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDateHelper.m; sourceTree = "<group>"; };
+		53CF39201E220FDC00A4311C /* LWDateIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDateIndicator.h; sourceTree = "<group>"; };
+		53CF39211E220FDC00A4311C /* LWDateIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDateIndicator.m; sourceTree = "<group>"; };
+		53CF39221E220FDC00A4311C /* LWDatePickerDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDatePickerDialog.h; sourceTree = "<group>"; };
+		53CF39231E220FDC00A4311C /* LWDatePickerDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDatePickerDialog.m; sourceTree = "<group>"; };
+		53CF39241E220FDC00A4311C /* LWDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDatePickerView.h; sourceTree = "<group>"; };
+		53CF39251E220FDC00A4311C /* LWDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDatePickerView.m; sourceTree = "<group>"; };
+		53CF39261E220FDC00A4311C /* LWDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDayView.h; sourceTree = "<group>"; };
+		53CF39271E220FDC00A4311C /* LWDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDayView.m; sourceTree = "<group>"; };
+		53CF39281E220FDC00A4311C /* LWMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMonthView.h; sourceTree = "<group>"; };
+		53CF39291E220FDC00A4311C /* LWMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMonthView.m; sourceTree = "<group>"; };
+		53CF392A1E220FDC00A4311C /* LWWeekIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWeekIndicator.h; sourceTree = "<group>"; };
+		53CF392B1E220FDC00A4311C /* LWWeekIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWeekIndicator.m; sourceTree = "<group>"; };
+		53CF392C1E220FDC00A4311C /* LWWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWeekView.h; sourceTree = "<group>"; };
+		53CF392D1E220FDC00A4311C /* LWWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWeekView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		53CF38FB1E220F5600A4311C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53CF38F51E220F5600A4311C = {
+			isa = PBXGroup;
+			children = (
+				53CF39181E220FDC00A4311C /* LWCalendarView */,
+				53CF39001E220F5600A4311C /* LWCalendar */,
+				53CF38FF1E220F5600A4311C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		53CF38FF1E220F5600A4311C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53CF38FE1E220F5600A4311C /* LWCalendar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53CF39001E220F5600A4311C /* LWCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				53CF39041E220F5600A4311C /* AppDelegate.h */,
+				53CF39051E220F5600A4311C /* AppDelegate.m */,
+				53CF39071E220F5600A4311C /* ViewController.h */,
+				53CF39081E220F5600A4311C /* ViewController.m */,
+				53CF390A1E220F5700A4311C /* Main.storyboard */,
+				53CF390D1E220F5700A4311C /* Assets.xcassets */,
+				53CF390F1E220F5700A4311C /* LaunchScreen.storyboard */,
+				53CF39121E220F5700A4311C /* Info.plist */,
+				53CF39011E220F5600A4311C /* Supporting Files */,
+			);
+			path = LWCalendar;
+			sourceTree = "<group>";
+		};
+		53CF39011E220F5600A4311C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				53CF39021E220F5600A4311C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		53CF39181E220FDC00A4311C /* LWCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				53CF39191E220FDC00A4311C /* LWCalendarHeader.h */,
+				53CF391A1E220FDC00A4311C /* LWCalendarManager.h */,
+				53CF391B1E220FDC00A4311C /* LWCalendarManager.m */,
+				53CF391C1E220FDC00A4311C /* LWCalendarView.h */,
+				53CF391D1E220FDC00A4311C /* LWCalendarView.m */,
+				53CF391E1E220FDC00A4311C /* LWDateHelper.h */,
+				53CF391F1E220FDC00A4311C /* LWDateHelper.m */,
+				53CF39201E220FDC00A4311C /* LWDateIndicator.h */,
+				53CF39211E220FDC00A4311C /* LWDateIndicator.m */,
+				53CF39221E220FDC00A4311C /* LWDatePickerDialog.h */,
+				53CF39231E220FDC00A4311C /* LWDatePickerDialog.m */,
+				53CF39241E220FDC00A4311C /* LWDatePickerView.h */,
+				53CF39251E220FDC00A4311C /* LWDatePickerView.m */,
+				53CF39261E220FDC00A4311C /* LWDayView.h */,
+				53CF39271E220FDC00A4311C /* LWDayView.m */,
+				53CF39281E220FDC00A4311C /* LWMonthView.h */,
+				53CF39291E220FDC00A4311C /* LWMonthView.m */,
+				53CF392A1E220FDC00A4311C /* LWWeekIndicator.h */,
+				53CF392B1E220FDC00A4311C /* LWWeekIndicator.m */,
+				53CF392C1E220FDC00A4311C /* LWWeekView.h */,
+				53CF392D1E220FDC00A4311C /* LWWeekView.m */,
+			);
+			name = LWCalendarView;
+			path = LWCalendar/LWCalendarView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		53CF38FD1E220F5600A4311C /* LWCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53CF39151E220F5700A4311C /* Build configuration list for PBXNativeTarget "LWCalendar" */;
+			buildPhases = (
+				53CF38FA1E220F5600A4311C /* Sources */,
+				53CF38FB1E220F5600A4311C /* Frameworks */,
+				53CF38FC1E220F5600A4311C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LWCalendar;
+			productName = LWCalendar;
+			productReference = 53CF38FE1E220F5600A4311C /* LWCalendar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		53CF38F61E220F5600A4311C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = luwei;
+				TargetAttributes = {
+					53CF38FD1E220F5600A4311C = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = UH3DG65MUK;
+					};
+				};
+			};
+			buildConfigurationList = 53CF38F91E220F5600A4311C /* Build configuration list for PBXProject "LWCalendar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 53CF38F51E220F5600A4311C;
+			productRefGroup = 53CF38FF1E220F5600A4311C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53CF38FD1E220F5600A4311C /* LWCalendar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		53CF38FC1E220F5600A4311C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53CF39111E220F5700A4311C /* LaunchScreen.storyboard in Resources */,
+				53CF390E1E220F5700A4311C /* Assets.xcassets in Resources */,
+				53CF390C1E220F5700A4311C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		53CF38FA1E220F5600A4311C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53CF39371E220FDC00A4311C /* LWWeekView.m in Sources */,
+				53CF39311E220FDC00A4311C /* LWDateIndicator.m in Sources */,
+				53CF39091E220F5600A4311C /* ViewController.m in Sources */,
+				53CF39061E220F5600A4311C /* AppDelegate.m in Sources */,
+				53CF392F1E220FDC00A4311C /* LWCalendarView.m in Sources */,
+				53CF39361E220FDC00A4311C /* LWWeekIndicator.m in Sources */,
+				53CF39341E220FDC00A4311C /* LWDayView.m in Sources */,
+				53CF392E1E220FDC00A4311C /* LWCalendarManager.m in Sources */,
+				53CF39351E220FDC00A4311C /* LWMonthView.m in Sources */,
+				53CF39331E220FDC00A4311C /* LWDatePickerView.m in Sources */,
+				53CF39301E220FDC00A4311C /* LWDateHelper.m in Sources */,
+				53CF39321E220FDC00A4311C /* LWDatePickerDialog.m in Sources */,
+				53CF39031E220F5600A4311C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		53CF390A1E220F5700A4311C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53CF390B1E220F5700A4311C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		53CF390F1E220F5700A4311C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53CF39101E220F5700A4311C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		53CF39131E220F5700A4311C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53CF39141E220F5700A4311C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		53CF39161E220F5700A4311C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LWCalendar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = www.luwei.com.LWCalendar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		53CF39171E220F5700A4311C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LWCalendar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = www.luwei.com.LWCalendar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		53CF38F91E220F5600A4311C /* Build configuration list for PBXProject "LWCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53CF39131E220F5700A4311C /* Debug */,
+				53CF39141E220F5700A4311C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53CF39151E220F5700A4311C /* Build configuration list for PBXNativeTarget "LWCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53CF39161E220F5700A4311C /* Debug */,
+				53CF39171E220F5700A4311C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 53CF38F61E220F5600A4311C /* Project object */;
+}
