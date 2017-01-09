@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LWCalendar_Example' do
+  pod 'LWCalendar', :path => '../'
+
+  target 'LWCalendar_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

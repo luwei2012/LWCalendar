@@ -1,0 +1,16 @@
+PODS:
+  - LWCalendar (0.1.0)
+
+DEPENDENCIES:
+  - LWCalendar (from `../`)
+
+EXTERNAL SOURCES:
+  LWCalendar:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LWCalendar: b0e4ae04650b212a104a1d6943cdd0dcdb057aa8
+
+PODFILE CHECKSUM: 06329ed04c71f394f1a4e2218c3fc43aa8665ed6
+
+COCOAPODS: 1.0.1

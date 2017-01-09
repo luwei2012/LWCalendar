@@ -1,0 +1,6 @@
+framework module LWCalendar {
+  umbrella header "LWCalendar-umbrella.h"
+
+  export *
+  module * { export * }
+}
