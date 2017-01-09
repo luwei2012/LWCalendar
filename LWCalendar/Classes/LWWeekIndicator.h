@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LWWeekIndicator : UIView
+@class LWDatePickerBuilder, LWMonthView;
 
+@interface LWWeekIndicator : UIView
+@property (nonatomic, weak) LWDatePickerBuilder *dialogBuilder;
+@property (nonatomic, weak) LWMonthView *monthDelegate;
 @end

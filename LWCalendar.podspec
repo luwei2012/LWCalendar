@@ -37,6 +37,6 @@ If you want to contribut to this project,please email "1071932819@qq.com".
 
   s.source_files = 'LWCalendar/Classes/**/*'
   
-  s.resource = 'LWCalendar/Assets/*.png'
+  s.resource = 'LWCalendar/Assets/**/*'
 
 end

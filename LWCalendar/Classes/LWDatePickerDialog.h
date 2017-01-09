@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class LWDatePickerDialog,LWCalendarManager,LWDatePickerView;
+@class LWDatePickerDialog,LWCalendarManager, LWDatePickerView, LWDatePickerBuilder;
 
 /**
  日期选择器的回调
@@ -22,8 +22,8 @@
 @end
 
 @interface LWDatePickerDialog :  UIViewController
-
-@property(nonatomic, strong) LWDatePickerView *dateContainer;   //日期选择器的容器
+@property(nonatomic, strong) LWDatePickerBuilder *dialogBuilder;  //日期选择器的样式配置
+@property(nonatomic, strong) LWDatePickerView *datePickerView;   //日期选择器的容器
 @property(nonatomic, strong) LWCalendarManager *manager;        //日期选择器的配置参数
 @property(nonatomic, strong) NSDate *currentDate;               //今日日期 特殊显示
 @property(nonatomic, strong) NSDate *startDate;                 //选中的开始日期，默认为今日日期
@@ -34,17 +34,27 @@
 + (instancetype)initWithDate:(NSDate *)currentDate
                    StartDate:(NSDate *)startDate
                      EndDate:(NSDate *)endDate
-                    Delegate:(id<LWDatePickerDelegate>)delegate;
+                    Delegate:(id<LWDatePickerDelegate>)delegate
+                     Builder:(LWDatePickerBuilder *)builder;
 
 + (instancetype)initWithDate:(NSDate *)currentDate
                    StartDate:(NSDate *)startDate
-                    Delegate:(id<LWDatePickerDelegate>)delegate;
+                    Delegate:(id<LWDatePickerDelegate>)delegate
+                     Builder:(LWDatePickerBuilder *)builder;
 
-+ (instancetype)initWithDate:(NSDate *)currentDate Delegate:(id<LWDatePickerDelegate>)delegate;
++ (instancetype)initWithDate:(NSDate *)currentDate
+                    Delegate:(id<LWDatePickerDelegate>)delegate
+                     Builder:(LWDatePickerBuilder *)builder;
+
++ (instancetype)initWithDate:(NSDate *)currentDate
+                    Delegate:(id<LWDatePickerDelegate>)delegate;
 
 //显示日期选择器
 - (void)show;
 //隐藏日期选择器
 - (void)hide;
+
+#pragma mark UI定制接口
+
 
 @end

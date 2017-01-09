@@ -18,13 +18,13 @@
     CGSize lastSize;
     NSMutableArray *dayViews;
 }
-@synthesize monthDelegate = _monthDelegate;
+@synthesize monthDelegate = _monthDelegate, dialogBuilder   = _dialogBuilder;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         dayViews = [NSMutableArray new];
         dayViewWidth = frame.size.width / 7;
-        dayViewHeight = (frame.size.width - LINE_GAP * 8 ) / 7;
+        dayViewHeight = (frame.size.width - self.dialogBuilder.LWCalendarRowGap * 8 ) / 7;
     }
     return self;
 }
@@ -41,7 +41,7 @@
 - (void)resize {
     if (dayViews.count > 0) {
         dayViewWidth = self.frame.size.width / 7;
-        dayViewHeight = (self.frame.size.width - LINE_GAP * 8 ) / 7; 
+        dayViewHeight = (self.frame.size.width - self.dialogBuilder.LWCalendarRowGap * 8 ) / 7;
         
         for (int i = 0; i < 7; i++) {
             LWDayView *dayView = dayViews[i];
@@ -85,6 +85,31 @@
         dayView.date = dayDate;
         [self addSubview:dayView];
         [dayViews addObject:dayView];
+    }
+}
+
+-(void)setDialogBuilder:(LWDatePickerBuilder *)dialogBuilder{
+    if (dialogBuilder && _dialogBuilder != dialogBuilder) {
+        _dialogBuilder = dialogBuilder;
+        [self updateWithBuilder:dialogBuilder];
+    }
+}
+
+-(LWDatePickerBuilder *)dialogBuilder{
+    if (self.monthDelegate) {
+        _dialogBuilder = self.monthDelegate.dialogBuilder;
+    }else{
+        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    }
+    return _dialogBuilder;
+}
+
+#pragma mark 根据Build参数更新UI或者约束
+-(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
+    //dayView设置
+    for (int i = 0; i < dayViews.count; i++) {
+        LWDayView *dayView = dayViews[i];
+        dayView.dialogBuilder = builder;
     }
 }
 

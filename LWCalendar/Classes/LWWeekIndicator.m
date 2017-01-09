@@ -27,7 +27,8 @@ label3 = _label3,
 label4 = _label4,
 label5 = _label5,
 label6 = _label6,
-label7 = _label7;
+label7 = _label7,
+dialogBuilder = _dialogBuilder;
 
 -(instancetype)init{
     if (self = [super init]) {
@@ -61,8 +62,6 @@ label7 = _label7;
         _label1 = [[UILabel alloc] init];
         _label1.translatesAutoresizingMaskIntoConstraints = NO;
         _label1.textAlignment = NSTextAlignmentCenter;
-        _label1.textColor = LWHEXCOLOR(0x666666);
-        _label1.font = [UIFont systemFontOfSize:WEEK_INDICATOR_FONT_SIZE];
         [self addSubview:_label1];
         //添加约束
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_label1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:(1.0f/7.0f) constant:0.0];
@@ -82,8 +81,6 @@ label7 = _label7;
         _label2 = [[UILabel alloc] init];
         _label2.translatesAutoresizingMaskIntoConstraints = NO;
         _label2.textAlignment = NSTextAlignmentCenter;
-        _label2.textColor = LWHEXCOLOR(0x666666);
-        _label2.font = [UIFont systemFontOfSize:WEEK_INDICATOR_FONT_SIZE];
         [self addSubview:_label2];
         //添加约束
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_label2 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:(1.0f/7.0f) constant:0.0];
@@ -103,8 +100,6 @@ label7 = _label7;
         _label3 = [[UILabel alloc] init];
         _label3.translatesAutoresizingMaskIntoConstraints = NO;
         _label3.textAlignment = NSTextAlignmentCenter;
-        _label3.textColor = LWHEXCOLOR(0x666666);
-        _label3.font = [UIFont systemFontOfSize:WEEK_INDICATOR_FONT_SIZE];
         [self addSubview:_label3];
         //添加约束
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_label3 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:(1.0f/7.0f) constant:0.0];
@@ -124,8 +119,6 @@ label7 = _label7;
         _label4 = [[UILabel alloc] init];
         _label4.translatesAutoresizingMaskIntoConstraints = NO;
         _label4.textAlignment = NSTextAlignmentCenter;
-        _label4.textColor = LWHEXCOLOR(0x666666);
-        _label4.font = [UIFont systemFontOfSize:WEEK_INDICATOR_FONT_SIZE];
         [self addSubview:_label4];
         //添加约束
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_label4 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:(1.0f/7.0f) constant:0.0];
@@ -144,9 +137,7 @@ label7 = _label7;
     if (_label5 == nil) {
         _label5 = [[UILabel alloc] init];
         _label5.translatesAutoresizingMaskIntoConstraints = NO;
-        _label5.textAlignment = NSTextAlignmentCenter;
-        _label5.textColor = LWHEXCOLOR(0x666666);
-        _label5.font = [UIFont systemFontOfSize:WEEK_INDICATOR_FONT_SIZE];
+        _label5.textAlignment = NSTextAlignmentCenter; 
         [self addSubview:_label5];
         //添加约束
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_label5 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:(1.0f/7.0f) constant:0.0];
@@ -166,8 +157,6 @@ label7 = _label7;
         _label6 = [[UILabel alloc] init];
         _label6.translatesAutoresizingMaskIntoConstraints = NO;
         _label6.textAlignment = NSTextAlignmentCenter;
-        _label6.textColor = LWHEXCOLOR(0x666666);
-        _label6.font = [UIFont systemFontOfSize:WEEK_INDICATOR_FONT_SIZE];
         [self addSubview:_label6];
         //添加约束
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_label6 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:(1.0f/7.0f) constant:0.0];
@@ -187,8 +176,6 @@ label7 = _label7;
         _label7 = [[UILabel alloc] init];
         _label7.translatesAutoresizingMaskIntoConstraints = NO;
         _label7.textAlignment = NSTextAlignmentCenter;
-        _label7.textColor = LWHEXCOLOR(0x666666);
-        _label7.font = [UIFont systemFontOfSize:WEEK_INDICATOR_FONT_SIZE];
         [self addSubview:_label7];
         //添加约束
         NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_label7 attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
@@ -201,6 +188,42 @@ label7 = _label7;
         [self addConstraint:viewHeight];
     }
     return _label7;
+}
+
+-(void)setDialogBuilder:(LWDatePickerBuilder *)dialogBuilder{
+    if (dialogBuilder && _dialogBuilder != dialogBuilder) {
+        _dialogBuilder = dialogBuilder;
+        [self updateWithBuilder:dialogBuilder];
+    }
+}
+
+-(LWDatePickerBuilder *)dialogBuilder{
+    if (self.monthDelegate && self.monthDelegate.calendarDelegate && self.monthDelegate.calendarDelegate.dateViewDelegate) {
+        _dialogBuilder = self.monthDelegate.calendarDelegate.dateViewDelegate.dialogBuilder;
+    }else{
+        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    }
+    return _dialogBuilder;
+}
+
+
+#pragma mark 根据Build参数更新UI或者约束
+-(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
+    //label设置
+    _label1.textColor = self.dialogBuilder.LWWeekIndicatorTextColor;
+    _label1.font = self.dialogBuilder.LWWeekIndicatorTextFont;
+    _label2.textColor = self.dialogBuilder.LWWeekIndicatorTextColor;
+    _label2.font = self.dialogBuilder.LWWeekIndicatorTextFont;
+    _label3.textColor = self.dialogBuilder.LWWeekIndicatorTextColor;
+    _label3.font = self.dialogBuilder.LWWeekIndicatorTextFont;
+    _label4.textColor = self.dialogBuilder.LWWeekIndicatorTextColor;
+    _label4.font = self.dialogBuilder.LWWeekIndicatorTextFont;
+    _label5.textColor = self.dialogBuilder.LWWeekIndicatorTextColor;
+    _label5.font = self.dialogBuilder.LWWeekIndicatorTextFont;
+    _label6.textColor = self.dialogBuilder.LWWeekIndicatorTextColor;
+    _label6.font = self.dialogBuilder.LWWeekIndicatorTextFont;
+    _label7.textColor = self.dialogBuilder.LWWeekIndicatorTextColor;
+    _label7.font = self.dialogBuilder.LWWeekIndicatorTextFont;
 }
 
 @end

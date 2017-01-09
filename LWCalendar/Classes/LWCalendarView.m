@@ -10,15 +10,21 @@
 
 @implementation LWCalendarView {
     CGSize lastSize;
-    
     LWMonthView *monthView1;
     LWMonthView *monthView2;
     LWMonthView *monthView3;
     LWMonthView *monthView4;
     LWMonthView *monthView5;
+    
 }
 
-@synthesize currentDate = _currentDate, startDate = _startDate, endDate = _endDate , selectedStartDay = _selectedStartDay, selectedEndDay = _selectedEndDay;
+@synthesize
+currentDate         = _currentDate,
+startDate           = _startDate,
+endDate             = _endDate,
+selectedStartDay    = _selectedStartDay,
+selectedEndDay      = _selectedEndDay,
+dialogBuilder       = _dialogBuilder;
 
  
 
@@ -38,8 +44,7 @@
 }
 
 
-- (void)resizeViewsIfWidthChanged
-{
+- (void)resizeViewsIfWidthChanged {
     CGSize size = self.frame.size;
     
     // 首次加载
@@ -58,13 +63,6 @@
         self.contentSize = CGSizeMake(size.width, monthView1.frame.size.height + monthView2.frame.size.height + monthView3.frame.size.height + monthView4.frame.size.height + monthView5.frame.size.height);
 
     }
-//    NSLog(@"monthView1.frame %f",monthView1.frame.size.height);
-//    NSLog(@"monthView2.frame %f",monthView2.frame.size.height);
-//    NSLog(@"monthView3.frame %f",monthView3.frame.size.height);
-//    NSLog(@"monthView4.frame %f",monthView4.frame.size.height);
-//    NSLog(@"monthView5.frame %f",monthView5.frame.size.height);
-//    NSLog(@"resetMonthViewsFrame monthView3.frame %f",monthView3.frame.origin.y);
-//    NSLog(@"resetMonthViewsFrame contentOffset %f",self.contentOffset.y);
 }
 
 // 首次加载
@@ -95,7 +93,7 @@
         [self addSubview:monthView3];
         [self addSubview:monthView4];
         [self addSubview:monthView5];
-        
+        [self updateWithBuilder:self.dialogBuilder];
         self.currentDate = _currentDate;
     }
     
@@ -203,6 +201,7 @@
     }
     return _startDate;
 }
+
 //每次取值时首先同步一次endDate
 -(NSDate *)endDate{
     if (_selectedEndDay) {
@@ -257,5 +256,34 @@
         _endDate = nil;
     }
 }
+
+-(void)setDialogBuilder:(LWDatePickerBuilder *)dialogBuilder{
+    if (dialogBuilder && _dialogBuilder != dialogBuilder) {
+        _dialogBuilder = dialogBuilder;
+        [self updateWithBuilder:dialogBuilder];
+    }
+}
+
+-(LWDatePickerBuilder *)dialogBuilder{
+    if (self.dateViewDelegate) {
+        _dialogBuilder = self.dateViewDelegate.dialogBuilder;
+    }else{
+        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    }
+    return _dialogBuilder;
+}
+
+#pragma mark 根据Build参数更新UI或者约束
+-(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
+    //更新month样式
+    if (!monthView1) {
+        monthView1.dialogBuilder = builder;
+        monthView2.dialogBuilder = builder;
+        monthView3.dialogBuilder = builder;
+        monthView4.dialogBuilder = builder;
+        monthView5.dialogBuilder = builder;
+    }
+}
+
 
 @end

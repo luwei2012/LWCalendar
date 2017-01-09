@@ -21,5 +21,5 @@
     "ios": "7.0"
   },
   "source_files": "LWCalendar/Classes/**/*",
-  "resources": "LWCalendar/Assets/*.png"
+  "resources": "LWCalendar/Assets/**/*"
 }

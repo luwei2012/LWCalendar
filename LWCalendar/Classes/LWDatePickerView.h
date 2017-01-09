@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h> 
 
-@class LWDatePickerDialog,LWDateIndicator,LWCalendarView;
+@class LWDatePickerDialog, LWDateIndicator, LWCalendarView, LWDatePickerBuilder;
 
 @interface LWDatePickerView : UIView
 
@@ -22,5 +22,6 @@
 @property(nonatomic, strong) NSDate *currentDate;
 @property(nonatomic, strong) NSDate *startDate;
 @property(nonatomic, strong) NSDate *endDate;
+@property(nonatomic, weak) LWDatePickerBuilder *dialogBuilder; 
 
 @end

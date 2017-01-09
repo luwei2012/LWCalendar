@@ -5,6 +5,7 @@
 #import "LWCalendarView.h"
 #import "LWDateHelper.h"
 #import "LWDateIndicator.h"
+#import "LWDatePickerBuilder.h"
 #import "LWDatePickerDialog.h"
 #import "LWDatePickerView.h"
 #import "LWDayView.h"

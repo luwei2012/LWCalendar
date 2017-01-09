@@ -8,15 +8,13 @@
 
 #import <UIKit/UIKit.h> 
 
-@class LWCalendarView;
+@class LWCalendarView, LWDatePickerBuilder;
 
 /**
  * 应该包含一个标题，显示年月+一个星期指示器+天数布局
  */
 @interface LWMonthView : UIView
 @property (nonatomic, strong)NSDate *date;
-@property (nonatomic, weak)LWCalendarView *calendarDelegate;
-
-+(CGFloat)heightForMonthView;
-
+@property (nonatomic, weak) LWCalendarView *calendarDelegate;
+@property (nonatomic, weak) LWDatePickerBuilder *dialogBuilder; 
 @end

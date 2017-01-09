@@ -22,11 +22,12 @@
     CGSize lastSize;
 }
 
-@synthesize calendarDelegate = _calendarDelegate, weekIndicator = _weekIndicator ,titleLab = _titleLab;
+@synthesize
+calendarDelegate    = _calendarDelegate,
+weekIndicator       = _weekIndicator,
+titleLab            = _titleLab,
+dialogBuilder       = _dialogBuilder;
 
-+(CGFloat)heightForMonthView{
-    return 300;
-}
 
 #pragma mark 构造函数
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -42,8 +43,11 @@
 
 -(void)layoutSubviews{
     CGSize size = self.frame.size;
-    // 首次加载
     if (!lastSize.width || size.width != lastSize.width || size.height != lastSize.height) {
+          // 首次加载
+        if (!lastSize.width) {
+            [self updateWithBuilder:self.dialogBuilder];
+        }
         lastSize = size;
         [self resize];
     }
@@ -51,19 +55,19 @@
 
 
 - (void)resize {
-    self.titleLab.frame = CGRectMake(0,  0, self.frame.size.width , TITLE_HEIGHT);
-    self.weekIndicator.frame = CGRectMake(MARGIN_H, TITLE_HEIGHT + LINE_GAP, self.frame.size.width - MARGIN_H * 2, WEEK_INDICATOR_HEIGHT);
-    CGFloat startY = TITLE_HEIGHT + WEEK_INDICATOR_HEIGHT + LINE_GAP * 2;
-    CGFloat startX = MARGIN_H;
-    CGFloat weekH = (self.frame.size.width -  PADDING_H * 8 - MARGIN_H * 2)/7;
+    self.titleLab.frame = CGRectMake(0,  0, self.frame.size.width , self.dialogBuilder.LWCalendarTitleHeight);
+    self.weekIndicator.frame = CGRectMake(self.dialogBuilder.LWCalendarMarginH, self.dialogBuilder.LWCalendarTitleHeight + self.dialogBuilder.LWCalendarLineGap, self.frame.size.width - self.dialogBuilder.LWCalendarMarginH * 2, self.dialogBuilder.LWWeekIndicatorHeight);
+    CGFloat startY = self.dialogBuilder.LWCalendarTitleHeight + self.dialogBuilder.LWWeekIndicatorHeight + self.dialogBuilder.LWCalendarLineGap * 2;
+    CGFloat startX = self.dialogBuilder.LWCalendarMarginH;
+    CGFloat weekH = (self.frame.size.width -  self.dialogBuilder.LWCalendarRowGap * 8 - self.dialogBuilder.LWCalendarMarginH * 2)/7;
     for (int i = 0; i < weekNumber; i++) {
         LWWeekView *weekView = _weeksViews[i];
         if (weekView) {
-            weekView.frame = CGRectMake(startX, startY + (weekH + LINE_GAP) * i, self.frame.size.width - MARGIN_H * 2, weekH);
+            weekView.frame = CGRectMake(startX, startY + (weekH + self.dialogBuilder.LWCalendarLineGap) * i, self.frame.size.width - self.dialogBuilder.LWCalendarMarginH * 2, weekH);
         }
     }
     CGRect frame = self.frame;
-    frame.size.height = weekNumber * weekH + TITLE_HEIGHT + WEEK_INDICATOR_HEIGHT + (weekNumber + 2) * LINE_GAP;
+    frame.size.height = weekNumber * weekH + self.dialogBuilder.LWCalendarTitleHeight + self.dialogBuilder.LWWeekIndicatorHeight + (weekNumber + 2) * self.dialogBuilder.LWCalendarLineGap;
     self.frame = frame;
 }
 
@@ -88,11 +92,11 @@
         [_weeksViews removeAllObjects];
     }
     NSDate *firstDay = [self.manager.helper firstDayOfMonth:_date];
-    CGFloat startY = TITLE_HEIGHT + WEEK_INDICATOR_HEIGHT + LINE_GAP * 2;
-    CGFloat startX = MARGIN_H;
-    CGFloat weekH = (self.frame.size.width -  PADDING_H * 8 - MARGIN_H * 2)/7;
+    CGFloat startY = self.dialogBuilder.LWCalendarTitleHeight + self.dialogBuilder.LWWeekIndicatorHeight + self.dialogBuilder.LWCalendarLineGap * 2;
+    CGFloat startX = self.dialogBuilder.LWCalendarMarginH;
+    CGFloat weekH = (self.frame.size.width -  self.dialogBuilder.LWCalendarRowGap * 8 - self.dialogBuilder.LWCalendarMarginH * 2)/7;
     for (int i = 0; i < weekNumber; i++) {
-        LWWeekView *weekView = [[LWWeekView alloc] initWithFrame:CGRectMake(startX, startY + (weekH + LINE_GAP) * i, self.frame.size.width - MARGIN_H * 2, weekH)];
+        LWWeekView *weekView = [[LWWeekView alloc] initWithFrame:CGRectMake(startX, startY + (weekH + self.dialogBuilder.LWCalendarLineGap) * i, self.frame.size.width - self.dialogBuilder.LWCalendarMarginH * 2, weekH)];
         weekView.monthDelegate = self;
         weekView.theMonthFirstDay = firstDay;
         weekView.date = [self.manager.helper addToDate:firstDay weeks:i];
@@ -100,16 +104,15 @@
         [_weeksViews addObject:weekView];
     }
     CGRect frame = self.frame;
-    frame.size.height = weekNumber * weekH + TITLE_HEIGHT + WEEK_INDICATOR_HEIGHT + (weekNumber + 2) * LINE_GAP;
+    frame.size.height = weekNumber * weekH + self.dialogBuilder.LWCalendarTitleHeight + self.dialogBuilder.LWWeekIndicatorHeight + (weekNumber + 2) * self.dialogBuilder.LWCalendarLineGap;
     self.frame = frame;
 }
 
 - (UILabel *)titleLab {
     if (_titleLab == nil) {
-        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0,  0, self.frame.size.width , TITLE_HEIGHT)];
-        _titleLab.font = [UIFont systemFontOfSize:TITLE_FONT_SIZE];
+        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0,  0, self.frame.size.width , self.dialogBuilder.LWCalendarTitleHeight)];
         _titleLab.textAlignment = NSTextAlignmentCenter;
-        _titleLab.textColor = [UIColor blackColor];
+
         [self addSubview:_titleLab];
     }
     return _titleLab;
@@ -118,10 +121,42 @@
 
 -(LWWeekIndicator *)weekIndicator{
     if (_weekIndicator == nil) {
-        _weekIndicator = [[LWWeekIndicator alloc] initWithFrame:CGRectMake(MARGIN_H, TITLE_HEIGHT + LINE_GAP, self.frame.size.width - MARGIN_H * 2, WEEK_INDICATOR_HEIGHT)];
+        _weekIndicator = [[LWWeekIndicator alloc] initWithFrame:CGRectMake(self.dialogBuilder.LWCalendarMarginH, self.dialogBuilder.LWCalendarTitleHeight + self.dialogBuilder.LWCalendarLineGap, self.frame.size.width - self.dialogBuilder.LWCalendarMarginH * 2, self.dialogBuilder.LWWeekIndicatorHeight)];
+        _weekIndicator.monthDelegate = self;
         [self addSubview:_weekIndicator];
     }
     return _weekIndicator;
+}
+
+-(void)setDialogBuilder:(LWDatePickerBuilder *)dialogBuilder{
+    if (dialogBuilder && _dialogBuilder != dialogBuilder) {
+        _dialogBuilder = dialogBuilder;
+        [self updateWithBuilder:dialogBuilder];
+    }
+}
+
+-(LWDatePickerBuilder *)dialogBuilder{
+    if (self.calendarDelegate) {
+        _dialogBuilder = self.calendarDelegate.dialogBuilder;
+    }else{
+        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    }
+    return _dialogBuilder;
+}
+
+#pragma mark 根据Build参数更新UI或者约束
+-(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
+    //更新标题
+    self.titleLab.font = builder.LWCalendarTitleFont;
+    self.titleLab.textColor = builder.LWDatePickerViewDefaultTextColor;
+    //更新week指示器
+    self.weekIndicator.dialogBuilder = builder;
+    //更新weekView
+    for (int i = 0; i < weekNumber; i++) {
+        LWWeekView *weekView = _weeksViews[i];
+        weekView.dialogBuilder = builder;
+    }
+    
 }
 
 @end

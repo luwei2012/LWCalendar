@@ -13,25 +13,35 @@
 @property(nonatomic, strong) NSMutableArray *fromIndicatorConstraints;
 @property(nonatomic, strong) NSMutableArray *toIndicatorConstraints;
 @property(nonatomic, strong) NSMutableArray *calendarViewConstraints;
+@property(nonatomic, strong) NSMutableArray *confirmButtonConstraints;
+@property(nonatomic, strong) NSMutableArray *cancelButtonConstraints;
 @end
 
 @implementation LWDatePickerView{
     UIInterfaceOrientation lastOrientation;
 }
 
-@synthesize cancelButton = _cancelButton, confirmButton = _confirmButton, calendarView = _calendarView, contentView = _contentView,
-fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _currentDate, startDate = _startDate, endDate = _endDate;
+@synthesize
+cancelButton    = _cancelButton,
+confirmButton   = _confirmButton,
+calendarView    = _calendarView,
+contentView     = _contentView,
+fromIndicator   = _fromIndicator,
+toIndicator     = _toIndicator,
+currentDate     = _currentDate,
+startDate       = _startDate,
+endDate         = _endDate,
+dialogBuilder   = _dialogBuilder,
+dialogDelegate  = _dialogDelegate;
 
 #pragma mark Override函数
 -(instancetype)init{
     if (self = [super init]) {
-        self.layer.shadowColor = LWDATEPICKERVIEW_SHADOW_COLOR;
-        self.layer.shadowOffset = LWDATEPICKERVIEW_SHADOW_OFFSET;
-        self.layer.shadowOpacity = LWDATEPICKERVIEW_SHADOW_OPACITY;
-        self.layer.shadowRadius = LWDATEPICKERVIEW_SHADOW_RADIUS;
         self.fromIndicatorConstraints = [NSMutableArray new];
         self.toIndicatorConstraints = [NSMutableArray new];
         self.calendarViewConstraints = [NSMutableArray new];
+        self.confirmButtonConstraints = [NSMutableArray new];
+        self.cancelButtonConstraints = [NSMutableArray new];
         //初始化cancel和confirm按钮
         [self.confirmButton addTarget:self action:@selector(confirmOnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.cancelButton addTarget:self action:@selector(cancelOnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -52,14 +62,15 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
 -(void)layoutSubviews{
     [super layoutSubviews];
     UIInterfaceOrientation interfaceOrientation=[[UIApplication sharedApplication] statusBarOrientation];
-    if (lastOrientation == UIDeviceOrientationUnknown || lastOrientation != interfaceOrientation) {
+    if (lastOrientation == UIDeviceOrientationUnknown) {
         lastOrientation = interfaceOrientation;
+        [self updateWithBuilder:(self.dialogDelegate ? self.dialogDelegate.dialogBuilder : [LWDatePickerBuilder defaultBuilder])];
+    }else if (lastOrientation != interfaceOrientation) {
+        //屏幕旋转时只需要更新部分约束
         [self updateConstraintForToCalendarView];
         [self updateConstraintForToIndicator];
         [self updateConstraintForFromIndicator];
-        [self updateConstraintsIfNeeded];
     }
-    
 }
 
 
@@ -102,9 +113,6 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
 -(UIView *)contentView{
     if (_contentView == nil) {
         _contentView = [[UIView alloc] init];
-        _contentView.layer.cornerRadius = LWDATEPICKERDIALOG_CORNER;
-        _contentView.layer.masksToBounds = YES;
-        _contentView.layer.backgroundColor = [UIColor whiteColor].CGColor;
         _contentView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:_contentView];
         //添加约束
@@ -124,20 +132,9 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
     if (_cancelButton == nil) {
         _cancelButton = [[UIButton alloc] init];
         [_cancelButton setTitle:@"CANCEL" forState:UIControlStateNormal];
-        [_cancelButton setTitleColor:LWDATEPICKERVIEW_SELECTED_COLOR forState:UIControlStateNormal];
         _cancelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-        _cancelButton.titleLabel.font = [UIFont boldSystemFontOfSize:LWDATEPICKERVIEW_BUTTON_FONT_SIZE];
         _cancelButton.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_cancelButton];
-        //添加约束
-        NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
-        NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-LWDATEPICKERVIEW_BUTTON_MARGIN_H];
-        NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
-        NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.0];
-        [self.contentView addConstraint:viewWidth];
-        [self.contentView addConstraint:viewRight];
-        [self.contentView addConstraint:viewTop];
-        [self.contentView addConstraint:viewHeight];
     }
     return _cancelButton;
 }
@@ -146,20 +143,9 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
     if (_confirmButton == nil) {
         _confirmButton = [[UIButton alloc] init];
         [_confirmButton setTitle:@"OK" forState:UIControlStateNormal];
-        [_confirmButton setTitleColor:LWDATEPICKERVIEW_SELECTED_COLOR forState:UIControlStateNormal];
         _confirmButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-        _confirmButton.titleLabel.font = [UIFont boldSystemFontOfSize:LWDATEPICKERVIEW_BUTTON_FONT_SIZE];
         _confirmButton.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_confirmButton];
-        //添加约束
-        NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:LWDATEPICKERVIEW_BUTTON_WIDTH constant:0.0];
-        NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
-        NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
-        NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:LWDATEPICKERVIEW_BUTTON_HEIGHT];
-        [self.contentView addConstraint:viewWidth];
-        [self.contentView addConstraint:viewRight];
-        [self.contentView addConstraint:viewBottom];
-        [self.confirmButton addConstraint:viewHeight];
     }
     return _confirmButton;
 }
@@ -231,18 +217,42 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
     return _endDate;
 }
 
+-(void)setDialogDelegate:(LWDatePickerDialog *)dialogDelegate{
+    if (dialogDelegate) {
+        _dialogDelegate = dialogDelegate;
+        self.dialogBuilder = dialogDelegate.dialogBuilder;
+    }
+}
+
+-(LWDatePickerBuilder *)dialogBuilder{
+    if (self.dialogDelegate) {
+        _dialogBuilder = self.dialogDelegate.dialogBuilder;
+    }else{
+        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    }
+    return _dialogBuilder;
+}
+
+-(void)setDialogBuilder:(LWDatePickerBuilder *)dialogBuilder{
+    if (dialogBuilder && _dialogBuilder != dialogBuilder) {
+            _dialogBuilder = dialogBuilder;
+        [self updateWithBuilder:dialogBuilder];
+    }
+}
+
 #pragma mark 约束相关代码
 //FromIndicator的约束
 -(void)updateConstraintForFromIndicator{
+    [self fromIndicator];
     [self.contentView removeConstraints:self.fromIndicatorConstraints];
     [self.fromIndicatorConstraints removeAllObjects];
-    UIInterfaceOrientation interfaceOrientation=[[UIApplication sharedApplication] statusBarOrientation];
+    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (interfaceOrientation == UIDeviceOrientationPortrait || interfaceOrientation == UIDeviceOrientationPortraitUpsideDown) {
         //翻转为竖屏时
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_fromIndicator attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.toIndicator attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
         NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:_fromIndicator attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
         NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:_fromIndicator attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
-        NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_fromIndicator attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:LWDATEINICATOR_TITLE_HEIGHT * 2.5];
+        NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_fromIndicator attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.dialogBuilder.LWDateIndicatorTitleHeight * 2.5];
         [self.contentView addConstraint:viewWidth];
         [self.contentView addConstraint:viewLeft];
         [self.contentView addConstraint:viewTop];
@@ -251,7 +261,7 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
         [self.fromIndicatorConstraints addObject:viewWidth];
         [self.fromIndicatorConstraints addObject:viewTop];
         [self.fromIndicatorConstraints addObject:viewHeight];
-    }else if (interfaceOrientation==UIDeviceOrientationLandscapeLeft || interfaceOrientation == UIDeviceOrientationLandscapeRight) {
+    }else if (interfaceOrientation == UIDeviceOrientationLandscapeLeft || interfaceOrientation == UIDeviceOrientationLandscapeRight) {
         //翻转为横屏时
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_fromIndicator attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.toIndicator attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
         NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:_fromIndicator attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
@@ -270,9 +280,10 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
 
 //ToIndicator的约束
 -(void)updateConstraintForToIndicator{
+    [self toIndicator];
     [self.contentView removeConstraints:self.toIndicatorConstraints];
     [self.toIndicatorConstraints removeAllObjects];
-    UIInterfaceOrientation interfaceOrientation=[[UIApplication sharedApplication] statusBarOrientation];
+    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (interfaceOrientation == UIDeviceOrientationPortrait || interfaceOrientation == UIDeviceOrientationPortraitUpsideDown) {
         //翻转为竖屏时
         NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_toIndicator attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
@@ -287,7 +298,7 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
         [self.toIndicatorConstraints addObject:viewRight];
         [self.toIndicatorConstraints addObject:viewTop];
         [self.toIndicatorConstraints addObject:viewBottom];
-    }else if (interfaceOrientation==UIDeviceOrientationLandscapeLeft || interfaceOrientation == UIDeviceOrientationLandscapeRight) {
+    }else if (interfaceOrientation == UIDeviceOrientationLandscapeLeft || interfaceOrientation == UIDeviceOrientationLandscapeRight) {
         //翻转为横屏时
         NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_toIndicator attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.calendarView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
         NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:_toIndicator attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.fromIndicator attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
@@ -306,9 +317,10 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
 
 //LWCalendarView的约束
 -(void)updateConstraintForToCalendarView{
+    [self calendarView];
     [self.contentView removeConstraints:self.calendarViewConstraints];
     [self.calendarViewConstraints removeAllObjects];
-    UIInterfaceOrientation interfaceOrientation=[[UIApplication sharedApplication] statusBarOrientation];
+    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (interfaceOrientation == UIDeviceOrientationPortrait || interfaceOrientation == UIDeviceOrientationPortraitUpsideDown) {
         //翻转为竖屏时
         NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_calendarView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
@@ -323,7 +335,7 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
         [self.calendarViewConstraints addObject:viewRight];
         [self.calendarViewConstraints addObject:viewTop];
         [self.calendarViewConstraints addObject:viewBottom];
-    }else if (interfaceOrientation==UIDeviceOrientationLandscapeLeft || interfaceOrientation == UIDeviceOrientationLandscapeRight) {
+    }else if (interfaceOrientation == UIDeviceOrientationLandscapeLeft || interfaceOrientation == UIDeviceOrientationLandscapeRight) {
         //翻转为横屏时
         NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_calendarView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
         NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_calendarView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:0.5 constant:0.0];
@@ -338,6 +350,73 @@ fromIndicator = _fromIndicator, toIndicator = _toIndicator,currentDate = _curren
         [self.calendarViewConstraints addObject:viewTop];
         [self.calendarViewConstraints addObject:viewBottom];
     }
+}
+
+
+-(void)updateConstraintForConfirmButton{
+    [self confirmButton];
+    [self.contentView removeConstraints:self.confirmButtonConstraints];
+    [self.confirmButtonConstraints removeAllObjects];
+    //添加约束
+    NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:self.dialogBuilder.LWDatePickerViewButtonWidth constant:0.0];
+    NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_confirmButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.dialogBuilder.LWDatePickerViewButtonHeight];
+    [self.contentView addConstraint:viewWidth];
+    [self.contentView addConstraint:viewRight];
+    [self.contentView addConstraint:viewBottom];
+    [self.confirmButton addConstraint:viewHeight];
+    [self.confirmButtonConstraints addObject:viewWidth];
+    [self.confirmButtonConstraints addObject:viewRight];
+    [self.confirmButtonConstraints addObject:viewBottom];
+    [self.confirmButtonConstraints addObject:viewHeight];
+}
+
+-(void)updateConstraintForCancelButton{
+    [self cancelButton];
+    [self.contentView removeConstraints:self.cancelButtonConstraints];
+    [self.cancelButtonConstraints removeAllObjects];
+    //添加约束
+    NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-self.dialogBuilder.LWDatePickerViewButtonMarginH];
+    NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_cancelButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.confirmButton attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.0];
+    [self.contentView addConstraint:viewWidth];
+    [self.contentView addConstraint:viewRight];
+    [self.contentView addConstraint:viewTop];
+    [self.contentView addConstraint:viewHeight];
+    [self.cancelButtonConstraints addObject:viewWidth];
+    [self.cancelButtonConstraints addObject:viewRight];
+    [self.cancelButtonConstraints addObject:viewTop];
+    [self.cancelButtonConstraints addObject:viewHeight];
+}
+
+#pragma mark 根据Build参数更新UI或者约束
+-(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
+    //阴影配置
+    self.layer.shadowColor = builder.LWDatePickerViewShadowColor.CGColor;
+    self.layer.shadowOffset = builder.LWDatePickerViewShadowOffset;
+    self.layer.shadowOpacity = builder.LWDatePickerViewShadowOpacity;
+    self.layer.shadowRadius = builder.LWDatePickerViewShadowRadius;
+    //contentView设置
+    self.contentView.layer.cornerRadius = builder.LWDatePickerDialogCorner;
+    self.contentView.layer.masksToBounds = YES;
+    self.contentView.layer.backgroundColor = builder.LWDatePickerViewDefaultColor.CGColor;
+    //cancelButton设置
+    [self.cancelButton setTitleColor:builder.LWDatePickerViewSelectedTextColor forState:UIControlStateNormal];
+    self.cancelButton.titleLabel.font = builder.LWDatePickerViewButtonFont;
+    //confirmButton设置
+    [self.confirmButton setTitleColor:builder.LWDatePickerViewSelectedTextColor forState:UIControlStateNormal];
+    self.confirmButton.titleLabel.font = builder.LWDatePickerViewButtonFont;
+    //fromIndicator设置
+    //toIndicator设置
+    //更新约束
+    [self updateConstraintForConfirmButton];
+    [self updateConstraintForCancelButton];
+    [self updateConstraintForToCalendarView];
+    [self updateConstraintForToIndicator];
+    [self updateConstraintForFromIndicator];
+    //calendar设置
 }
 
 @end

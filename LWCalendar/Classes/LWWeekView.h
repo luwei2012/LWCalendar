@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h> 
 
-@class LWMonthView;
+@class LWMonthView, LWDatePickerBuilder;
 
 @interface LWWeekView : UIView
 @property (nonatomic, strong) NSDate *theMonthFirstDay;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, weak) LWMonthView *monthDelegate;
-
+@property (nonatomic, weak) LWDatePickerBuilder *dialogBuilder;
 @end

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h> 
 
-@class LWWeekView;
+@class LWWeekView, LWDatePickerBuilder;
 
 @interface LWDayView : UIButton
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, weak) LWWeekView *weekDelegate;
-
+@property (nonatomic, weak) LWDatePickerBuilder *dialogBuilder;
 @end

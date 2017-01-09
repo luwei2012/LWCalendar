@@ -19,16 +19,16 @@ static UIImage *selectImage = nil;
 
 @implementation LWDayView
 
-@synthesize weekDelegate = _weekDelegate;
+@synthesize weekDelegate = _weekDelegate, dialogBuilder   = _dialogBuilder;
 
 //根据frame获取半径 去宽高中较小的一边作为直径
-+(float)radiusFromFrame:(CGRect)frame{
+-(float)radiusFromFrame:(CGRect)frame{
     float width = frame.size.width ;
     float height = frame.size.height ;
     return width < height ? width : height;
 }
 
-+ (UIImage *) roundCorneredImage: (UIImage *) orig radius:(CGFloat) corner {
+-(UIImage *) roundCorneredImage: (UIImage *) orig radius:(CGFloat) corner {
     UIGraphicsBeginImageContextWithOptions(orig.size, NO, 0);
     [[UIBezierPath bezierPathWithRoundedRect:(CGRect){CGPointZero, orig.size}
                                 cornerRadius:corner] addClip];
@@ -39,29 +39,29 @@ static UIImage *selectImage = nil;
 }
 
 
-+(UIImage *) createImageWithColor:(UIColor*) color Frame:(CGRect)frame Radius:(CGFloat)corner{
+-(UIImage *) createImageWithColor:(UIColor*) color Frame:(CGRect)frame Radius:(CGFloat)corner{
     UIGraphicsBeginImageContext(frame.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [color CGColor]);
     CGContextFillRect(context, frame);
     UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return (corner > 0 ? [LWDayView roundCorneredImage:theImage radius:corner]:theImage);
+    return (corner > 0 ? [self roundCorneredImage:theImage radius:corner]:theImage);
 }
 
-+(UIImage *)getSelectImageWithFrame:(CGRect) vframe{
-    CGFloat size = [LWDayView radiusFromFrame:vframe];
+-(UIImage *)getSelectImageWithFrame:(CGRect) vframe{
+    CGFloat size = [self radiusFromFrame:vframe];
     CGRect frame = CGRectMake(0, 0, size, size);
     if (selectImage == nil) {
-        selectImage = [LWDayView createImageWithColor:LWDATEPICKERVIEW_SELECTED_COLOR
-                                                Frame:frame
-                                               Radius:size * 0.5];
+        selectImage = [self createImageWithColor:self.dialogBuilder.LWDatePickerViewSelectedColor
+                                           Frame:frame
+                                          Radius:size * 0.5];
     }else{
         if(!selectImage.size.height == size
            || !selectImage.size.width == size){
-            selectImage = [LWDayView createImageWithColor:LWDATEPICKERVIEW_SELECTED_COLOR
-                                                    Frame:frame
-                                                   Radius:size * 0.5];
+            selectImage = [self createImageWithColor:self.dialogBuilder.LWDatePickerViewSelectedColor
+                                               Frame:frame
+                                              Radius:size * 0.5];
         }
     }
     return selectImage;
@@ -71,9 +71,7 @@ static UIImage *selectImage = nil;
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
-        self.titleLabel.font = [UIFont systemFontOfSize:DAY_FONT_SIZE];
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self normalStateList];
         
         [self addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
         
@@ -92,15 +90,15 @@ static UIImage *selectImage = nil;
 //多选状态下除去起始和结束按钮的state
 -(void)multiNormalStateList{
     //正常状态 多选情况下中间的按钮状态都不是selected只有两头是 所以正常情况就应该是选中状态
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateNormal];
     [self setImage:nil forState:UIControlStateNormal];
     [self setBackgroundImage:nil forState:UIControlStateNormal];
     //高亮状态
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateHighlighted];
     [self setImage:nil forState:UIControlStateHighlighted];
     [self setBackgroundImage:nil forState:UIControlStateHighlighted];
     //选中状态
-    [self setTitleColor:[UIColor whiteColor]  forState:UIControlStateSelected];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor  forState:UIControlStateSelected];
     [self setImage:nil forState:UIControlStateSelected];
     [self setBackgroundImage:nil forState:UIControlStateSelected];
     
@@ -110,7 +108,7 @@ static UIImage *selectImage = nil;
 -(void)normalStateList{
     [self setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     //正常状态
-    [self setTitleColor:LWDATEPICKERVIEW_DEFAULT_TEXT_COLOR forState:UIControlStateNormal];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewDefaultTextColor forState:UIControlStateNormal];
     // 当前时间
     if (_date && [self.manager.helper date:_date isTheSameDayThan:self.calendarDelegate.currentDate] && self.enabled) {
         [self setImage:[UIImage imageNamed:@"circle_cir"] forState:UIControlStateNormal];
@@ -119,46 +117,44 @@ static UIImage *selectImage = nil;
     }
     [self setBackgroundImage:nil forState:UIControlStateNormal];
     //高亮状态
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [self setImage:[LWDayView getSelectImageWithFrame:self.frame] forState:UIControlStateHighlighted];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateHighlighted];
+    [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateHighlighted];
     [self setBackgroundImage:nil forState:UIControlStateHighlighted];
     //选中状态
-    [self setTitleColor:[UIColor whiteColor]  forState:UIControlStateSelected];
-    [self setImage:[LWDayView getSelectImageWithFrame:self.frame] forState:UIControlStateSelected];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor  forState:UIControlStateSelected];
+    [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateSelected];
     [self setBackgroundImage:nil forState:UIControlStateSelected];
 }
 
 //起始按钮的state
 -(void)startStateList{
     //正常状态
-    //    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self setTitleColor:LWDATEPICKERVIEW_DEFAULT_TEXT_COLOR forState:UIControlStateNormal];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewDefaultTextColor forState:UIControlStateNormal];
     [self setImage:nil forState:UIControlStateNormal];
     [self setBackgroundImage:nil forState:UIControlStateNormal];
     //高亮状态
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [self setImage:[LWDayView getSelectImageWithFrame:self.frame] forState:UIControlStateHighlighted];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateHighlighted];
+    [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateHighlighted];
     [self setBackgroundImage:[UIImage imageNamed:@"backImg_start"] forState:UIControlStateHighlighted];
     //选中状态
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [self setImage:[LWDayView getSelectImageWithFrame:self.frame] forState:UIControlStateSelected];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateSelected];
+    [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateSelected];
     [self setBackgroundImage:[UIImage imageNamed:@"backImg_start"] forState:UIControlStateSelected];
 }
 
 //结束按钮的state
 -(void)endStateList{
     //正常状态
-    //    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self setTitleColor:LWDATEPICKERVIEW_DEFAULT_TEXT_COLOR forState:UIControlStateNormal];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewDefaultTextColor forState:UIControlStateNormal];
     [self setImage:nil forState:UIControlStateNormal];
     [self setBackgroundImage:nil forState:UIControlStateNormal];
     //高亮状态
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [self setImage:[LWDayView getSelectImageWithFrame:self.frame] forState:UIControlStateHighlighted];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateHighlighted];
+    [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateHighlighted];
     [self setBackgroundImage:[UIImage imageNamed:@"backImg_end"] forState:UIControlStateHighlighted];
     //选中状态
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [self setImage:[LWDayView getSelectImageWithFrame:self.frame] forState:UIControlStateSelected];
+    [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateSelected];
+    [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateSelected];
     [self setBackgroundImage:[UIImage imageNamed:@"backImg_end"] forState:UIControlStateSelected];
 }
 
@@ -199,7 +195,7 @@ static UIImage *selectImage = nil;
         if ([self.manager.helper date:self.calendarDelegate.startDate
                    isTheSameMonthThan:self.calendarDelegate.endDate]) {
             if (self.enabled) {
-                self.backgroundColor = LWDATEPICKERVIEW_SELECTED_COLOR;
+                self.backgroundColor = self.dialogBuilder.LWDatePickerViewSelectedColor;
             } else {
                 self.backgroundColor = [UIColor clearColor];
             }
@@ -207,7 +203,7 @@ static UIImage *selectImage = nil;
         // 不同
         else {
             //不同月份之间需要注意没有显示日期的LWDayView，因此首先默认都显示选中背景
-            self.backgroundColor = LWDATEPICKERVIEW_SELECTED_COLOR;
+            self.backgroundColor = self.dialogBuilder.LWDatePickerViewSelectedColor;
             // 开始的是一个月的第一天
             if ([self.manager.helper date:_date
                          isTheSameDayThan:[self.manager.helper firstDayOfMonth:self.calendarDelegate.startDate]] && !self.enabled) {
@@ -375,6 +371,29 @@ static UIImage *selectImage = nil;
         
     }
     [self changeState];
+}
+
+-(void)setDialogBuilder:(LWDatePickerBuilder *)dialogBuilder{
+    if (dialogBuilder && _dialogBuilder != dialogBuilder) {
+        _dialogBuilder = dialogBuilder;
+        [self updateWithBuilder:dialogBuilder];
+    }
+}
+
+-(LWDatePickerBuilder *)dialogBuilder{
+    if (self.weekDelegate) {
+        _dialogBuilder = self.weekDelegate.dialogBuilder;
+    }else{
+        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    }
+    return _dialogBuilder;
+}
+
+#pragma mark 根据Build参数更新UI或者约束
+-(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
+    //title设置
+    self.titleLabel.font = builder.LWDayViewFont;
+    self.date = _date;
 }
 
 
