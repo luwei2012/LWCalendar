@@ -5,8 +5,9 @@
 
 目前还没有开放定制化的API，想要定制UI只能修改源码
 ## Usage
-### 使用pod
+### 推荐使用pod
 1. 在podfile中添加pod 'LWCalendar'
+
 2.在需要使用的地方添加
 
 ```objc
@@ -29,6 +30,7 @@ NSLog(@"onDateSet");
 ```
 ### 使用源码
 1.下载源码，将LWCalendar文件夹加入自己的工程
+
 2.在需要使用的地方添加
 
 ```objc
@@ -52,6 +54,7 @@ NSLog(@"onDateSet");
 
 ## 部分参数说明
 ![calender.gif](http://luwei2012.github.io/images/IOS/CustomView/LWCalendar标注.png) 
+
 几乎UI的每个部分都可以定制，具体参见LWDatePickerBuilder里面的参数说明
 
 ## To do 
