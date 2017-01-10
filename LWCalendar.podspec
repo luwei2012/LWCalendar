@@ -27,7 +27,7 @@ If you want to contribut to this project,please email "1071932819@qq.com".
                        DESC
 
   s.homepage         = 'https://github.com/luwei2012/LWCalender'
-  s.screenshots      = "luwei2012.github.io/images/IOS/CustomView/ZYCalender_Record.gif"
+  s.screenshots      = "https://luwei2012.github.io/images/IOS/CustomView/ZYCalender_Record.gif"
   s.license          = { :type => 'GNU', :file => 'LICENSE' }
   s.author           = { '1071932819@qq.com' => 'luwei2012' }
   s.source           = { :git => 'https://github.com/luwei2012/LWCalender.git', :tag => s.version.to_s }
