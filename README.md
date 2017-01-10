@@ -1,4 +1,4 @@
-# ZYCalender
+# LWCalendar
 参考[ZYCalendarView](https://github.com/Yanyinghenmei/ZYCalendarView) 模仿了Android的material design设计
 
 ![calender.gif](http://luwei2012.github.io/images/IOS/CustomView/ZYCalender_Record.gif) 
@@ -6,6 +6,7 @@
 目前还没有开放定制化的API，想要定制UI只能修改源码
 ## Usage
 ### 推荐使用pod
+
 1. 在podfile中添加pod 'LWCalendar'
 
 2.在需要使用的地方添加
@@ -29,6 +30,7 @@ NSLog(@"onDateSet");
 [[ZYDatePickerDialog initWithDate:[NSDate date] Delegate:self] show]; 
 ```
 ### 使用源码
+
 1.下载源码，将LWCalendar文件夹加入自己的工程
 
 2.在需要使用的地方添加
