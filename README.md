@@ -20,14 +20,14 @@
 
 @end 
 
--(void)onDateSet:(ZYDatePickerDialog *)dialog StartDate:(NSDate *)start EndDate:(NSDate *)end{
+-(void)onDateSet:(LWDatePickerDialog *)dialog StartDate:(NSDate *)start EndDate:(NSDate *)end{
 NSLog(@"onDateSet");
 }
 
 ```
 4.创建和显示
 ```objc
-[[ZYDatePickerDialog initWithDate:[NSDate date] Delegate:self] show]; 
+[[LWDatePickerDialog initWithDate:[NSDate date] Delegate:self] show]; 
 ```
 ### 使用源码
 
@@ -44,14 +44,14 @@ NSLog(@"onDateSet");
 
     @end 
 
-    -(void)onDateSet:(ZYDatePickerDialog *)dialog StartDate:(NSDate *)start EndDate:(NSDate *)end{
+    -(void)onDateSet:(LWDatePickerDialog *)dialog StartDate:(NSDate *)start EndDate:(NSDate *)end{
         NSLog(@"onDateSet");
     }
 
 ```
 4.创建和显示
 ```objc
-    [[ZYDatePickerDialog initWithDate:[NSDate date] Delegate:self] show]; 
+    [[LWDatePickerDialog initWithDate:[NSDate date] Delegate:self] show]; 
 ```
 
 ## 部分参数说明
@@ -62,6 +62,10 @@ NSLog(@"onDateSet");
 ## To do 
 
 1.寻找UI设计师帮忙设计布局，这个布局还是有点丑......
+
+2.设计和开放多选模式的接口
+
+3.添加时间选择器，就是Android上看着很炫的钟表
 
 ## Author
 
