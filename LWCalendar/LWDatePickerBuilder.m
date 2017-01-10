@@ -44,7 +44,7 @@
 //月历列间距
 #define LWCALENDARVIEW_ROW_GAP (4.0)
 //月历有一个标题 显示当前月历是2016年8月 标题字体大小
-#define LWCALENDARVIEW_TITLE_FONT_SIZE (18)
+#define LWCALENDARVIEW_TITLE_FONT_SIZE (15)
 //月历标题高度
 #define LWCALENDARVIEW_TITLE_HEIGHT (40.0)
 
@@ -167,7 +167,7 @@ LWDayViewFont                       = _LWDayViewFont;
             defaultInstance.LWDatePickerViewButtonFont          = [UIFont boldSystemFontOfSize:LWDATEPICKERVIEW_BUTTON_FONT_SIZE];
             
             defaultInstance.LWCalendarTitleHeight               = LWCALENDARVIEW_TITLE_HEIGHT;
-            defaultInstance.LWCalendarTitleFont                 = [UIFont boldSystemFontOfSize:LWCALENDARVIEW_TITLE_FONT_SIZE];
+            defaultInstance.LWCalendarTitleFont                 = [UIFont systemFontOfSize:LWCALENDARVIEW_TITLE_FONT_SIZE];
             defaultInstance.LWCalendarMarginH                   = LWCALENDARVIEW_MARGIN_H;
             defaultInstance.LWCalendarLineGap                   = LWCALENDARVIEW_LINE_GAP;
             defaultInstance.LWCalendarRowGap                    = LWCALENDARVIEW_ROW_GAP;

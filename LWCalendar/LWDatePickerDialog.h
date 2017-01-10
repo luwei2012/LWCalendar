@@ -52,9 +52,7 @@
 //显示日期选择器
 - (void)show;
 //隐藏日期选择器
-- (void)hide;
-
-#pragma mark UI定制接口
+- (void)hide; 
 
 
 @end

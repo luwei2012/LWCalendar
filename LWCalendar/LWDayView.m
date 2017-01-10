@@ -77,6 +77,7 @@ static UIImage *selectImage = nil;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeState) name:LWDAYVIEW_CHANGE_STATE object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateState) name:LWDAYVIEW_UPDATE_STATE object:nil];
+        [self updateWithBuilder:self.dialogBuilder];
     }
     return self;
 }
@@ -111,7 +112,7 @@ static UIImage *selectImage = nil;
     [self setTitleColor:self.dialogBuilder.LWDatePickerViewDefaultTextColor forState:UIControlStateNormal];
     // 当前时间
     if (_date && [self.manager.helper date:_date isTheSameDayThan:self.calendarDelegate.currentDate] && self.enabled) {
-        [self setImage:[UIImage imageNamed:@"circle_cir"] forState:UIControlStateNormal];
+        [self setImage:[NSBundle LWCalendarCircleImage]  forState:UIControlStateNormal];
     }else{
         [self setImage:nil forState:UIControlStateNormal];
     }
@@ -135,11 +136,11 @@ static UIImage *selectImage = nil;
     //高亮状态
     [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateHighlighted];
     [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateHighlighted];
-    [self setBackgroundImage:[UIImage imageNamed:@"backImg_start"] forState:UIControlStateHighlighted];
+    [self setBackgroundImage:[NSBundle LWCalendarStartFilterImage] forState:UIControlStateHighlighted];
     //选中状态
     [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateSelected];
     [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateSelected];
-    [self setBackgroundImage:[UIImage imageNamed:@"backImg_start"] forState:UIControlStateSelected];
+    [self setBackgroundImage:[NSBundle LWCalendarStartFilterImage] forState:UIControlStateSelected];
 }
 
 //结束按钮的state
@@ -151,11 +152,11 @@ static UIImage *selectImage = nil;
     //高亮状态
     [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateHighlighted];
     [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateHighlighted];
-    [self setBackgroundImage:[UIImage imageNamed:@"backImg_end"] forState:UIControlStateHighlighted];
+    [self setBackgroundImage:[NSBundle LWCalendarEndFilterImage] forState:UIControlStateHighlighted];
     //选中状态
     [self setTitleColor:self.dialogBuilder.LWDatePickerViewSelectedTextColor forState:UIControlStateSelected];
     [self setImage:[self getSelectImageWithFrame:self.frame] forState:UIControlStateSelected];
-    [self setBackgroundImage:[UIImage imageNamed:@"backImg_end"] forState:UIControlStateSelected];
+    [self setBackgroundImage:[NSBundle LWCalendarEndFilterImage] forState:UIControlStateSelected];
 }
 
 #pragma mark Notification回调函数
@@ -334,7 +335,7 @@ static UIImage *selectImage = nil;
         
         // 当前时间
         if ([self.manager.helper date:_date isTheSameDayThan:self.calendarDelegate.currentDate] && self.enabled) {
-            [self setImage:[UIImage imageNamed:@"circle_cir"] forState:UIControlStateNormal];
+            [self setImage:[NSBundle LWCalendarCircleImage] forState:UIControlStateNormal];
         }
         
         // 多选状态设置
@@ -381,10 +382,12 @@ static UIImage *selectImage = nil;
 }
 
 -(LWDatePickerBuilder *)dialogBuilder{
-    if (self.weekDelegate) {
-        _dialogBuilder = self.weekDelegate.dialogBuilder;
-    }else{
-        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    if(_dialogBuilder == nil){
+        if (self.weekDelegate) {
+            _dialogBuilder = self.weekDelegate.dialogBuilder;
+        }else{
+            _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+        }
     }
     return _dialogBuilder;
 }
@@ -393,6 +396,7 @@ static UIImage *selectImage = nil;
 -(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
     //title设置
     self.titleLabel.font = builder.LWDayViewFont;
+    self.imageView.tintColor = builder.LWDatePickerViewSelectedColor;
     self.date = _date;
 }
 

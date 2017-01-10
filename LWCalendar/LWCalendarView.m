@@ -43,10 +43,8 @@ dialogBuilder       = _dialogBuilder;
     [self viewDidScroll];
 }
 
-
 - (void)resizeViewsIfWidthChanged {
     CGSize size = self.frame.size;
-    
     // 首次加载
     if (!lastSize.width) {
         [self repositionViews];
@@ -93,7 +91,7 @@ dialogBuilder       = _dialogBuilder;
         [self addSubview:monthView3];
         [self addSubview:monthView4];
         [self addSubview:monthView5];
-        [self updateWithBuilder:self.dialogBuilder];
+        self.dialogBuilder = self.dialogBuilder;
         self.currentDate = _currentDate;
     }
     
@@ -265,10 +263,12 @@ dialogBuilder       = _dialogBuilder;
 }
 
 -(LWDatePickerBuilder *)dialogBuilder{
-    if (self.dateViewDelegate) {
-        _dialogBuilder = self.dateViewDelegate.dialogBuilder;
-    }else{
-        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    if(_dialogBuilder == nil){
+        if (self.dateViewDelegate) {
+            _dialogBuilder = self.dateViewDelegate.dialogBuilder;
+        }else{
+            _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+        }
     }
     return _dialogBuilder;
 }
@@ -276,7 +276,7 @@ dialogBuilder       = _dialogBuilder;
 #pragma mark 根据Build参数更新UI或者约束
 -(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
     //更新month样式
-    if (!monthView1) {
+    if (monthView1) {
         monthView1.dialogBuilder = builder;
         monthView2.dialogBuilder = builder;
         monthView3.dialogBuilder = builder;

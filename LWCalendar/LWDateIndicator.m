@@ -29,6 +29,7 @@ dialogBuilder   = _dialogBuilder;
         tmp.dateViewDelegate = delegate;
         tmp.titleLabel.text = title;
         tmp.date = date;
+        [tmp updateWithBuilder:tmp.dialogBuilder];
     }
     return tmp;
 }
@@ -51,7 +52,7 @@ dialogBuilder   = _dialogBuilder;
         _dateLabel.textAlignment = NSTextAlignmentCenter;
         _dateLabel.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:_dateLabel];
-
+        
         
     }
     return _dateLabel;
@@ -77,10 +78,12 @@ dialogBuilder   = _dialogBuilder;
 }
 
 -(LWDatePickerBuilder *)dialogBuilder{
-    if (self.dateViewDelegate) {
-        _dialogBuilder = self.dateViewDelegate.dialogBuilder;
-    }else{
-        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    if(_dialogBuilder == nil){
+        if (self.dateViewDelegate) {
+            _dialogBuilder = self.dateViewDelegate.dialogBuilder;
+        }else{
+            _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+        }
     }
     return _dialogBuilder;
 }
@@ -89,12 +92,12 @@ dialogBuilder   = _dialogBuilder;
 -(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
     //title设置
     self.titleLabel.font = self.dialogBuilder.LWDateIndicatorTitleFont;
-    self.titleLabel.textColor = self.dialogBuilder.LWDatePickerViewDefaultColor;
-    self.titleLabel.backgroundColor = self.dialogBuilder.LWDatePickerViewDefaultTextColor;
+    self.titleLabel.textColor = self.dialogBuilder.LWDatePickerViewDefaultTextColor;
+    self.titleLabel.backgroundColor = self.dialogBuilder.LWDatePickerViewDefaultColor;
     //date设置
     self.dateLabel.font = self.dialogBuilder.LWDateIndicatorDateFont;
-    self.dateLabel.textColor= self.dialogBuilder.LWDatePickerViewSelectedColor;
-    self.dateLabel.backgroundColor = self.dialogBuilder.LWDatePickerViewSelectedTextColor;
+    self.dateLabel.textColor= self.dialogBuilder.LWDatePickerViewSelectedTextColor;
+    self.dateLabel.backgroundColor = self.dialogBuilder.LWDatePickerViewSelectedColor;
     //约束更新
     [self updateConstraintForTitleLabel];
     [self updateConstraintForDateLabel];
@@ -102,14 +105,13 @@ dialogBuilder   = _dialogBuilder;
 
 #pragma mark 约束相关
 -(void)updateConstraintForTitleLabel{
-    [self titleLabel];
     [self removeConstraints:self.titleLabelConstraints];
     [self.titleLabelConstraints removeAllObjects];
     //添加约束
-    NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.dialogBuilder.LWDateIndicatorTitleHeight];
+    NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.dialogBuilder.LWDateIndicatorTitleHeight];
     [self addConstraint:viewLeft];
     [self addConstraint:viewRight];
     [self addConstraint:viewTop];
@@ -121,14 +123,13 @@ dialogBuilder   = _dialogBuilder;
 }
 
 -(void)updateConstraintForDateLabel{
-    [self dateLabel];
     [self removeConstraints:self.dateLabelConstraints];
     [self.dateLabelConstraints removeAllObjects];
     //添加约束
-    NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:_dateLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_dateLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:_dateLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.titleLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:_dateLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:self.dateLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:self.dateLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:self.dateLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.titleLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:self.dateLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
     [self addConstraint:viewLeft];
     [self addConstraint:viewRight];
     [self addConstraint:viewTop];

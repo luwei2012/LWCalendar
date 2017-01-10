@@ -39,6 +39,7 @@ dialogBuilder = _dialogBuilder;
         self.label5.text = @"四";
         self.label6.text = @"五";
         self.label7.text = @"六";
+        [self updateWithBuilder:self.dialogBuilder];
     }
     return self;
 }
@@ -198,10 +199,12 @@ dialogBuilder = _dialogBuilder;
 }
 
 -(LWDatePickerBuilder *)dialogBuilder{
-    if (self.monthDelegate && self.monthDelegate.calendarDelegate && self.monthDelegate.calendarDelegate.dateViewDelegate) {
-        _dialogBuilder = self.monthDelegate.calendarDelegate.dateViewDelegate.dialogBuilder;
-    }else{
-        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    if(_dialogBuilder == nil){
+        if (self.monthDelegate && self.monthDelegate.calendarDelegate && self.monthDelegate.calendarDelegate.dateViewDelegate) {
+            _dialogBuilder = self.monthDelegate.calendarDelegate.dateViewDelegate.dialogBuilder;
+        }else{
+            _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+        }
     }
     return _dialogBuilder;
 }

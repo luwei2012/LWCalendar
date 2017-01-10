@@ -20,6 +20,7 @@
 #import "LWDateIndicator.h"
 #import "LWWeekIndicator.h"
 #import "LWDatePickerBuilder.h"
+#import "NSBundle+LWCalendar.h"
 
 //日期选择器的通知事件
 //选中某个日期后的本地通知
@@ -37,6 +38,7 @@ green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0x0000FF))/255.0 \
 alpha:1.0]
 
-
+// 图片路径
+#define LWCalendarSrcName(file) [@"LWCalendar.bundle" stringByAppendingPathComponent:file]
 
 #endif /* LWCalendarHeader_h */

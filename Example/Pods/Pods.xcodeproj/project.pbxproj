@@ -7,41 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0822DA971DFF475D13B49FF6BD1BEE6F /* LWCalendarHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 999BB38D8EEFC32E014E488282214F30 /* LWCalendarHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		00B1EC02DC6C5263BAB05A18350A7F38 /* LWWeekIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 533F31F1E2DD4B9C6417C722D5A7A35D /* LWWeekIndicator.m */; };
 		10803AF4C2BC60671E5676C88D87E672 /* Pods-LWCalendar_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B917838C71CA978F346D21D7A5934827 /* Pods-LWCalendar_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		11ED2166CC937C85BF002B46BFA8F0E9 /* LWCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 004C2A09ECF6673A18792D9F75378919 /* LWCalendarManager.m */; };
-		165C829B429D1AFA2FBFBE87A4A2738E /* LWWeekIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FAB0C5264352D499FD3CAD1B640DE1C /* LWWeekIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1668BA10FC0582E58AA8BA87AF8E6052 /* LWMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C0EB0AA1C5136D9FD89DC3735F527 /* LWMonthView.m */; };
-		1E4A63C3CA91582A766BE794932D490E /* LWDateIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 721C30EA333E6379235CA92F35281D91 /* LWDateIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2BDAB78EE682D54B683D1975636D4FBF /* backImg_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DF8D50406D84E4C7CA8D2355E2B9516 /* backImg_start.png */; };
-		33332F34DBC75B0CD3697E1B53B929E5 /* LWCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3E7A0507EC750B3A2BF22E413C64D1 /* LWCalendarView.m */; };
-		338C4053CE9910538FEE0D32DF602EAF /* LWDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB214A89F1723B2C1386F3A2550ED9AD /* LWDateHelper.m */; };
-		4652A6D35A9541EDB6703D19DD7F981B /* LWDatePickerDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C36AB67345B048074BA2571F028E88 /* LWDatePickerDialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		480216ACDB108B55B4E06725AE14AA82 /* LWCalendarManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3495B01F40D6A9DF15B9028D0758CAB4 /* LWCalendarManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55AFB75D772C42E2DC2B75D4C4D421A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		192608FFF862868125A030553FF223AD /* LWCalendarHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AB13225E48A03828B23DA59C4332F7D /* LWCalendarHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		229BA4482D5BA6C48F7C5DD56FA1A8AB /* LWMonthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 331340CB2B3512FDD59CD10EE764D3F5 /* LWMonthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E7A84046C82AF7AB98F6CB4FA04A2EE /* LWCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7379DDC2CC60A65E0B02C78AA75239D1 /* LWCalendar-dummy.m */; };
 		55D87D9527AB01AD584916FE1998913B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		5CD080AB31F2D8D4C4445B24F645D077 /* backImg_end.png in Resources */ = {isa = PBXBuildFile; fileRef = CBD9234325ED72579DF91F509FDCE41A /* backImg_end.png */; };
-		68662F8A7D3C961B8B8A7BA14AFC77B0 /* LWDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C635BC582D3A12A69F72F2DD21E2380A /* LWDatePickerView.m */; };
-		697E333AE07094D9F0A0EC397B18D0F5 /* LWCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 35B1CF1C6B3BCB090998DEEF2F8364D1 /* LWCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		722BA66A703B41DBB0409D605F6D2E98 /* LWDatePickerBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F8B619DE80586E2C1D363E7A5F52FC4 /* LWDatePickerBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		953B646653E53548928A219F45881B72 /* LWWeekView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BAA517034F3072DF3AA63F7B391FEA7 /* LWWeekView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58263B26E4639A7CC301B2015EC365A5 /* LWDatePickerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = E799DE63D464DB24492D788095F6C3D6 /* LWDatePickerDialog.m */; };
+		58DB0F22355954BB4ADC89DCA6E30E60 /* LWCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F92FD43AC5E889B376322FEBBE6A4675 /* LWCalendarManager.m */; };
+		5F26E54E33EAEA40C97E2B286EDCA284 /* LWWeekView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52B7EE778512378D3396AEA32921EDC /* LWWeekView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		629CB652F62C7264D9D0EFA538376719 /* LWDatePickerDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 97EE53C5B0E02E1282390DCC9D66B0D0 /* LWDatePickerDialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		682AACE58D268290F4451DB286F36C6B /* LWMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C88BBC434814A31270CD249314BB /* LWMonthView.m */; };
+		693384D6A83532F52903F732DB837E65 /* LWWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02475BB2CF6D546D670B1139CFDACA4D /* LWWeekView.m */; };
+		6B0F1ED95884A35AAA7F1D0CD17348FA /* LWDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0D22BF91B0043D021A01CC7C9C5B1A /* LWDateHelper.m */; };
+		840EAEE2A540D8574A1B667FF2E44E09 /* LWDateIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEE8FDD7B53A9A1C5CCF596FBF0FFB /* LWDateIndicator.m */; };
+		8738FD2D41492563BDBC6176586BDD2D /* LWCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA672972CAB80F0F4E30CDF109F72C37 /* LWCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D0DF4575E9ED518FF7F96C0DB986849 /* NSBundle+LWCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF94BE6281F35C920B1C18F56D94CC9 /* NSBundle+LWCalendar.m */; };
+		8F48A5240406C02ED1D9BA68A846AC0C /* LWDatePickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EB4319D5F641BF9A4BC1CAA9C8ED28 /* LWDatePickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F8B79A81B2F087A87B92CECE363C3B5 /* LWCalendarManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE5A915FDB1352F336F1E6B2296BBE2 /* LWCalendarManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2DCA8E05004013B5289C6AA855ADECB /* Pods-LWCalendar_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A7E29AAA83C6E43A116E28E10109E2 /* Pods-LWCalendar_Example-dummy.m */; };
-		ACB46E3590949AC5AADF9B25F50CB584 /* LWWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBCD62B2404F0C02D784019AEE4149D /* LWWeekView.m */; };
-		ADA1B625A518EAEF7A2E2A2DACDED8C8 /* LWDatePickerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41DC24F974AEBB3D633ED0DEA26110 /* LWDatePickerDialog.m */; };
-		AF9EA6CB964CFFF9961CC9AB46C7C4F1 /* LWDateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C94B57AFC65F65F9A57F5C501C0D0D3A /* LWDateHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BC79FD711719DBC6D03FB554C72A0E4E /* circle_cir.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD653A4DD402004C14F009F99AFD04F /* circle_cir.png */; };
-		BCBF6D5F5777A2225DB3CFF42E30923D /* LWDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 057D9894FC5CA8C778D9CCA7D51B3DC8 /* LWDayView.m */; };
+		A65E3C0685D00BDCC863CE77C8977FB7 /* NSBundle+LWCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 784EEE9BDBAF39D39CDB13D2E7B0BB97 /* NSBundle+LWCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6C1410EA5745B2EE0D82C8E48008782 /* LWCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCEB202E1FED602387B75E60CE9E95 /* LWCalendarView.m */; };
+		AFE24BDE25ED0A29BA8C624B86AAD6B0 /* LWCalendar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CA9D9A1C34D6981F8921670E0F09C783 /* LWCalendar.bundle */; };
+		B2385493B6FEA988D01FD151DDAD69C4 /* LWDatePickerBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = E10E538E39D4A44C54FFD05F3C2C0040 /* LWDatePickerBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B626B8E5BDE5077E45F60FC8B0316A24 /* LWDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9242B285487BC17255B91B4CC536DB33 /* LWDayView.m */; };
+		BC0E609EC805E1E74DF60A3E29B9D960 /* LWDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57852C47EE03003060BDA99B4C5997D3 /* LWDatePickerView.m */; };
 		BD8028A57C1A4EEA0A5417FCB54B3D08 /* Pods-LWCalendar_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E22F5FAB8AEB6AFCA77A9144865749C /* Pods-LWCalendar_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEF98B87F884CFD60475AF5597F70381 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		C41A65152E671EE8F2585E6420C0DDBF /* LWCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5EAB4ED135397589AE042FC7C6EEAAE /* LWCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C035157CCAEAB3EFA1E62E251ED34480 /* LWDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 125FA321F0D6C061A671FDFF0913BF2C /* LWDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4EB575E18EB39FBE92B6CF9240126C1 /* Pods-LWCalendar_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6E852DFA47A0F713A98EDF575BC19 /* Pods-LWCalendar_Tests-dummy.m */; };
-		EF6BE02F4D9C57DE831C20119DE6417B /* LWDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 260C3F53D9F0525873C93369D2D0715C /* LWDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F2AD8B1AB3AA9F22FEBCA4305083A3DF /* LWDatePickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = E02CEEE06B6E8AAE21C6A8F35A134929 /* LWDatePickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F36C024D86E90AB8097AAE3E32B6FE7D /* LWDatePickerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5000979166C744461D8F5DF4193A8A /* LWDatePickerBuilder.m */; };
-		F680B810D562EAF925CF352ABB61AB34 /* LWCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D819F00A00C46C22E8592B770EF7F4A /* LWCalendar-dummy.m */; };
-		F87FA843258E14736ADF92A69722577C /* LWMonthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C0E8EF8C55AF686658229FB9A883469 /* LWMonthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB2F37581621861B62C154D8AFD72FEC /* LWWeekIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4A23254FC019D52A95BC648406E87 /* LWWeekIndicator.m */; };
-		FD880D31697E0C15A12663869FD87201 /* LWDateIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A9483792DFCAAD71CC5C5D70D0103F04 /* LWDateIndicator.m */; };
+		CFED34A2B8447F76CEC123469F378DDA /* LWWeekIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = F0E8D31935D1C3C96AF0EE884A06787A /* LWWeekIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D55B4ECB1348DCC8781220ECE8A90A0E /* LWDateIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D4230E6BC0FD299742B28D917427028 /* LWDateIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9507AA6A82D1EC22948272101677D56 /* LWDateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 36E92D234C41052208B22537159CEA99 /* LWDateHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC9C2D4523DCC1589C786AA4AF397ED0 /* LWDatePickerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C4D6998B6700298AD1C332453C97A7 /* LWDatePickerBuilder.m */; };
+		DF924E3BA7C1D171BEB4504824BA213E /* LWCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC60B59EE1DF1F1704918D21A9A660A0 /* LWCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7D31C96D4B0A0A642E0B10B38A33B65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,85 +49,85 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E4CD4D4CD9471D2DD43AF0B302C46680;
+			remoteGlobalIDString = 362A885934B7964B3EDCB3B2A0BB4322;
 			remoteInfo = LWCalendar;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		004C2A09ECF6673A18792D9F75378919 /* LWCalendarManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWCalendarManager.m; sourceTree = "<group>"; };
 		02150C4CB7F152A0E4DC4B04BA36D279 /* Pods-LWCalendar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LWCalendar_Example.release.xcconfig"; sourceTree = "<group>"; };
-		057D9894FC5CA8C778D9CCA7D51B3DC8 /* LWDayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDayView.m; sourceTree = "<group>"; };
-		05C36AB67345B048074BA2571F028E88 /* LWDatePickerDialog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDatePickerDialog.h; sourceTree = "<group>"; };
-		0BD79421203D20DFC6E22BB93B3D96C8 /* LWCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = LWCalendar.modulemap; sourceTree = "<group>"; };
+		02475BB2CF6D546D670B1139CFDACA4D /* LWWeekView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWWeekView.m; sourceTree = "<group>"; };
+		04FEE8FDD7B53A9A1C5CCF596FBF0FFB /* LWDateIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDateIndicator.m; sourceTree = "<group>"; };
 		0BE32CEAE597400686BE13E069EC4BAC /* Pods_LWCalendar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LWCalendar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0C0E8EF8C55AF686658229FB9A883469 /* LWMonthView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWMonthView.h; sourceTree = "<group>"; };
 		0C1AB3F55DD78861BE3E7D332C7B6FC0 /* Pods-LWCalendar_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LWCalendar_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		114E7BDD591F87439A11D58F8F01251C /* LWCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LWCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DF8D50406D84E4C7CA8D2355E2B9516 /* backImg_start.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = backImg_start.png; sourceTree = "<group>"; };
-		260C3F53D9F0525873C93369D2D0715C /* LWDayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDayView.h; sourceTree = "<group>"; };
-		2A74DCACE50E96AAA62DEA13AFA5A4B2 /* LWCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LWCalendar.xcconfig; sourceTree = "<group>"; };
-		3495B01F40D6A9DF15B9028D0758CAB4 /* LWCalendarManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWCalendarManager.h; sourceTree = "<group>"; };
-		35B1CF1C6B3BCB090998DEEF2F8364D1 /* LWCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LWCalendar-umbrella.h"; sourceTree = "<group>"; };
+		11C4D6998B6700298AD1C332453C97A7 /* LWDatePickerBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDatePickerBuilder.m; sourceTree = "<group>"; };
+		125FA321F0D6C061A671FDFF0913BF2C /* LWDayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDayView.h; sourceTree = "<group>"; };
+		2C43FB712818A664E2D55E4B7E3D99B7 /* LWCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LWCalendar.xcconfig; sourceTree = "<group>"; };
+		331340CB2B3512FDD59CD10EE764D3F5 /* LWMonthView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWMonthView.h; sourceTree = "<group>"; };
 		3688187731ABD1693E470B0131578278 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36E92D234C41052208B22537159CEA99 /* LWDateHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDateHelper.h; sourceTree = "<group>"; };
 		4438A1C112E2000C6E7CCCBDBFF35887 /* Pods-LWCalendar_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LWCalendar_Tests.modulemap"; sourceTree = "<group>"; };
 		452A115F30C8EADF4653E30602DB7157 /* Pods-LWCalendar_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LWCalendar_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		5BD4A23254FC019D52A95BC648406E87 /* LWWeekIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWWeekIndicator.m; sourceTree = "<group>"; };
-		5D819F00A00C46C22E8592B770EF7F4A /* LWCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LWCalendar-dummy.m"; sourceTree = "<group>"; };
+		533F31F1E2DD4B9C6417C722D5A7A35D /* LWWeekIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWWeekIndicator.m; sourceTree = "<group>"; };
+		57852C47EE03003060BDA99B4C5997D3 /* LWDatePickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDatePickerView.m; sourceTree = "<group>"; };
+		5D4230E6BC0FD299742B28D917427028 /* LWDateIndicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDateIndicator.h; sourceTree = "<group>"; };
+		5E32A8BC005CF89747F8EF0C8B43F847 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FF94BE6281F35C920B1C18F56D94CC9 /* NSBundle+LWCalendar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+LWCalendar.m"; sourceTree = "<group>"; };
 		6849537451370B292ADCC07FCB169CA8 /* Pods-LWCalendar_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LWCalendar_Example-frameworks.sh"; sourceTree = "<group>"; };
-		6BAA517034F3072DF3AA63F7B391FEA7 /* LWWeekView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWWeekView.h; sourceTree = "<group>"; };
-		721C30EA333E6379235CA92F35281D91 /* LWDateIndicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDateIndicator.h; sourceTree = "<group>"; };
+		6D0D22BF91B0043D021A01CC7C9C5B1A /* LWDateHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDateHelper.m; sourceTree = "<group>"; };
 		731FB88DE195759A967CFCA48B217BE9 /* Pods-LWCalendar_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LWCalendar_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7617EEE3EBA4C562AABEA17A0A9053C4 /* LWCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LWCalendar-prefix.pch"; sourceTree = "<group>"; };
-		7FAB0C5264352D499FD3CAD1B640DE1C /* LWWeekIndicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWWeekIndicator.h; sourceTree = "<group>"; };
+		7379DDC2CC60A65E0B02C78AA75239D1 /* LWCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LWCalendar-dummy.m"; sourceTree = "<group>"; };
+		784EEE9BDBAF39D39CDB13D2E7B0BB97 /* NSBundle+LWCalendar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSBundle+LWCalendar.h"; sourceTree = "<group>"; };
+		7AB13225E48A03828B23DA59C4332F7D /* LWCalendarHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWCalendarHeader.h; sourceTree = "<group>"; };
 		8758850D2CDA7C80860E19A644BD2D35 /* Pods_LWCalendar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LWCalendar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8996216B3BA356BA964071FA5D879CD5 /* Pods-LWCalendar_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LWCalendar_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8F20A4571DDC252DF4610A731B0100C9 /* LWCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LWCalendar-prefix.pch"; sourceTree = "<group>"; };
 		90F082CD5CE5E4B6E03AD5F73D90F3F1 /* Pods-LWCalendar_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LWCalendar_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		9242B285487BC17255B91B4CC536DB33 /* LWDayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDayView.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		999BB38D8EEFC32E014E488282214F30 /* LWCalendarHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWCalendarHeader.h; sourceTree = "<group>"; };
+		97EE53C5B0E02E1282390DCC9D66B0D0 /* LWDatePickerDialog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDatePickerDialog.h; sourceTree = "<group>"; };
 		9DAB7BA5C789A131D24C97DB5BC7915A /* Pods-LWCalendar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LWCalendar_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9E22F5FAB8AEB6AFCA77A9144865749C /* Pods-LWCalendar_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LWCalendar_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9F8B619DE80586E2C1D363E7A5F52FC4 /* LWDatePickerBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDatePickerBuilder.h; sourceTree = "<group>"; };
-		A9483792DFCAAD71CC5C5D70D0103F04 /* LWDateIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDateIndicator.m; sourceTree = "<group>"; };
+		A0EB4319D5F641BF9A4BC1CAA9C8ED28 /* LWDatePickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDatePickerView.h; sourceTree = "<group>"; };
+		A52B7EE778512378D3396AEA32921EDC /* LWWeekView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWWeekView.h; sourceTree = "<group>"; };
 		AB56C3F4EB675E7B97D413CEDB600F10 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC3E7A0507EC750B3A2BF22E413C64D1 /* LWCalendarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWCalendarView.m; sourceTree = "<group>"; };
 		AEB6E852DFA47A0F713A98EDF575BC19 /* Pods-LWCalendar_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LWCalendar_Tests-dummy.m"; sourceTree = "<group>"; };
+		B0A1C88BBC434814A31270CD249314BB /* LWMonthView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWMonthView.m; sourceTree = "<group>"; };
+		B0FCEB202E1FED602387B75E60CE9E95 /* LWCalendarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWCalendarView.m; sourceTree = "<group>"; };
 		B177867277249BC7F7DFDA1EED6471DC /* Pods-LWCalendar_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LWCalendar_Example-resources.sh"; sourceTree = "<group>"; };
 		B917838C71CA978F346D21D7A5934827 /* Pods-LWCalendar_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LWCalendar_Example-umbrella.h"; sourceTree = "<group>"; };
 		BDD218466B940C30030A859DBF6E5440 /* Pods-LWCalendar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LWCalendar_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		BE41DC24F974AEBB3D633ED0DEA26110 /* LWDatePickerDialog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDatePickerDialog.m; sourceTree = "<group>"; };
 		BED82691BA354765A32BB43F517C7582 /* Pods-LWCalendar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LWCalendar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		C635BC582D3A12A69F72F2DD21E2380A /* LWDatePickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDatePickerView.m; sourceTree = "<group>"; };
-		C94B57AFC65F65F9A57F5C501C0D0D3A /* LWDateHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDateHelper.h; sourceTree = "<group>"; };
-		CBD9234325ED72579DF91F509FDCE41A /* backImg_end.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = backImg_end.png; sourceTree = "<group>"; };
+		CA9D9A1C34D6981F8921670E0F09C783 /* LWCalendar.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = LWCalendar.bundle; sourceTree = "<group>"; };
+		CE5F0C2F7E830568283D3CC5B25FC8BC /* LWCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = LWCalendar.modulemap; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D43C877FE1188C654A010A0B00E704BE /* Pods-LWCalendar_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LWCalendar_Tests-resources.sh"; sourceTree = "<group>"; };
 		D4B73314A43ED51E73C9F1EF82BB44D6 /* Pods-LWCalendar_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LWCalendar_Example.modulemap"; sourceTree = "<group>"; };
-		E02CEEE06B6E8AAE21C6A8F35A134929 /* LWDatePickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDatePickerView.h; sourceTree = "<group>"; };
-		E31FC320E6BE3CCB5FFB879BE22265BE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB214A89F1723B2C1386F3A2550ED9AD /* LWDateHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDateHelper.m; sourceTree = "<group>"; };
-		F34C0EB0AA1C5136D9FD89DC3735F527 /* LWMonthView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWMonthView.m; sourceTree = "<group>"; };
-		F5EAB4ED135397589AE042FC7C6EEAAE /* LWCalendarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWCalendarView.h; sourceTree = "<group>"; };
+		DC60B59EE1DF1F1704918D21A9A660A0 /* LWCalendarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWCalendarView.h; sourceTree = "<group>"; };
+		DCE5A915FDB1352F336F1E6B2296BBE2 /* LWCalendarManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWCalendarManager.h; sourceTree = "<group>"; };
+		E10E538E39D4A44C54FFD05F3C2C0040 /* LWDatePickerBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWDatePickerBuilder.h; sourceTree = "<group>"; };
+		E799DE63D464DB24492D788095F6C3D6 /* LWDatePickerDialog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDatePickerDialog.m; sourceTree = "<group>"; };
+		EA672972CAB80F0F4E30CDF109F72C37 /* LWCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LWCalendar-umbrella.h"; sourceTree = "<group>"; };
+		F0E8D31935D1C3C96AF0EE884A06787A /* LWWeekIndicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LWWeekIndicator.h; sourceTree = "<group>"; };
 		F7A7E29AAA83C6E43A116E28E10109E2 /* Pods-LWCalendar_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LWCalendar_Example-dummy.m"; sourceTree = "<group>"; };
-		FA5000979166C744461D8F5DF4193A8A /* LWDatePickerBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWDatePickerBuilder.m; sourceTree = "<group>"; };
-		FCBCD62B2404F0C02D784019AEE4149D /* LWWeekView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWWeekView.m; sourceTree = "<group>"; };
-		FDD653A4DD402004C14F009F99AFD04F /* circle_cir.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = circle_cir.png; sourceTree = "<group>"; };
+		F92FD43AC5E889B376322FEBBE6A4675 /* LWCalendarManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LWCalendarManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		872344D991D53238166A711F8760A9CB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				55AFB75D772C42E2DC2B75D4C4D421A5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BFE51E19A2AC2AF7F3563287C74F653A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				55D87D9527AB01AD584916FE1998913B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C527C9B4E0580444D46169CED127642E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7D31C96D4B0A0A642E0B10B38A33B65 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +151,17 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		310E819663A8B2DEE8FD26FFFC2FCFE9 /* LWCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				5B4E64CF24575231F881537BC7545496 /* LWCalendar */,
+				4A3CC7933F1D336435785342B4A6884E /* Resources */,
+				7B9E36D586B68BEEE26AC0DBD676C7FA /* Support Files */,
+			);
+			name = LWCalendar;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,63 +180,44 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4D4964EBBF6AE4676568009A6360E683 /* LWCalendar */ = {
+		4A3CC7933F1D336435785342B4A6884E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9FFD3EB1BA6EC73CB77FEB5CCD32032A /* LWCalendar */,
-				BC9710F98E6F77A53304D75E62FAEC1F /* Resources */,
-				87FF74B0EF4E45502EE064A5FC3A5C1D /* Support Files */,
+				C5B17F4EB9506DBECE2DDDA520B1B599 /* LWCalendar */,
 			);
-			name = LWCalendar;
-			path = ../..;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		5330F2706B50C4EA1E8A6AEDDC71F952 /* Assets */ = {
+		5B4E64CF24575231F881537BC7545496 /* LWCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				CBD9234325ED72579DF91F509FDCE41A /* backImg_end.png */,
-				1DF8D50406D84E4C7CA8D2355E2B9516 /* backImg_start.png */,
-				FDD653A4DD402004C14F009F99AFD04F /* circle_cir.png */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		5705FC3627DE3F605D69F343257C2AAA /* LWCalendar */ = {
-			isa = PBXGroup;
-			children = (
-				5330F2706B50C4EA1E8A6AEDDC71F952 /* Assets */,
+				7AB13225E48A03828B23DA59C4332F7D /* LWCalendarHeader.h */,
+				DCE5A915FDB1352F336F1E6B2296BBE2 /* LWCalendarManager.h */,
+				F92FD43AC5E889B376322FEBBE6A4675 /* LWCalendarManager.m */,
+				DC60B59EE1DF1F1704918D21A9A660A0 /* LWCalendarView.h */,
+				B0FCEB202E1FED602387B75E60CE9E95 /* LWCalendarView.m */,
+				36E92D234C41052208B22537159CEA99 /* LWDateHelper.h */,
+				6D0D22BF91B0043D021A01CC7C9C5B1A /* LWDateHelper.m */,
+				5D4230E6BC0FD299742B28D917427028 /* LWDateIndicator.h */,
+				04FEE8FDD7B53A9A1C5CCF596FBF0FFB /* LWDateIndicator.m */,
+				E10E538E39D4A44C54FFD05F3C2C0040 /* LWDatePickerBuilder.h */,
+				11C4D6998B6700298AD1C332453C97A7 /* LWDatePickerBuilder.m */,
+				97EE53C5B0E02E1282390DCC9D66B0D0 /* LWDatePickerDialog.h */,
+				E799DE63D464DB24492D788095F6C3D6 /* LWDatePickerDialog.m */,
+				A0EB4319D5F641BF9A4BC1CAA9C8ED28 /* LWDatePickerView.h */,
+				57852C47EE03003060BDA99B4C5997D3 /* LWDatePickerView.m */,
+				125FA321F0D6C061A671FDFF0913BF2C /* LWDayView.h */,
+				9242B285487BC17255B91B4CC536DB33 /* LWDayView.m */,
+				331340CB2B3512FDD59CD10EE764D3F5 /* LWMonthView.h */,
+				B0A1C88BBC434814A31270CD249314BB /* LWMonthView.m */,
+				F0E8D31935D1C3C96AF0EE884A06787A /* LWWeekIndicator.h */,
+				533F31F1E2DD4B9C6417C722D5A7A35D /* LWWeekIndicator.m */,
+				A52B7EE778512378D3396AEA32921EDC /* LWWeekView.h */,
+				02475BB2CF6D546D670B1139CFDACA4D /* LWWeekView.m */,
+				784EEE9BDBAF39D39CDB13D2E7B0BB97 /* NSBundle+LWCalendar.h */,
+				5FF94BE6281F35C920B1C18F56D94CC9 /* NSBundle+LWCalendar.m */,
 			);
 			path = LWCalendar;
-			sourceTree = "<group>";
-		};
-		6516B230D3F9E052077C1A3695734648 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				999BB38D8EEFC32E014E488282214F30 /* LWCalendarHeader.h */,
-				3495B01F40D6A9DF15B9028D0758CAB4 /* LWCalendarManager.h */,
-				004C2A09ECF6673A18792D9F75378919 /* LWCalendarManager.m */,
-				F5EAB4ED135397589AE042FC7C6EEAAE /* LWCalendarView.h */,
-				AC3E7A0507EC750B3A2BF22E413C64D1 /* LWCalendarView.m */,
-				C94B57AFC65F65F9A57F5C501C0D0D3A /* LWDateHelper.h */,
-				EB214A89F1723B2C1386F3A2550ED9AD /* LWDateHelper.m */,
-				721C30EA333E6379235CA92F35281D91 /* LWDateIndicator.h */,
-				A9483792DFCAAD71CC5C5D70D0103F04 /* LWDateIndicator.m */,
-				9F8B619DE80586E2C1D363E7A5F52FC4 /* LWDatePickerBuilder.h */,
-				FA5000979166C744461D8F5DF4193A8A /* LWDatePickerBuilder.m */,
-				05C36AB67345B048074BA2571F028E88 /* LWDatePickerDialog.h */,
-				BE41DC24F974AEBB3D633ED0DEA26110 /* LWDatePickerDialog.m */,
-				E02CEEE06B6E8AAE21C6A8F35A134929 /* LWDatePickerView.h */,
-				C635BC582D3A12A69F72F2DD21E2380A /* LWDatePickerView.m */,
-				260C3F53D9F0525873C93369D2D0715C /* LWDayView.h */,
-				057D9894FC5CA8C778D9CCA7D51B3DC8 /* LWDayView.m */,
-				0C0E8EF8C55AF686658229FB9A883469 /* LWMonthView.h */,
-				F34C0EB0AA1C5136D9FD89DC3735F527 /* LWMonthView.m */,
-				7FAB0C5264352D499FD3CAD1B640DE1C /* LWWeekIndicator.h */,
-				5BD4A23254FC019D52A95BC648406E87 /* LWWeekIndicator.m */,
-				6BAA517034F3072DF3AA63F7B391FEA7 /* LWWeekView.h */,
-				FCBCD62B2404F0C02D784019AEE4149D /* LWWeekView.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		7228A81569656DDC24BED9F44984AEA1 /* Pods-LWCalendar_Example */ = {
@@ -246,6 +238,20 @@
 			path = "Target Support Files/Pods-LWCalendar_Example";
 			sourceTree = "<group>";
 		};
+		7B9E36D586B68BEEE26AC0DBD676C7FA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E32A8BC005CF89747F8EF0C8B43F847 /* Info.plist */,
+				CE5F0C2F7E830568283D3CC5B25FC8BC /* LWCalendar.modulemap */,
+				2C43FB712818A664E2D55E4B7E3D99B7 /* LWCalendar.xcconfig */,
+				7379DDC2CC60A65E0B02C78AA75239D1 /* LWCalendar-dummy.m */,
+				8F20A4571DDC252DF4610A731B0100C9 /* LWCalendar-prefix.pch */,
+				EA672972CAB80F0F4E30CDF109F72C37 /* LWCalendar-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/LWCalendar";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
@@ -255,28 +261,6 @@
 				41F95264EB7E284CEBEA4C99ADF6FC5C /* Products */,
 				2EB1377D3C2F7F8ED5A137B1D40E7EB3 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		87FF74B0EF4E45502EE064A5FC3A5C1D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E31FC320E6BE3CCB5FFB879BE22265BE /* Info.plist */,
-				0BD79421203D20DFC6E22BB93B3D96C8 /* LWCalendar.modulemap */,
-				2A74DCACE50E96AAA62DEA13AFA5A4B2 /* LWCalendar.xcconfig */,
-				5D819F00A00C46C22E8592B770EF7F4A /* LWCalendar-dummy.m */,
-				7617EEE3EBA4C562AABEA17A0A9053C4 /* LWCalendar-prefix.pch */,
-				35B1CF1C6B3BCB090998DEEF2F8364D1 /* LWCalendar-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/LWCalendar";
-			sourceTree = "<group>";
-		};
-		9FFD3EB1BA6EC73CB77FEB5CCD32032A /* LWCalendar */ = {
-			isa = PBXGroup;
-			children = (
-				6516B230D3F9E052077C1A3695734648 /* Classes */,
-			);
-			path = LWCalendar;
 			sourceTree = "<group>";
 		};
 		A15D5D20A10F62AB7CD35C6144C2BADF /* Pods-LWCalendar_Tests */ = {
@@ -300,7 +284,7 @@
 		A2027E0E9D6665D13AB07BF24A7C69AA /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4D4964EBBF6AE4676568009A6360E683 /* LWCalendar */,
+				310E819663A8B2DEE8FD26FFFC2FCFE9 /* LWCalendar */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -313,37 +297,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BC9710F98E6F77A53304D75E62FAEC1F /* Resources */ = {
+		C5B17F4EB9506DBECE2DDDA520B1B599 /* LWCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				5705FC3627DE3F605D69F343257C2AAA /* LWCalendar */,
+				CA9D9A1C34D6981F8921670E0F09C783 /* LWCalendar.bundle */,
 			);
-			name = Resources;
+			path = LWCalendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		30F4E877F826386F72A4DB7DA1840A8B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				697E333AE07094D9F0A0EC397B18D0F5 /* LWCalendar-umbrella.h in Headers */,
-				0822DA971DFF475D13B49FF6BD1BEE6F /* LWCalendarHeader.h in Headers */,
-				480216ACDB108B55B4E06725AE14AA82 /* LWCalendarManager.h in Headers */,
-				C41A65152E671EE8F2585E6420C0DDBF /* LWCalendarView.h in Headers */,
-				AF9EA6CB964CFFF9961CC9AB46C7C4F1 /* LWDateHelper.h in Headers */,
-				1E4A63C3CA91582A766BE794932D490E /* LWDateIndicator.h in Headers */,
-				722BA66A703B41DBB0409D605F6D2E98 /* LWDatePickerBuilder.h in Headers */,
-				4652A6D35A9541EDB6703D19DD7F981B /* LWDatePickerDialog.h in Headers */,
-				F2AD8B1AB3AA9F22FEBCA4305083A3DF /* LWDatePickerView.h in Headers */,
-				EF6BE02F4D9C57DE831C20119DE6417B /* LWDayView.h in Headers */,
-				F87FA843258E14736ADF92A69722577C /* LWMonthView.h in Headers */,
-				165C829B429D1AFA2FBFBE87A4A2738E /* LWWeekIndicator.h in Headers */,
-				953B646653E53548928A219F45881B72 /* LWWeekView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3E60E7E22549E73AFED3AD70ADFDE380 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,9 +324,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		681CA601636EC89A480AFB95FD094CDE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8738FD2D41492563BDBC6176586BDD2D /* LWCalendar-umbrella.h in Headers */,
+				192608FFF862868125A030553FF223AD /* LWCalendarHeader.h in Headers */,
+				8F8B79A81B2F087A87B92CECE363C3B5 /* LWCalendarManager.h in Headers */,
+				DF924E3BA7C1D171BEB4504824BA213E /* LWCalendarView.h in Headers */,
+				D9507AA6A82D1EC22948272101677D56 /* LWDateHelper.h in Headers */,
+				D55B4ECB1348DCC8781220ECE8A90A0E /* LWDateIndicator.h in Headers */,
+				B2385493B6FEA988D01FD151DDAD69C4 /* LWDatePickerBuilder.h in Headers */,
+				629CB652F62C7264D9D0EFA538376719 /* LWDatePickerDialog.h in Headers */,
+				8F48A5240406C02ED1D9BA68A846AC0C /* LWDatePickerView.h in Headers */,
+				C035157CCAEAB3EFA1E62E251ED34480 /* LWDayView.h in Headers */,
+				229BA4482D5BA6C48F7C5DD56FA1A8AB /* LWMonthView.h in Headers */,
+				CFED34A2B8447F76CEC123469F378DDA /* LWWeekIndicator.h in Headers */,
+				5F26E54E33EAEA40C97E2B286EDCA284 /* LWWeekView.h in Headers */,
+				A65E3C0685D00BDCC863CE77C8977FB7 /* NSBundle+LWCalendar.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		362A885934B7964B3EDCB3B2A0BB4322 /* LWCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30040E7D0FA13D5FD4EB67E55E80AADF /* Build configuration list for PBXNativeTarget "LWCalendar" */;
+			buildPhases = (
+				AA72DACAEC98AC40A16A31582EBFC819 /* Sources */,
+				C527C9B4E0580444D46169CED127642E /* Frameworks */,
+				681CA601636EC89A480AFB95FD094CDE /* Headers */,
+				4844DD5029A22026573D6E788282EACD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LWCalendar;
+			productName = LWCalendar;
+			productReference = 114E7BDD591F87439A11D58F8F01251C /* LWCalendar.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		716BD10B333805D235CFA8FA24F14E85 /* Pods-LWCalendar_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0633AA5D2765EFCED4E8F09A9B620A93 /* Build configuration list for PBXNativeTarget "Pods-LWCalendar_Example" */;
@@ -379,24 +382,6 @@
 			name = "Pods-LWCalendar_Example";
 			productName = "Pods-LWCalendar_Example";
 			productReference = 8758850D2CDA7C80860E19A644BD2D35 /* Pods_LWCalendar_Example.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		E4CD4D4CD9471D2DD43AF0B302C46680 /* LWCalendar */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB5C924317E44671A540D0C5BDDC68C3 /* Build configuration list for PBXNativeTarget "LWCalendar" */;
-			buildPhases = (
-				0AD67BEE47D7876473DCDCA2A38A2FB7 /* Sources */,
-				872344D991D53238166A711F8760A9CB /* Frameworks */,
-				30F4E877F826386F72A4DB7DA1840A8B /* Headers */,
-				582C701A3971FDD627FBFE8B37A88D46 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = LWCalendar;
-			productName = LWCalendar;
-			productReference = 114E7BDD591F87439A11D58F8F01251C /* LWCalendar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EF9D857DE94742F3599FC83D346A81B9 /* Pods-LWCalendar_Tests */ = {
@@ -437,7 +422,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E4CD4D4CD9471D2DD43AF0B302C46680 /* LWCalendar */,
+				362A885934B7964B3EDCB3B2A0BB4322 /* LWCalendar */,
 				716BD10B333805D235CFA8FA24F14E85 /* Pods-LWCalendar_Example */,
 				EF9D857DE94742F3599FC83D346A81B9 /* Pods-LWCalendar_Tests */,
 			);
@@ -445,35 +430,34 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		582C701A3971FDD627FBFE8B37A88D46 /* Resources */ = {
+		4844DD5029A22026573D6E788282EACD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CD080AB31F2D8D4C4445B24F645D077 /* backImg_end.png in Resources */,
-				2BDAB78EE682D54B683D1975636D4FBF /* backImg_start.png in Resources */,
-				BC79FD711719DBC6D03FB554C72A0E4E /* circle_cir.png in Resources */,
+				AFE24BDE25ED0A29BA8C624B86AAD6B0 /* LWCalendar.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0AD67BEE47D7876473DCDCA2A38A2FB7 /* Sources */ = {
+		AA72DACAEC98AC40A16A31582EBFC819 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F680B810D562EAF925CF352ABB61AB34 /* LWCalendar-dummy.m in Sources */,
-				11ED2166CC937C85BF002B46BFA8F0E9 /* LWCalendarManager.m in Sources */,
-				33332F34DBC75B0CD3697E1B53B929E5 /* LWCalendarView.m in Sources */,
-				338C4053CE9910538FEE0D32DF602EAF /* LWDateHelper.m in Sources */,
-				FD880D31697E0C15A12663869FD87201 /* LWDateIndicator.m in Sources */,
-				F36C024D86E90AB8097AAE3E32B6FE7D /* LWDatePickerBuilder.m in Sources */,
-				ADA1B625A518EAEF7A2E2A2DACDED8C8 /* LWDatePickerDialog.m in Sources */,
-				68662F8A7D3C961B8B8A7BA14AFC77B0 /* LWDatePickerView.m in Sources */,
-				BCBF6D5F5777A2225DB3CFF42E30923D /* LWDayView.m in Sources */,
-				1668BA10FC0582E58AA8BA87AF8E6052 /* LWMonthView.m in Sources */,
-				FB2F37581621861B62C154D8AFD72FEC /* LWWeekIndicator.m in Sources */,
-				ACB46E3590949AC5AADF9B25F50CB584 /* LWWeekView.m in Sources */,
+				4E7A84046C82AF7AB98F6CB4FA04A2EE /* LWCalendar-dummy.m in Sources */,
+				58DB0F22355954BB4ADC89DCA6E30E60 /* LWCalendarManager.m in Sources */,
+				A6C1410EA5745B2EE0D82C8E48008782 /* LWCalendarView.m in Sources */,
+				6B0F1ED95884A35AAA7F1D0CD17348FA /* LWDateHelper.m in Sources */,
+				840EAEE2A540D8574A1B667FF2E44E09 /* LWDateIndicator.m in Sources */,
+				DC9C2D4523DCC1589C786AA4AF397ED0 /* LWDatePickerBuilder.m in Sources */,
+				58263B26E4639A7CC301B2015EC365A5 /* LWDatePickerDialog.m in Sources */,
+				BC0E609EC805E1E74DF60A3E29B9D960 /* LWDatePickerView.m in Sources */,
+				B626B8E5BDE5077E45F60FC8B0316A24 /* LWDayView.m in Sources */,
+				682AACE58D268290F4451DB286F36C6B /* LWMonthView.m in Sources */,
+				00B1EC02DC6C5263BAB05A18350A7F38 /* LWWeekIndicator.m in Sources */,
+				693384D6A83532F52903F732DB837E65 /* LWWeekView.m in Sources */,
+				8D0DF4575E9ED518FF7F96C0DB986849 /* NSBundle+LWCalendar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +483,7 @@
 		CBD46EA96545520D90819EFA15A3463A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LWCalendar;
-			target = E4CD4D4CD9471D2DD43AF0B302C46680 /* LWCalendar */;
+			target = 362A885934B7964B3EDCB3B2A0BB4322 /* LWCalendar */;
 			targetProxy = 0DCE6662B2CB30B602C470FC2DD2360D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -543,6 +527,35 @@
 			};
 			name = Release;
 		};
+		2D575A5FF152E21E9CA1478C4922D682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C43FB712818A664E2D55E4B7E3D99B7 /* LWCalendar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LWCalendar/LWCalendar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LWCalendar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LWCalendar/LWCalendar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = LWCalendar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		3816780473DB4B414E1C96E0D224158E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9DAB7BA5C789A131D24C97DB5BC7915A /* Pods-LWCalendar_Example.debug.xcconfig */;
@@ -568,35 +581,6 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_LWCalendar_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5F18D858A810F5ABCEF86620F41BB145 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A74DCACE50E96AAA62DEA13AFA5A4B2 /* LWCalendar.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/LWCalendar/LWCalendar-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LWCalendar/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LWCalendar/LWCalendar.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = LWCalendar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -704,35 +688,6 @@
 			};
 			name = Release;
 		};
-		C04637B465E4744857EE11EF76CB49AF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A74DCACE50E96AAA62DEA13AFA5A4B2 /* LWCalendar.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/LWCalendar/LWCalendar-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LWCalendar/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LWCalendar/LWCalendar.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = LWCalendar;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -775,6 +730,35 @@
 			};
 			name = Debug;
 		};
+		F6EC7E43C304D39ACB5DF60E5BC8005E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C43FB712818A664E2D55E4B7E3D99B7 /* LWCalendar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LWCalendar/LWCalendar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LWCalendar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LWCalendar/LWCalendar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = LWCalendar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -796,20 +780,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		30040E7D0FA13D5FD4EB67E55E80AADF /* Build configuration list for PBXNativeTarget "LWCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6EC7E43C304D39ACB5DF60E5BC8005E /* Debug */,
+				2D575A5FF152E21E9CA1478C4922D682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B738759E31B98235AB04EEE13DD4BCBF /* Build configuration list for PBXNativeTarget "Pods-LWCalendar_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95B282C227E0736D9126E8A8545B879B /* Debug */,
 				951E6C939D6E29D3022A8D39185C8358 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB5C924317E44671A540D0C5BDDC68C3 /* Build configuration list for PBXNativeTarget "LWCalendar" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5F18D858A810F5ABCEF86620F41BB145 /* Debug */,
-				C04637B465E4744857EE11EF76CB49AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

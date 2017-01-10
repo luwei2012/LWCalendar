@@ -8,8 +8,6 @@
 
 #import "LWCalendarHeader.h"
 
-
-
 @interface LWDatePickerDialog ()<UIGestureRecognizerDelegate>
 
 @property(nonatomic, strong) NSMutableArray *datePickerViewConstraints;
@@ -29,7 +27,7 @@ datePickerViewConstraints = _datePickerViewConstraints;
 
 +(instancetype)initWithDate:(NSDate *)currentDate
                    Delegate:(id<LWDatePickerDelegate>)delegate{
-    return [LWDatePickerDialog initWithDate:currentDate StartDate:currentDate Delegate:delegate Builder:nil];
+    return [LWDatePickerDialog initWithDate:currentDate StartDate:currentDate Delegate:delegate Builder:[LWDatePickerBuilder defaultBuilder]];
 }
 
 +(instancetype)initWithDate:(NSDate *)currentDate
@@ -58,7 +56,6 @@ datePickerViewConstraints = _datePickerViewConstraints;
         tmp.currentDate         = currentDate;
         tmp.startDate           = startDate;
         tmp.endDate             = endDate;
-        [tmp updateConstraintForDatePickerView];
     }
     return tmp;
 }
@@ -69,7 +66,6 @@ datePickerViewConstraints = _datePickerViewConstraints;
     recognizer.delegate = self;
     [self.view addGestureRecognizer:recognizer];
 }
-
 
 -(void)show{
     id<UIApplicationDelegate> delegate = [UIApplication sharedApplication].delegate;
@@ -113,8 +109,6 @@ datePickerViewConstraints = _datePickerViewConstraints;
         _datePickerView.alpha = 0.0;
         _datePickerView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view addSubview:_datePickerView];
-        [self.view removeConstraints:self.datePickerViewConstraints];
-        [self.datePickerViewConstraints removeAllObjects];
     }
     return _datePickerView;
 }
@@ -170,10 +164,12 @@ datePickerViewConstraints = _datePickerViewConstraints;
 }
 
 -(void)setDialogBuilder:(LWDatePickerBuilder *)dialogBuilder{
-    if (dialogBuilder) {
+    if (dialogBuilder == nil) {
+        dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    }
+    if (_dialogBuilder != dialogBuilder) {
         _dialogBuilder = dialogBuilder;
-        [self updateConstraintForDatePickerView];
-        self.datePickerView.dialogBuilder = _dialogBuilder;
+        [self updateWithBuilder:dialogBuilder];
     }
 }
 
@@ -215,16 +211,16 @@ datePickerViewConstraints = _datePickerViewConstraints;
     return UIInterfaceOrientationPortrait;
 }
 
-#pragma mark 约束相关代码
--(void)updateConstraintForDatePickerView{
-    [self datePickerView];
+#pragma mark 根据Build参数更新UI或者约束
+-(void)updateWithBuilder:(LWDatePickerBuilder *)builder{
     [self.view removeConstraints:self.datePickerViewConstraints];
     [self.datePickerViewConstraints removeAllObjects];
+    
     //添加约束
-    NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:_datePickerView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:self.dialogBuilder.LWDatePickerDialogMarginH];
-    NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:_datePickerView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-self.dialogBuilder.LWDatePickerDialogMarginH];
-    NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:_datePickerView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:self.dialogBuilder.LWDatePickerDialogMarginV];
-    NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:_datePickerView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-self.dialogBuilder.LWDatePickerDialogMarginV];
+    NSLayoutConstraint *viewLeft = [NSLayoutConstraint constraintWithItem:self.datePickerView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:builder.LWDatePickerDialogMarginH];
+    NSLayoutConstraint *viewRight = [NSLayoutConstraint constraintWithItem:self.datePickerView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-builder.LWDatePickerDialogMarginH];
+    NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:self.datePickerView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:builder.LWDatePickerDialogMarginV];
+    NSLayoutConstraint *viewBottom = [NSLayoutConstraint constraintWithItem:self.datePickerView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-builder.LWDatePickerDialogMarginV];
     [self.view addConstraint:viewLeft];
     [self.view addConstraint:viewRight];
     [self.view addConstraint:viewTop];
@@ -233,6 +229,8 @@ datePickerViewConstraints = _datePickerViewConstraints;
     [self.datePickerViewConstraints addObject:viewRight];
     [self.datePickerViewConstraints addObject:viewTop];
     [self.datePickerViewConstraints addObject:viewBottom];
+    
+    self.datePickerView.dialogBuilder = builder;
 }
 
 @end

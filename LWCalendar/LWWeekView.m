@@ -22,16 +22,27 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        dayViews = [NSMutableArray new];
-        dayViewWidth = frame.size.width / 7;
-        dayViewHeight = (frame.size.width - self.dialogBuilder.LWCalendarRowGap * 8 ) / 7;
+        [self commonInit];
     }
     return self;
 }
 
+-(instancetype)init{
+    if (self = [super init]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+-(void)commonInit{
+    dayViews = [NSMutableArray new];
+    dayViewWidth = self.frame.size.width / 7;
+    dayViewHeight = (self.frame.size.width - self.dialogBuilder.LWCalendarRowGap * 8 ) / 7;
+    [self updateWithBuilder:self.dialogBuilder];
+}
+
 -(void)layoutSubviews{
     CGSize size = self.frame.size;
-    // 首次加载
     if (!lastSize.width || size.width != lastSize.width || size.height != lastSize.height) {
         lastSize = size;
         [self resize];
@@ -69,7 +80,7 @@
     for (int i = 0; i < 7; i++) {
         LWDayView *dayView = [[LWDayView alloc] initWithFrame:CGRectMake(dayViewWidth * i, 0, dayViewWidth, dayViewHeight)];
         dayView.weekDelegate = self;
-        
+        dayView.dialogBuilder = self.dialogBuilder;
         NSDate *dayDate = [self.manager.helper addToDate:firstDate days:i];
         
         BOOL isSameMonth = [self.manager.helper date:dayDate isTheSameMonthThan:_theMonthFirstDay];
@@ -83,6 +94,7 @@
         }
         dayView.enabled = isSameMonth;
         dayView.date = dayDate;
+
         [self addSubview:dayView];
         [dayViews addObject:dayView];
     }
@@ -96,10 +108,12 @@
 }
 
 -(LWDatePickerBuilder *)dialogBuilder{
-    if (self.monthDelegate) {
-        _dialogBuilder = self.monthDelegate.dialogBuilder;
-    }else{
-        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    if(_dialogBuilder == nil){
+        if (self.monthDelegate) {
+            _dialogBuilder = self.monthDelegate.dialogBuilder;
+        }else{
+            _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+        }
     }
     return _dialogBuilder;
 }

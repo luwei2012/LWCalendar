@@ -1,5 +1,5 @@
 PODS:
-  - LWCalendar (0.1.0)
+  - LWCalendar (1.0.0)
 
 DEPENDENCIES:
   - LWCalendar (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LWCalendar: 1bcf44d0efe6d2bd66cef571e9749440b9620057
+  LWCalendar: 788e1e671e4357847fea2b42bf2e28230c510d99
 
 PODFILE CHECKSUM: 06329ed04c71f394f1a4e2218c3fc43aa8665ed6
 

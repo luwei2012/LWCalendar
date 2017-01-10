@@ -33,6 +33,7 @@ dialogBuilder       = _dialogBuilder;
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         _weeksViews = [NSMutableArray new];
+        [self updateWithBuilder:self.dialogBuilder];
     }
     return self;
 }
@@ -45,9 +46,6 @@ dialogBuilder       = _dialogBuilder;
     CGSize size = self.frame.size;
     if (!lastSize.width || size.width != lastSize.width || size.height != lastSize.height) {
           // 首次加载
-        if (!lastSize.width) {
-            [self updateWithBuilder:self.dialogBuilder];
-        }
         lastSize = size;
         [self resize];
     }
@@ -100,12 +98,14 @@ dialogBuilder       = _dialogBuilder;
         weekView.monthDelegate = self;
         weekView.theMonthFirstDay = firstDay;
         weekView.date = [self.manager.helper addToDate:firstDay weeks:i];
+        weekView.dialogBuilder = self.dialogBuilder;
         [self addSubview:weekView];
         [_weeksViews addObject:weekView];
     }
     CGRect frame = self.frame;
     frame.size.height = weekNumber * weekH + self.dialogBuilder.LWCalendarTitleHeight + self.dialogBuilder.LWWeekIndicatorHeight + (weekNumber + 2) * self.dialogBuilder.LWCalendarLineGap;
     self.frame = frame;
+    [self updateWithBuilder:self.dialogBuilder];
 }
 
 - (UILabel *)titleLab {
@@ -136,10 +136,12 @@ dialogBuilder       = _dialogBuilder;
 }
 
 -(LWDatePickerBuilder *)dialogBuilder{
-    if (self.calendarDelegate) {
-        _dialogBuilder = self.calendarDelegate.dialogBuilder;
-    }else{
-        _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+    if(_dialogBuilder == nil){
+        if (self.calendarDelegate) {
+            _dialogBuilder = self.calendarDelegate.dialogBuilder;
+        }else{
+            _dialogBuilder = [LWDatePickerBuilder defaultBuilder];
+        }
     }
     return _dialogBuilder;
 }
