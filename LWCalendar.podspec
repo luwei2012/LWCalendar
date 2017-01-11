@@ -35,5 +35,6 @@ If you want to contribut to this project,please email "1071932819@qq.com".
   s.ios.deployment_target = '7.0'
   s.source_files = 'LWCalendar/**/*.{h,m}'
   s.resource = 'LWCalendar/LWCalendar.bundle'
+  s.documentation_url = 'https://github.com/luwei2012/LWCalendar/wiki'
   s.requires_arc = true
 end
