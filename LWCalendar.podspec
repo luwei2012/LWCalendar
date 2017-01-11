@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LWCalendar'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Material Design Style Calendar for IOS.'
 
 # This description is used to generate tags and improve search results.
@@ -26,11 +26,11 @@ Hope you enjoy.
 If you want to contribut to this project,please email "1071932819@qq.com".
                        DESC
 
-  s.homepage         = 'https://github.com/luwei2012/LWCalender'
+  s.homepage         = 'https://github.com/luwei2012/LWCalendar'
   s.screenshots      = "https://luwei2012.github.io/images/IOS/CustomView/ZYCalender_Record.gif"
   s.license          = { :type => 'GNU', :file => 'LICENSE' }
   s.author           = { '1071932819@qq.com' => 'luwei2012' }
-  s.source           = { :git => 'https://github.com/luwei2012/LWCalender.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/luwei2012/LWCalendar.git', :tag => s.version.to_s }
   s.social_media_url = "http://luwei2012.github.io"
   s.ios.deployment_target = '7.0'
   s.source_files = 'LWCalendar/**/*.{h,m}'
